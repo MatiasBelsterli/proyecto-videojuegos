@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'MedievalSharp', cursive; /* Usar una fuente medieval */
+    font-weight: bold;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,6 +12,9 @@ body {
     background-size: cover; /* Hace que la imagen cubra toda la pantalla */
     background-position: center; /* Centra la imagen */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
+}
+body button {
+    font-family: 'MedievalSharp', cursive; /* Usar una fuente medieval */
 }
 
 #story {
@@ -22,7 +27,6 @@ body {
     border: 2px solid #8b4513; /* Borde marrón */
     width: 80%; /* Opcional: ajustar el ancho según sea necesario */
     max-width: 600px; /* Opcional: limitar el ancho máximo */
-    font-family: 'MedievalSharp', cursive; /* Usar una fuente medieval */
     text-align: center; /* Centrar el texto */
     color: #000; /* Color del texto */
 }
@@ -50,12 +54,21 @@ body {
 }
 
 #status div {
-    display: inline-block;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 5px;
+}
+#status div img{
+    width: 64px;
+    height: 64px;
+}
+#status div p {
+    margin: 0;
+    font-size: 32px;
 }
 
 #options {
-    display: flex;
-    flex-direction: column;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -64,8 +77,6 @@ body {
     padding: 10px;
     border-top: 2px solid #b8860b; /* Borde superior dorado */
     height: 18vh;
-
-
 }
 
 .option {
@@ -76,7 +87,6 @@ body {
     margin: 10px 20px;
     cursor: pointer;
     font-size: 18px;
-    font-family: 'MedievalSharp', cursive; /* Usar una fuente medieval */
 }
 
 .option:hover {
@@ -85,7 +95,6 @@ body {
 }
 
 /* Añadir un estilo para la fuente medieval */
-@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
 #result {
     display: none;
     position: fixed;
@@ -97,7 +106,6 @@ body {
     border: 2px solid #8b4513; /* Borde marrón */
     width: 80%; /* Opcional: ajustar el ancho según sea necesario */
     max-width: 600px; /* Opcional: limitar el ancho máximo */
-    font-family: 'MedievalSharp', cursive; /* Usar una fuente medieval */
     text-align: center; /* Centrar el texto */
     color: #000; /* Color del texto */
 }
@@ -110,7 +118,6 @@ body {
     margin: 10px 20px;
     cursor: pointer;
     font-size: 18px;
-    font-family: 'MedievalSharp', cursive; /* Usar una fuente medieval */
 }
 
 #next-card:hover {

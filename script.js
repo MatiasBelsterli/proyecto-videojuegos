@@ -1,8 +1,11 @@
 const player = {
     health: 5,
     attack: 5,
-    defense: 5
+    defense: 5,
+    fase: 0,
 };
+
+const maxFases = 15;
 
 const cardLevels = [
     {
@@ -701,9 +704,9 @@ const cardLevels = [
 ];
 
 function updateStatus() {
-    document.getElementById('health').textContent = `: ${player.health}`;
-    document.getElementById('attack').textContent = `Ataque: ${player.attack}`;
-    document.getElementById('defense').textContent = `Defensa: ${player.defense}`;
+    document.getElementById('health').textContent = player.health;
+    document.getElementById('attack').textContent = player.attack;
+    document.getElementById('defense').textContent = player.defense;
 }
 
 function displayCard(cardIndex) {
@@ -717,13 +720,25 @@ function displayCard(cardIndex) {
         options[index].dataset.defense = option.defense;
         options[index].dataset.result = option.result;
     });
-    document.getElementById('options').style.display = 'block';
+    document.querySelectorAll('#options .option').forEach(option => {
+        option.style.display = 'inline-block';
+    });
     document.getElementById('story').style.display = 'block';
     document.getElementById('result').style.display = 'none';
+    document.getElementById('next-card').style.display = 'none';
+
 }
 
 function getRandomCardIndex() {
     return Math.floor(Math.random() * cardLevels.length);
+}
+
+const fightFinalBoss = () => {
+    const finalBoss = {
+        health: 10,
+        attack: 10,
+        defense: 10,
+    };
 }
 
 function handleOptionClick(event) {
@@ -735,6 +750,7 @@ function handleOptionClick(event) {
     player.health += healthChange;
     player.attack += attackChange;
     player.defense += defenseChange;
+    player.fase++;
 
     updateStatus();
 
@@ -746,10 +762,17 @@ function handleOptionClick(event) {
         updateStatus();
     }
 
+    if (player.fase >= maxFases) {
+        fightFinalBoss();
+    }
+
     document.getElementById('result-text').textContent = resultText;
-    document.getElementById('options').style.display = 'none';
+    document.querySelectorAll('#options .option').forEach(option => {
+        option.style.display = 'none';
+    });
     document.getElementById('story').style.display = 'none';
     document.getElementById('result').style.display = 'block';
+    document.getElementById('next-card').style.display = 'inline-block';
 }
 
 document.querySelectorAll('.option').forEach(option => {

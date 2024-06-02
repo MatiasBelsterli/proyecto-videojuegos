@@ -11,10 +11,16 @@
         <div id="status">
             <div>
                 <img src="images/corazon.png" alt="Corazón" width="20" height="20">
-                <p id="health"> : 5</p>
+                <p id="health"></p>
             </div>
-            <p id="attack">Ataque: 5</p>
-            <p id="defense">Defensa: 5</p>
+            <div>
+                <img src="images/espada.png" alt="Espada" width="20" height="20">
+                <p id="attack"></p>
+            </div>
+            <div>
+                <img src="images/shield.svg" alt="Corazón" width="20" height="20">
+                <p id="defense"></p>
+            </div>
         </div>
         <div id="story">
             <p id="story-text">Aquí va la historia...</p>
@@ -24,10 +30,10 @@
             <button class="option" data-health="0" data-attack="0" data-defense="0">Opción 2</button>
             <button class="option" data-health="0" data-attack="0" data-defense="0">Opción 3</button>
             <button class="option" data-health="0" data-attack="0" data-defense="0">Opción 4</button>
+            <button id="next-card" style="display: none;">Siguiente</button>
         </div>
         <div id="result" style="display: none;">
             <p id="result-text"></p>
-            <button id="next-card">Siguiente</button>
         </div>
     </div>
     <script src="script.js"></script>
