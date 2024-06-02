@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
 body {
-    font-family: 'MedievalSharp', cursive; /* Usar una fuente medieval */
+    font-family: 'MedievalSharp', cursive;
     font-weight: bold;
     display: flex;
     justify-content: center;
@@ -9,12 +9,12 @@ body {
     margin: 0;
     padding: 0;
     background-image: url('https://image.cdn2.seaart.ai/2023-10-17/20125429481364485/4c136abd9755d1faea956c33785c01487cde5671_high.webp');
-    background-size: cover; /* Hace que la imagen cubra toda la pantalla */
-    background-position: center; /* Centra la imagen */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 body button {
-    font-family: 'MedievalSharp', cursive; /* Usar una fuente medieval */
+    font-family: 'MedievalSharp', cursive;
 }
 
 #story {
@@ -22,13 +22,13 @@ body button {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgba(255, 255, 255, 0.5); /* Fondo blanco semi-transparente */
+    background-color: rgba(255, 255, 255, 0.5);
     padding: 20px;
-    border: 2px solid #8b4513; /* Borde marrón */
-    width: 80%; /* Opcional: ajustar el ancho según sea necesario */
-    max-width: 600px; /* Opcional: limitar el ancho máximo */
-    text-align: center; /* Centrar el texto */
-    color: #000; /* Color del texto */
+    border: 2px solid #8b4513;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+    color: #000;
 }
 
 #story-text {
@@ -45,7 +45,7 @@ body button {
 
 #status {
     margin-bottom: 20px;
-    background-color: rgba(255, 255, 255, 0.5); /* Fondo blanco con 50% de transparencia */
+    background-color: rgba(255, 255, 255, 0.5); 
     position: fixed;
     top: 0;
     right: 0;
@@ -73,16 +73,16 @@ body button {
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.8); /* Fondo semi-transparente oscuro */
+    background-color: rgba(0, 0, 0, 0.8);
     padding: 10px;
-    border-top: 2px solid #b8860b; /* Borde superior dorado */
+    border-top: 2px solid #b8860b;
     height: 18vh;
 }
 
 .option {
-    background-color: #b8860b; /* Fondo dorado */
-    color: #fff; /* Texto blanco */
-    border: 2px solid #8b4513; /* Borde marrón */
+    background-color: #b8860b;
+    color: #fff;
+    border: 2px solid #8b4513;
     padding: 10px;
     margin: 10px 20px;
     cursor: pointer;
@@ -90,30 +90,29 @@ body button {
 }
 
 .option:hover {
-    background-color: #daa520; /* Fondo dorado más claro al pasar el ratón */
-    border-color: #a0522d; /* Borde marrón más claro al pasar el ratón */
+    background-color: #daa520;
+    border-color: #a0522d;
 }
 
-/* Añadir un estilo para la fuente medieval */
 #result {
     display: none;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgba(255, 255, 255, 0.5); /* Fondo blanco semi-transparente */
+    background-color: rgba(255, 255, 255, 0.5);
     padding: 20px;
-    border: 2px solid #8b4513; /* Borde marrón */
-    width: 80%; /* Opcional: ajustar el ancho según sea necesario */
-    max-width: 600px; /* Opcional: limitar el ancho máximo */
-    text-align: center; /* Centrar el texto */
-    color: #000; /* Color del texto */
+    border: 2px solid #8b4513;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+    color: #000;
 }
 
 #next-card {
-    background-color: #b8860b; /* Fondo dorado */
-    color: #fff; /* Texto blanco */
-    border: 2px solid #8b4513; /* Borde marrón */
+    background-color: #b8860b; 
+    color: #fff; 
+    border: 2px solid #8b4513;
     padding: 10px;
     margin: 10px 20px;
     cursor: pointer;
@@ -121,6 +120,6 @@ body button {
 }
 
 #next-card:hover {
-    background-color: #daa520; /* Fondo dorado más claro al pasar el ratón */
-    border-color: #a0522d; /* Borde marrón más claro al pasar el ratón */
+    background-color: #daa520;
+    border-color: #a0522d;
 }
