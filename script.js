@@ -718,6 +718,7 @@ function displayCard(cardIndex) {
         options[index].dataset.result = option.result;
     });
     document.getElementById('options').style.display = 'block';
+    document.getElementById('story').style.display = 'block';
     document.getElementById('result').style.display = 'none';
 }
 
@@ -747,6 +748,7 @@ function handleOptionClick(event) {
 
     document.getElementById('result-text').textContent = resultText;
     document.getElementById('options').style.display = 'none';
+    document.getElementById('story').style.display = 'none';
     document.getElementById('result').style.display = 'block';
 }
 
