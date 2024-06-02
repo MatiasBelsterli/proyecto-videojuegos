@@ -49,6 +49,10 @@ body {
     border: 1px solid #ccc;
 }
 
+#status div {
+    display: inline-block;
+}
+
 #options {
     display: flex;
     flex-direction: column;

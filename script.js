@@ -701,7 +701,7 @@ const cardLevels = [
 ];
 
 function updateStatus() {
-    document.getElementById('health').textContent = `Corazones: ${player.health}`;
+    document.getElementById('health').textContent = `: ${player.health}`;
     document.getElementById('attack').textContent = `Ataque: ${player.attack}`;
     document.getElementById('defense').textContent = `Defensa: ${player.defense}`;
 }
