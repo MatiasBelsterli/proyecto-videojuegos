@@ -8,7 +8,7 @@ body {
     height: 100vh;
     margin: 0;
     padding: 0;
-    background-image: url('images/fondo.webp');
+    background-image: url('resources/images/fondo.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -30,6 +30,31 @@ body button {
     text-align: center;
     color: #000;
 }
+/* Definimos la animación */
+@keyframes moveToTop {
+    0% {
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+    100% {
+        top: 0;
+        transform: translate(-50%, 0);
+    }
+}
+
+/* Aplicamos la animación cuando se agrega la clase .move-up */
+#story.move-up {
+    animation: moveToTop 2s ease-in-out forwards;
+}
+#finalBossEnemy {
+    position: fixed;
+    top: 10vh;
+    right: 10vw;
+}
+#enemy {
+    width: 200px;
+    transform: scaleX(-1);
+}
 
 #story-text {
     margin: 0;
@@ -47,23 +72,35 @@ body button {
     margin-bottom: 20px;
     background-color: rgba(255, 255, 255, 0.5); 
     position: fixed;
+    bottom: 10vh;
+    left: 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+#statusFinalBoss {
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.5); 
+    position: fixed;
     top: 0;
     right: 0;
     padding: 10px;
     border: 1px solid #ccc;
 }
+.invisible {
+    display: none;
+}
 
-#status div {
+.status div {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     margin-bottom: 5px;
 }
-#status div img{
+.status div img{
     width: 64px;
     height: 64px;
 }
-#status div p {
+.status div p {
     margin: 0;
     font-size: 32px;
 }
@@ -76,7 +113,13 @@ body button {
     background-color: rgba(0, 0, 0, 0.8);
     padding: 10px;
     border-top: 2px solid #b8860b;
-    height: 18vh;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    align-content: center;
 }
 
 .option {
@@ -87,6 +130,10 @@ body button {
     margin: 10px 20px;
     cursor: pointer;
     font-size: 18px;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 4px;
 }
 
 .option:hover {
