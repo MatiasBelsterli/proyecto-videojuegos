@@ -1,10 +1,14 @@
-import { cardLevels } from './resources/cards/actionCards.js'
+import { cardLevels } from './resources/cards/actionCards.js';
 
+/**
+ * agregar que los golpes sean base a random(suerte), que puede pegar de n hasta la cant de espadas que tenga
+ * cuando te atacan recibis ataqueEnemigo - escudoTuyo = daño recibido, y ese daño se resta a tu vida actual, y el escudo disminuye en 1
+ */
 const player = {
     health: 5,
     attack: 5,
     defense: 5,
-    fase: 1,
+    fase: 0,
 };
 
 const estados = {
@@ -44,6 +48,7 @@ function animateStoryToFinalBoss() {
     document.getElementById('finalBossEnemy').classList.remove('invisible');
     document.getElementById('story').classList.add('move-up')
 }
+
 function updateStatusBoss() {
     const statusPlayer = document.getElementById('statusFinalBoss');
     const textosStats = statusPlayer.querySelectorAll('p')
@@ -51,7 +56,6 @@ function updateStatusBoss() {
     textosStats[1].textContent = finalBoss.attack;
     textosStats[2].textContent = finalBoss.defense;
 }
-
 function updateStatus() {
     const statusPlayer = document.getElementById('status');
     const textosStats = statusPlayer.querySelectorAll('p')
@@ -95,7 +99,7 @@ const finalBoss = {
 };
 
 function fightFinalBoss() {
-    document.querySelector('body').style.backgroundImage = "url('resources/images/boss.jpeg')";
+    document.querySelector('body').style.backgroundImage = "url('images/boss.webp')";
     document.getElementById('story-text').textContent = "Te encuentras con el jefe final. ¿Qué haces?";
     const options = document.querySelectorAll('.option');
     options[0].textContent = "Atacar";

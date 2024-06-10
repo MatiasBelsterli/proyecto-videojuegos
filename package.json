@@ -1,0 +1,12 @@
+{
+  "name": "proyecto-videojuegos",
+  "version": "1.0.0",
+  "description": "es un videojuego, para la materia de videojuegos, donde tenemos que hacer un videojuego",
+  "main": "script.js",
+  "scripts": {
+    "start": "http-server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
