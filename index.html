@@ -9,8 +9,24 @@
 <body>
     <div id="fase">Fase 1</div>
     <div id="game-container">
-
-        <div id="status">
+        <div id="statusFinalBoss" class="status invisible">
+            <div>
+                <img src="resources/images/corazon.png" alt="Corazón Enemigo" width="20" height="20">
+                <p></p>
+            </div>
+            <div>
+                <img src="resources/images/espada.png" alt="Espada Enemigo" width="20" height="20">
+                <p></p>
+            </div>
+            <div>
+                <img src="resources/images/shield.svg" alt="Escudo Enemigo" width="20" height="20">
+                <p></p>
+            </div>
+        </div>
+        <div id="finalBossEnemy" class="invisible">
+            <img id="enemy" src="resources/images/enemigo.png" alt="Enemigo">
+        </div>
+        <div id="status" class="status">
             <div>
                 <img src="resources/images/corazon.png" alt="Corazón" width="20" height="20">
                 <p id="health"></p>
@@ -18,10 +34,6 @@
             <div>
                 <img src="resources/images/espada.png" alt="Espada" width="20" height="20">
                 <p id="attack"></p>
-            </div>
-            <div>
-                <img src="resources/images/shield.svg" alt="Corazón" width="20" height="20">
-                <p id="defense"></p>
             </div>
         </div>
         <div id="story">

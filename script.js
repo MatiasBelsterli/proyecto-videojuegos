@@ -1,10 +1,14 @@
 import { cardLevels } from './resources/cards/actionCards.js';
 
+/**
+ * agregar que los golpes sean base a random(suerte), que puede pegar de n hasta la cant de espadas que tenga
+ * cuando te atacan recibis ataqueEnemigo - escudoTuyo = daño recibido, y ese daño se resta a tu vida actual, y el escudo disminuye en 1
+ */
 const player = {
     health: 5,
     attack: 5,
     defense: 5,
-    fase: 1,
+    fase: 0,
 };
 
 const estados = {
@@ -18,10 +22,46 @@ let estado = estados.fases;
 
 const maxFases = 3;
 
+function update() {
+    if (estado === estados.fases) {
+        updateFases(getRandomCardIndex());
+    } else if (estado === estados.pelea) {
+        updatePelea();
+    } else if (estado === estados.final) {
+        updateFinal();
+    }
+}
+
+function updatePelea() {
+    updateStatusBoss();
+    fightFinalBoss();
+    console.log('pelearda');
+}
+
+function updateFinal() {
+    alert('¡Has ganado el juego!');
+    resetGame();
+}
+
+function animateStoryToFinalBoss() {
+    document.getElementById('statusFinalBoss').classList.remove('invisible');
+    document.getElementById('finalBossEnemy').classList.remove('invisible');
+    document.getElementById('story').classList.add('move-up')
+}
+
+function updateStatusBoss() {
+    const statusPlayer = document.getElementById('statusFinalBoss');
+    const textosStats = statusPlayer.querySelectorAll('p')
+    textosStats[0].textContent = finalBoss.health;
+    textosStats[1].textContent = finalBoss.attack;
+    textosStats[2].textContent = finalBoss.defense;
+}
 function updateStatus() {
-    document.getElementById('health').textContent = player.health;
-    document.getElementById('attack').textContent = player.attack;
-    document.getElementById('defense').textContent = player.defense;
+    const statusPlayer = document.getElementById('status');
+    const textosStats = statusPlayer.querySelectorAll('p')
+    textosStats[0].textContent = player.health;
+    textosStats[1].textContent = player.attack;
+    textosStats[2].textContent = player.defense;
     if (player.fase < maxFases) {
         document.getElementById('fase').textContent = `Fase: ${player.fase} / ${maxFases}`;
     } else {
@@ -66,14 +106,13 @@ function fightFinalBoss() {
     options[0].dataset.action = 'attack';
     options[1].textContent = "Defender";
     options[1].dataset.action = 'defend';
-    options[2].style.display = 'none';
-    options[3].style.display = 'none';
+    options[2].classList.add('invisible');
+    options[3].classList.add('invisible');
     document.getElementById('story').style.display = 'block';
     document.getElementById('result').style.display = 'none';
     document.getElementById('next-card').style.display = 'none';
 
     document.querySelectorAll('#options .option').forEach(option => {
-        option.style.display = 'inline-block';
         option.addEventListener('click', handleBossFight);
     });
 }
@@ -96,6 +135,7 @@ function handleOptionClick(event) {
         resetGame();
     } else if (player.fase >= maxFases) {
         estado = estados.pelea;
+        animateStoryToFinalBoss();
         update();
     } else {
         document.getElementById('result-text').textContent = resultText;
