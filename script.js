@@ -4,18 +4,32 @@ const player = {
     health: 5,
     attack: 5,
     defense: 5,
-    fase: 0,
+    fase: 1,
 };
 
-const maxFases = 15;
+const estados = {
+    inicio: Symbol(),
+    fases: Symbol(),
+    pelea: Symbol(),
+    final: Symbol(),
+};
+
+let estado = estados.fases;
+
+const maxFases = 3;
 
 function updateStatus() {
     document.getElementById('health').textContent = player.health;
     document.getElementById('attack').textContent = player.attack;
     document.getElementById('defense').textContent = player.defense;
+    if (player.fase < maxFases) {
+        document.getElementById('fase').textContent = `Fase: ${player.fase} / ${maxFases}`;
+    } else {
+        document.getElementById('fase').textContent = `Final Boss`;
+    }
 }
 
-function displayCard(cardIndex) {
+function updateFases(cardIndex) {
     const card = cardLevels[cardIndex];
     document.getElementById('story-text').textContent = card.text;
     const options = document.querySelectorAll('.option');
@@ -32,19 +46,36 @@ function displayCard(cardIndex) {
     document.getElementById('story').style.display = 'block';
     document.getElementById('result').style.display = 'none';
     document.getElementById('next-card').style.display = 'none';
-
 }
 
 function getRandomCardIndex() {
     return Math.floor(Math.random() * cardLevels.length);
 }
 
-const fightFinalBoss = () => {
-    const finalBoss = {
-        health: 10,
-        attack: 10,
-        defense: 10,
-    };
+const finalBoss = {
+    health: 10,
+    attack: 10,
+    defense: 10,
+};
+
+function fightFinalBoss() {
+    document.querySelector('body').style.backgroundImage = "url('images/boss.webp')";
+    document.getElementById('story-text').textContent = "Te encuentras con el jefe final. ¿Qué haces?";
+    const options = document.querySelectorAll('.option');
+    options[0].textContent = "Atacar";
+    options[0].dataset.action = 'attack';
+    options[1].textContent = "Defender";
+    options[1].dataset.action = 'defend';
+    options[2].style.display = 'none';
+    options[3].style.display = 'none';
+    document.getElementById('story').style.display = 'block';
+    document.getElementById('result').style.display = 'none';
+    document.getElementById('next-card').style.display = 'none';
+
+    document.querySelectorAll('#options .option').forEach(option => {
+        option.style.display = 'inline-block';
+        option.addEventListener('click', handleBossFight);
+    });
 }
 
 function handleOptionClick(event) {
@@ -62,23 +93,57 @@ function handleOptionClick(event) {
 
     if (player.health <= 0) {
         alert('Has perdido el juego.');
-        player.health = 5;
-        player.attack = 5;
-        player.defense = 5;
-        updateStatus();
+        resetGame();
+    } else if (player.fase >= maxFases) {
+        estado = estados.pelea;
+        update();
+    } else {
+        document.getElementById('result-text').textContent = resultText;
+        document.querySelectorAll('#options .option').forEach(option => {
+            option.style.display = 'none';
+        });
+        document.getElementById('story').style.display = 'none';
+        document.getElementById('result').style.display = 'block';
+        document.getElementById('next-card').style.display = 'inline-block';
+    }
+}
+
+function handleBossFight(event) {
+    const action = event.target.dataset.action;
+
+    if (action === 'attack') {
+        finalBoss.health -= player.attack;
+        player.health -= finalBoss.attack;
+        document.getElementById('result-text').textContent = "Atacas al jefe final y él te ataca a ti.";
+    } else if (action === 'defend') {
+        const damage = Math.max(0, finalBoss.attack - player.defense);
+        player.health -= damage;
+        document.getElementById('result-text').textContent = "Te defiendes del ataque del jefe final.";
     }
 
-    if (player.fase >= maxFases) {
-        fightFinalBoss();
-    }
+    updateStatus();
 
-    document.getElementById('result-text').textContent = resultText;
-    document.querySelectorAll('#options .option').forEach(option => {
-        option.style.display = 'none';
-    });
-    document.getElementById('story').style.display = 'none';
-    document.getElementById('result').style.display = 'block';
-    document.getElementById('next-card').style.display = 'inline-block';
+    if (player.health <= 0) {
+        alert('Has perdido el juego.');
+        resetGame();
+    } else if (finalBoss.health <= 0) {
+        estado = estados.final;
+        update();
+    } else {
+        document.getElementById('story').style.display = 'none';
+        document.getElementById('result').style.display = 'block';
+        document.getElementById('next-card').style.display = 'inline-block';
+    }
+}
+
+function resetGame() {
+    player.health = 5;
+    player.attack = 5;
+    player.defense = 5;
+    player.fase = 1;
+    estado = estados.fases;
+    updateStatus();
+    update();
 }
 
 document.querySelectorAll('.option').forEach(option => {
@@ -87,8 +152,8 @@ document.querySelectorAll('.option').forEach(option => {
 
 document.getElementById('next-card').addEventListener('click', () => {
     const nextCard = getRandomCardIndex();
-    displayCard(nextCard);
+    updateFases(nextCard);
 });
 
 updateStatus();
-displayCard(getRandomCardIndex());
+update();
