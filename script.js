@@ -111,6 +111,7 @@ function fightFinalBoss() {
     document.getElementById('story').style.display = 'block';
     document.getElementById('result').style.display = 'none';
     document.getElementById('next-card').style.display = 'none';
+    document.getElementById('puntos-ataque').style.opacity = 1;
     let pAtaque = document.getElementById('puntos-ataque');
     finalBoss.puntosAtaque = getRandomInt(3,15);
     pAtaque.textContent = finalBoss.puntosAtaque;
@@ -166,7 +167,8 @@ function handleBossFight(event) {
         if(player.attack - finalBoss.defense > 0)
             finalBoss.health -= player.attack - finalBoss.defense;
 
-
+        if(player.defense > 0)
+            player.defense -= 1;
         if(finalBoss.puntosAtaque - player.defense > 0)
             player.health -= finalBoss.puntosAtaque - player.defense;
         document.getElementById('result-text').textContent = "Atacas al jefe final y él te ataca a ti.";
@@ -192,6 +194,7 @@ function handleBossFight(event) {
         document.getElementById('story').style.display = 'none';
         document.getElementById('result').style.display = 'block';
         document.getElementById('next-card').style.display = 'inline-block';
+        document.getElementById('puntos-ataque').style.opacity = 1;
     }
 }
 
@@ -206,7 +209,11 @@ function resetGame() {
 }
 
 document.querySelectorAll('.option').forEach(option => {
-    option.addEventListener('click', handleOptionClick);
+    option.addEventListener('click', (event) => {
+        if(estados.fases === estado) {
+            handleOptionClick(event);
+    }
+})
 });
 
 document.getElementById('next-card').addEventListener('click', () => {
