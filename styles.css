@@ -86,9 +86,7 @@ body button {
     padding: 10px;
     border: 1px solid #ccc;
 }
-.invisible {
-    display: none;
-}
+
 
 .status div {
     display: flex;
@@ -184,4 +182,12 @@ body button {
     top: 10px;
     left: 10px;
     z-index: 1000;
+}
+
+.invisible {
+    display: none;
+}
+
+#puntos-ataque{
+    color: white
 }
