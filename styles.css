@@ -48,12 +48,22 @@ body button {
 }
 #finalBossEnemy {
     position: fixed;
-    top: 10vh;
-    right: 10vw;
+    top:20vh;
+    right: 25vw;
 }
 #enemy {
-    width: 200px;
-    transform: scaleX(-1);
+    width:300px;   
+    
+}
+
+#finalPlayer {
+    position: fixed;
+    bottom:20vh;
+    left: 20vw;
+}
+#player {
+    width:300px; 
+    
 }
 
 #story-text {
@@ -189,5 +199,9 @@ body button {
 }
 
 #puntos-ataque{
-    color: white
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+
 }

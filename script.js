@@ -45,7 +45,14 @@ function updateFinal() {
 function animateStoryToFinalBoss() {
     document.getElementById('statusFinalBoss').classList.remove('invisible');
     document.getElementById('finalBossEnemy').classList.remove('invisible');
-    document.getElementById('story').classList.add('move-up')
+    document.getElementById('finalPlayer').classList.remove('invisible');
+    document.getElementById('story').classList.add('move-up');
+    setTimeout(() => {
+        document.getElementById('story').style.top=0;
+        document.getElementById('story').style.transform="translate(-50%, 0)";
+        document.getElementById('story').classList.remove('move-up');
+
+    }, 2000);
 }
 
 function updateStatusBoss() {
@@ -99,7 +106,7 @@ const finalBoss = {
 };
 
 function fightFinalBoss() {
-    document.querySelector('body').style.backgroundImage = "url('resources/images/boss.webp')";
+    document.querySelector('body').style.backgroundImage = "url('resources/images/Arena.png')";
     document.getElementById('story-text').textContent = "Te encuentras con el jefe final. ¿Qué haces?";
     const options = document.querySelectorAll('.option');
     options[0].textContent = "Atacar";
