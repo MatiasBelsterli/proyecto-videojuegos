@@ -33,7 +33,7 @@ export const cardLevels = [
         ]
     },
     {
-        text: "Mientras avanzas, te enfrentas a un grupo de bandidos. ¿Qué haces?",
+        text: "Mientras avanzas, te enfrentas a un grupo de elfos bandidos. ¿Qué haces?",
         options: [
             {
                 text: "Luchar",
