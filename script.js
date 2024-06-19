@@ -9,6 +9,7 @@ const player = {
     attack: 5,
     defense: 5,
     fase: 0,
+    fightFase: 0
 };
 
 const estados = {
@@ -20,7 +21,7 @@ const estados = {
 
 let estado = estados.fases;
 
-const maxFases = 3;
+const maxFases = 1;
 
 function update() {
     if (estado === estados.fases) {
@@ -43,13 +44,22 @@ function updateFinal() {
 }
 
 function animateStoryToFinalBoss() {
+    document.querySelector('body').style.backgroundImage = "url('resources/images/Arena.png')";
+    const options = document.querySelectorAll('.option');
+    options[2].style.display = 'none';
+    options[3].style.display = 'none';
+
     document.getElementById('statusFinalBoss').classList.remove('invisible');
     document.getElementById('finalBossEnemy').classList.remove('invisible');
     document.getElementById('finalPlayer').classList.remove('invisible');
     document.getElementById('story').classList.add('move-up');
+    document.getElementById('story').style.top="0px";
+    document.getElementById('story').style.transform="translate(-50%, 0)";
+
+    document.getElementById('result').style.top="0px";
+    document.getElementById('result').style.transform="translate(-50%, 0)";
+
     setTimeout(() => {
-        document.getElementById('story').style.top=0;
-        document.getElementById('story').style.transform="translate(-50%, 0)";
         document.getElementById('story').classList.remove('move-up');
 
     }, 2000);
@@ -106,15 +116,16 @@ const finalBoss = {
 };
 
 function fightFinalBoss() {
-    document.querySelector('body').style.backgroundImage = "url('resources/images/Arena.png')";
-    document.getElementById('story-text').textContent = "Te encuentras con el jefe final. ¿Qué haces?";
+    let texto = "Te encuentras con el jefe final. ¿Qué haces?"
+    // TODO a arreglar
+    if (player.fightFase > 0) texto = "¿Cuál es tu siguiente acción?"
+    document.getElementById('story-text').textContent = texto;
     const options = document.querySelectorAll('.option');
     options[0].textContent = "Atacar";
     options[0].dataset.action = 'attack';
     options[1].textContent = "Defender";
     options[1].dataset.action = 'defend';
-    options[2].style.display = 'none';
-    options[3].style.display = 'none';
+
     document.getElementById('story').style.display = 'block';
     document.getElementById('result').style.display = 'none';
     document.getElementById('next-card').style.display = 'none';
@@ -163,11 +174,20 @@ function getRandomInt(min, max) {
     const minCeiled = Math.ceil(min);
     const maxFloored = Math.floor(max);
     return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled); // The maximum is exclusive and the minimum is inclusive
-  }
+}
+
+function animateResultText() {
+    const resultText = document.getElementById('result-text');
+    resultText.classList.add('animateFightText');
+    setTimeout(() => {
+        resultText.classList.remove('animateFightText');
+    }, 3000);
+}
 
 function handleBossFight(event) {
     const action = event.target.dataset.action;
     document.getElementById('next-card').style.display = 'none';
+    player.fightFase++;
     if (action === 'attack') {
         if(finalBoss.defense > 0)
             finalBoss.defense -= 1;
@@ -186,6 +206,7 @@ function handleBossFight(event) {
         document.getElementById('result-text').textContent = "Te defiendes del ataque del jefe final.";
     }
 
+    animateResultText();
     updateStatus();
 
     if (player.health <= 0) {
@@ -219,8 +240,8 @@ document.querySelectorAll('.option').forEach(option => {
     option.addEventListener('click', (event) => {
         if(estados.fases === estado) {
             handleOptionClick(event);
-    }
-})
+        }
+    })
 });
 
 document.getElementById('next-card').addEventListener('click', () => {
