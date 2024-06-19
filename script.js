@@ -7,7 +7,7 @@ const player = {
     luck: 15,
     fase: 0,
     fightFase: 0,
-    temporaryDefense: 0 // Nueva propiedad para mantener el boost de defensa temporal
+    temporaryDefense: 0
 };
 
 const estados = {
@@ -63,11 +63,9 @@ function animateStoryToFinalBoss() {
 }
 
 function updateStatusBoss() {
-    const statusPlayer = document.getElementById('statusFinalBoss');
-    const textosStats = statusPlayer.querySelectorAll('p');
-    textosStats[0].textContent = finalBoss.health;
-    textosStats[1].textContent = finalBoss.attack;
-    textosStats[2].textContent = finalBoss.defense;
+    document.getElementById('boss-health').textContent = finalBoss.health;
+    document.getElementById('boss-attack').textContent = finalBoss.attack;
+    document.getElementById('boss-defense').textContent = finalBoss.defense;
 }
 
 function updateStatus() {
@@ -188,11 +186,11 @@ function handleBossFight(event) {
         const attackStrength = Math.ceil(player.attack * (1 + luckFactor));
 
         if (finalBoss.defense > 0) {
-            finalBoss.defense -= 1;
+            updateBossStats('defense', -1);
         }
 
         if (attackStrength - finalBoss.defense > 0) {
-            finalBoss.health -= attackStrength - finalBoss.defense;
+            updateBossStats('health', -(attackStrength - finalBoss.defense));
         }
 
         if (player.defense > 0) {
@@ -243,15 +241,20 @@ function handleBossFight(event) {
 }
 
 function resetGame() {
-    player.health = 5;
+    player.health = 50;
     player.attack = 5;
     player.defense = 5;
-    player.fase = 1;
     player.luck = 15;
+    player.fase = 1;
     player.fightFase = 0;
     player.temporaryDefense = 0;
+    finalBoss.health = 10;
+    finalBoss.attack = 10;
+    finalBoss.defense = 10;
+    finalBoss.puntosAtaque = 0;
     estado = estados.fases;
     updateStatus();
+    updateStatusBoss();
     update();
 }
 
@@ -265,6 +268,20 @@ function updateStats(stat, value) {
     const statElement = document.getElementById(stat);
     player[stat] += value;
     updateStatus();
+
+    const animClass = value > 0 ? 'stat-increase' : 'stat-decrease';
+    statElement.classList.add(animClass);
+    setTimeout(() => {
+        statElement.classList.remove(animClass);
+    }, 1000);
+}
+
+function updateBossStats(stat, value) {
+    if (value === 0) return;
+
+    const statElement = document.getElementById(`boss-${stat}`);
+    finalBoss[stat] += value;
+    updateStatusBoss();
 
     const animClass = value > 0 ? 'stat-increase' : 'stat-decrease';
     statElement.classList.add(animClass);
