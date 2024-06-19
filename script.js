@@ -19,18 +19,40 @@ const estados = {
     final: Symbol(),
 };
 
-let estado = estados.fases;
+let estado = estados.inicio;
 
-const maxFases = 1;
+let URLfondo = '';
+
+const maxFases = 15;
 
 function update() {
-    if (estado === estados.fases) {
+    if (estado === estados.inicio) {
+        updateInicio();
+    } else if (estado === estados.fases) {
         updateFases(getRandomCardIndex());
     } else if (estado === estados.pelea) {
         updatePelea();
     } else if (estado === estados.final) {
         updateFinal();
     }
+}
+
+function updateInicio() {
+    document.getElementById('story-text').textContent = '¡Bienvenido a la aventura! ¿Estás listo para comenzar?';
+    const options = document.querySelectorAll('.option');
+    options[0].style.display = 'none';
+    options[1].style.display = 'none';
+    options[2].style.display = 'none';
+    options[3].style.display = 'none';
+    document.getElementById('story').style.display = 'block';
+    document.getElementById('result').style.display = 'none';
+    const siguiente = document.getElementById('next-card');
+    siguiente.style.display = 'inline-block';
+    siguiente.addEventListener('click', () => {
+        initializeAudioContext();
+        estado = estados.fases;
+        update();
+    });
 }
 
 function updatePelea() {
@@ -44,7 +66,7 @@ function updateFinal() {
 }
 
 function animateStoryToFinalBoss() {
-    document.querySelector('body').style.backgroundImage = "url('resources/images/Arena.png')";
+    document.querySelector('body').style.backgroundImage = "url('resources/images/fondos/Arena.png')";
     const options = document.querySelectorAll('.option');
     options[2].style.display = 'none';
     options[3].style.display = 'none';
@@ -86,26 +108,113 @@ function updateStatus() {
 }
 
 function updateFases(cardIndex) {
-    const card = cardLevels[cardIndex];
-    document.getElementById('story-text').textContent = card.text;
-    const options = document.querySelectorAll('.option');
-    card.options.forEach((option, index) => {
-        options[index].textContent = option.text;
-        options[index].dataset.health = option.health;
-        options[index].dataset.attack = option.attack;
-        options[index].dataset.defense = option.defense;
-        options[index].dataset.result = option.result;
-    });
-    document.querySelectorAll('#options .option').forEach(option => {
-        option.style.display = 'inline-block';
-    });
-    document.getElementById('story').style.display = 'block';
-    document.getElementById('result').style.display = 'none';
-    document.getElementById('next-card').style.display = 'none';
+
+    cambiarFondo(URLfondo);
+
+    setTimeout(() => {
+        
+        const card = cardLevels[cardIndex];
+        document.getElementById('story-text').textContent = card.text;
+        const options = document.querySelectorAll('.option');
+        card.options.forEach((option, index) => {
+            options[index].textContent = option.text;
+            options[index].dataset.health = option.health;
+            options[index].dataset.attack = option.attack;
+            options[index].dataset.defense = option.defense;
+            options[index].dataset.result = option.result;
+        });
+    
+        document.querySelectorAll('#options .option').forEach(option => {
+            option.style.display = 'inline-block';
+        });
+        document.getElementById('story').style.display = 'block';
+        document.getElementById('result').style.display = 'none';
+        document.getElementById('next-card').style.display = 'none';
+    
+    }, 4000); 
+
+
 }
 
+//--------------------Manejo de audio--------------------
+
+let audioContext;
+let gainNode;
+const audioElement = document.getElementById('audio');
+
+
+function initializeAudioContext() {
+    if (!audioContext) {
+        audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        const track = audioContext.createMediaElementSource(audioElement);
+        gainNode = audioContext.createGain();
+        track.connect(gainNode).connect(audioContext.destination);
+    }
+}
+
+// Fade in function
+function fadeIn() {
+    initializeAudioContext();
+    audioContext.resume().then(() => {
+        setTimeout(() => {
+            gainNode.gain.setValueAtTime(0, audioContext.currentTime);
+            gainNode.gain.linearRampToValueAtTime(1, audioContext.currentTime + 3); // 2 seconds fade in
+            audioElement.play();
+        }, 4000); // Espera 5 segundos antes de comenzar la reproducción
+    });
+}
+
+
+// Fade out function
+function fadeOut() {
+    initializeAudioContext();
+    audioContext.resume().then(() => {
+        gainNode.gain.setValueAtTime(1, audioContext.currentTime);
+        gainNode.gain.linearRampToValueAtTime(0, audioContext.currentTime + 2); // 2 seconds fade out
+        setTimeout(() => {
+            audioElement.pause();
+        }, 2000); // Match the fade out duration
+    });
+}
+
+function playBackgroundMusic(audioSrc) {
+    audioElement.src = audioSrc;
+    fadeIn();
+}
+
+//--------------------Manejo de fondo--------------------
+
+function cambiarFondo(URLfondo){
+    const overlay = document.querySelector('.overlay');
+    overlay.classList.add('fadeToBlack');
+    setTimeout(() => {
+        document.body.style.backgroundImage = "url("+URLfondo+")";
+        setTimeout(() => {
+            overlay.classList.remove('fadeToBlack');
+        }, 100); // Agrega un pequeño delay para asegurar que se complete la transición antes de remover la clase
+    }, 4000); // Este timeout debe ser igual a la duración de la transición en CSS
+};
+
+
 function getRandomCardIndex() {
-    return Math.floor(Math.random() * cardLevels.length);
+    const card = getRandomInt(0,2);
+    let audioSrc = '';
+
+    switch(card) {
+        case 0:
+            audioSrc = 'resources/sounds/Escenarios/Sombra te espia.ogg';
+            URLfondo = 'resources/images/fondos/bosque.png';
+            break;
+        case 1:
+            audioSrc = 'resources/sounds/Escenarios/Orda de elfos.ogg';
+            URLfondo = 'resources/images/fondos/duendes.jpg';
+            break;
+        default:
+            console.log('Card no válida');
+    }
+
+    playBackgroundMusic(audioSrc);
+    return card;
 }
 
 const finalBoss = {
@@ -239,6 +348,9 @@ function resetGame() {
 document.querySelectorAll('.option').forEach(option => {
     option.addEventListener('click', (event) => {
         if(estados.fases === estado) {
+
+            fadeOut();
+
             handleOptionClick(event);
         }
     })
@@ -258,3 +370,15 @@ document.getElementById('next-card').addEventListener('click', () => {
 
 updateStatus();
 update();
+
+document.addEventListener('DOMContentLoaded', function() {
+    const buttons = document.querySelectorAll('.soundNormalClick');
+    const clickSound = new Audio('resources/sounds/Interfaz/Click comun.wav');
+    initializeAudioContext()
+
+    buttons.forEach(button => {
+        button.addEventListener('click', function() {
+            clickSound.play();
+        });
+    });
+});
