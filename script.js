@@ -21,7 +21,7 @@ let estado = estados.inicio;
 
 let URLfondo = '';
 
-const maxFases = 15;
+const maxFases = 5;
 
 function update() {
     if (estado === estados.inicio) {
@@ -196,12 +196,16 @@ function getRandomCardIndex() {
 
     switch(card) {
         case 0:
-            audioSrc = 'resources/sounds/Escenarios/Sombra te espia.ogg';
+            audioSrc = 'resources/sounds/Escenarios/Bosque oscuro.ogg';
             URLfondo = 'resources/images/fondos/bosque.png';
             break;
         case 1:
             audioSrc = 'resources/sounds/Escenarios/Orda de elfos.ogg';
             URLfondo = 'resources/images/fondos/duendes.jpg';
+            break;
+        case 2:
+            audioSrc = 'resources/sounds/Escenarios/Manantial.ogg';
+            URLfondo = 'resources/images/fondos/manantial.jpg';
             break;
         default:
             console.log('Card no válida');

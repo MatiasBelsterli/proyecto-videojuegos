@@ -1,7 +1,7 @@
 export const cardLevels = [
     {
         text: "Llevas horas caminando hasta que te encuentras en un bosque oscuro. ¿Qué haces?",
-        options: [
+        options: [//0
             {
                 text: "Explorar el bosque",
                 health: -1,
@@ -33,8 +33,8 @@ export const cardLevels = [
         ]
     },
     {
-        text: "Mientras avanzas, te enfrentas a un grupo de elfos bandidos. ¿Qué haces?",
-        options: [
+        text: "Mientras avanzas, te enfrentas a un grupo de elfos bandidos. ¿Qué haces?",//1
+        options: [//1
             {
                 text: "Luchar",
                 health: -2,
@@ -67,7 +67,7 @@ export const cardLevels = [
     },
     {
         text: "Después de caminar un buen rato, encuentras un manantial cristalino. ¿Qué haces?",
-        options: [
+        options: [//2
             {
                 text: "Beber agua",
                 health: +1,
@@ -100,7 +100,7 @@ export const cardLevels = [
     },
     {
         text: "Caminas sin rumbo fijo hasta que encuentras una cueva misteriosa. ¿Qué haces?",
-        options: [
+        options: [//3
             {
                 text: "Entrar en la cueva",
                 health: -1,
@@ -133,7 +133,7 @@ export const cardLevels = [
     },
     {
         text: "Un mago aparece ante ti y te ofrece un trato. ¿Qué haces?",
-        options: [
+        options: [//4
             {
                 text: "Aceptar el trato",
                 health: 0,
@@ -166,7 +166,7 @@ export const cardLevels = [
     },
     {
         text: "Caminando por el sendero, encuentras un cofre del tesoro. ¿Qué haces?",
-        options: [
+        options: [//5
             {
                 text: "Abrir el cofre",
                 health: +1,
@@ -199,7 +199,7 @@ export const cardLevels = [
     },
     {
         text: "Mientras avanzas, te enfrentas a un lobo hambriento. ¿Qué haces?",
-        options: [
+        options: [//6
             {
                 text: "Luchar contra el lobo",
                 health: -2,
@@ -232,7 +232,7 @@ export const cardLevels = [
     },
     {
         text: "Después de horas caminando, llegas a un camino bifurcado. ¿Qué haces?",
-        options: [
+        options: [//7
             {
                 text: "Tomar el camino de la derecha",
                 health: 0,
@@ -265,7 +265,7 @@ export const cardLevels = [
     },
     {
         text: "Un anciano aparece en tu camino y te pide ayuda. ¿Qué haces?",
-        options: [
+        options: [//8
             {
                 text: "Ayudar al anciano",
                 health: +1,
@@ -298,7 +298,7 @@ export const cardLevels = [
     },
     {
         text: "Caminas sin rumbo fijo hasta que te encuentras en un pantano. ¿Qué haces?",
-        options: [
+        options: [//9
             {
                 text: "Atravesar el pantano",
                 health: -1,
@@ -331,7 +331,7 @@ export const cardLevels = [
     },
     {
         text: "De repente, te topas con una tribu hostil. ¿Qué haces?",
-        options: [
+        options: [//10
             {
                 text: "Atacar a la tribu",
                 health: -2,
@@ -364,7 +364,7 @@ export const cardLevels = [
     },
     {
         text: "Te encuentras con un puente viejo y roto en tu camino. ¿Qué haces?",
-        options: [
+        options: [//11
             {
                 text: "Cruzar el puente",
                 health: -1,
@@ -397,7 +397,7 @@ export const cardLevels = [
     },
     {
         text: "Después de un largo viaje, te enfrentas a un dragón dormido. ¿Qué haces?",
-        options: [
+        options: [//12
             {
                 text: "Atacar al dragón",
                 health: -3,
@@ -430,7 +430,7 @@ export const cardLevels = [
     },
     {
         text: "Llevas horas caminando hasta que te topas con un antiguo santuario abandonado. ¿Qué haces?",
-        options: [
+        options: [//13
             {
                 text: "Entrar al santuario",
                 health: 0,
@@ -463,7 +463,7 @@ export const cardLevels = [
     },
     {
         text: "Te cruzas con un comerciante viajero en el camino. ¿Qué haces?",
-        options: [
+        options: [//14
             {
                 text: "Comprar pociones",
                 health: +1,
@@ -496,7 +496,7 @@ export const cardLevels = [
     },
     {
         text: "Ves que una tormenta se aproxima rápidamente. ¿Qué haces?",
-        options: [
+        options: [//15
             {
                 text: "Buscar refugio",
                 health: 0,
@@ -529,7 +529,7 @@ export const cardLevels = [
     },
     {
         text: "Un espíritu se manifiesta ante ti y te ofrece sabiduría. ¿Qué haces?",
-        options: [
+        options: [//16
             {
                 text: "Aceptar la sabiduría",
                 health: 0,
@@ -562,7 +562,7 @@ export const cardLevels = [
     },
     {
         text: "Te adentras en un campo de flores mágicas. ¿Qué haces?",
-        options: [
+        options: [//17
             {
                 text: "Recoger flores",
                 health: +1,
@@ -595,7 +595,7 @@ export const cardLevels = [
     },
     {
         text: "Te cruzas con un caballero errante en el camino. ¿Qué haces?",
-        options: [
+        options: [//18
             {
                 text: "Desafiar al caballero",
                 health: -2,
@@ -628,7 +628,7 @@ export const cardLevels = [
     },
     {
         text: "Llegas a la costa y encuentras un barco abandonado. ¿Qué haces?",
-        options: [
+        options: [//19
             {
                 text: "Subir al barco",
                 health: 0,
@@ -661,7 +661,7 @@ export const cardLevels = [
     },
     {
         text: "Te encuentras con una princesa en apuros en el camino. ¿Qué haces?",
-        options: [
+        options: [//20
             {
                 text: "Rescatar a la princesa",
                 health: -2,
