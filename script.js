@@ -8,10 +8,62 @@ const player = {
     fase: 0,
     fightFase: 0,
     temporaryDefense: 0,
-    idleAnimation: 'resources/personajes/guerrero/GuerreroEstatico.gif',
-    attackAnimation: 'resources/personajes/guerrero/GuerreroAtacando.gif',
-    defenseAnimation: 'resources/personajes/guerrero/GuerreroDefensa.gif',
+    idleAnimation: 'resources/personajes/guerrero/idle.gif',
+    attackAnimation: 'resources/personajes/guerrero/attack.gif',
+    defenseAnimation: 'resources/personajes/guerrero/defense.gif',
 };
+
+const ethanStats = {
+    health: 10,
+    attack: 5,
+    defense: 5,
+    luck: 15,
+    fase: 0,
+    fightFase: 0,
+    temporaryDefense: 0,
+    idleAnimation: 'resources/personajes/explorador/idle.gif',
+    attackAnimation: 'resources/personajes/explorador/attack.gif',
+    defenseAnimation: 'resources/personajes/explorador/defense.gif',
+}
+
+const aldricStats = {
+    health: 15,
+    attack: 5,
+    defense: 5,
+    luck: 15,
+    fase: 0,
+    fightFase: 0,
+    temporaryDefense: 0,
+    idleAnimation: 'resources/personajes/guerrero/idle.gif',
+    attackAnimation: 'resources/personajes/guerrero/attack.gif',
+    defenseAnimation: 'resources/personajes/guerrero/defense.gif',
+}
+
+const zephyrStats = {
+    health: 20,
+    attack: 5,
+    defense: 5,
+    luck: 15,
+    fase: 0,
+    fightFase: 0,
+    temporaryDefense: 0,
+    idleAnimation: 'resources/personajes/dios/idle.gif',
+    attackAnimation: 'resources/personajes/dios/attack.gif',
+    defenseAnimation: 'resources/personajes/dios/defense.gif',
+}
+
+const constDishStats = {
+    health: 25,
+    attack: 5,
+    defense: 5,
+    luck: 15,
+    fase: 0,
+    fightFase: 0,
+    temporaryDefense: 0,
+    idleAnimation: 'resources/personajes/doncella/idle.gif',
+    attackAnimation: 'resources/personajes/doncella/attack.gif',
+    defenseAnimation: 'resources/personajes/doncella/defense.gif',
+}
 
 const estados = {
     inicio: Symbol(),
@@ -30,6 +82,44 @@ const tiempoAnimacion = 500;
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+const Personajes = {
+    ETHAN: 'Ethan',
+    ALDRIC: 'Aldric',
+    ZEPHYR: 'Zephyr',
+    DISH_WASHINGTON: 'Dish Washington'
+};
+
+let personajeSeleccionado;
+
+function startGame(event) {
+    const character = event.target.dataset.character;
+    personajeSeleccionado = Personajes[character.toUpperCase().replace(' ', '_')];
+    document.getElementById('character-selection').style.display = 'none';
+    document.getElementById('game-view').style.display = 'block';
+    console.log('Personaje seleccionado:', personajeSeleccionado);
+
+    switch (personajeSeleccionado) {
+        case Personajes.ETHAN:
+            Object.assign(player, ethanStats);
+            break;
+        case Personajes.ALDRIC:
+            Object.assign(player, aldricStats);
+            break;
+        case Personajes.ZEPHYR:
+            Object.assign(player, zephyrStats);
+            break;
+        case Personajes.DISH_WASHINGTON:
+            Object.assign(player, constDishStats);
+            break;
+        default:
+            console.error('Personaje desconocido:', personajeSeleccionado);
+    }
+
+    document.getElementById('player').src = player.idleAnimation;
+    estado = estados.fases;
+    updateStatus();
 }
 
 function update() {
@@ -82,11 +172,11 @@ function animateStoryToFinalBoss() {
     document.getElementById('finalBossEnemy').classList.remove('invisible');
     document.getElementById('finalPlayer').classList.remove('invisible');
     document.getElementById('story').classList.add('move-up');
-    document.getElementById('story').style.top="0px";
-    document.getElementById('story').style.transform="translate(-50%, 0)";
+    document.getElementById('story').style.top = "0px";
+    document.getElementById('story').style.transform = "translate(-50%, 0)";
 
-    document.getElementById('result').style.top="0px";
-    document.getElementById('result').style.transform="translate(-50%, 0)";
+    document.getElementById('result').style.top = "0px";
+    document.getElementById('result').style.transform = "translate(-50%, 0)";
 
     setTimeout(() => {
         document.getElementById('story').classList.remove('move-up');
@@ -487,6 +577,14 @@ document.getElementById('next-card').addEventListener('click', () => {
         }
         updatePelea();
     }
+});
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    const startButtons = document.querySelectorAll('.start-button');
+
+    startButtons.forEach(button => {
+        button.addEventListener('click', startGame);
+    });
 });
 
 updateStatus();
