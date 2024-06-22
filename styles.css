@@ -34,7 +34,7 @@ body button {
     height: 100%;
     background-color: black;
     opacity: 0;
-    transition: opacity 4s;
+    transition: opacity .5s;
     pointer-events: none;
     z-index: 10;
 }
@@ -106,7 +106,7 @@ body button {
 }
 
 #player {
-    width: 300px;
+    height: 300px;
 }
 
 #game-container {
@@ -279,5 +279,15 @@ body button {
 
     100% {
         color: #000;
+    }
+}
+
+#options button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    &:hover {
+        opacity: 0.6;
+        cursor: not-allowed;
+        background-color: #b8860b;
     }
 }

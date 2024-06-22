@@ -7,7 +7,10 @@ const player = {
     luck: 15,
     fase: 0,
     fightFase: 0,
-    temporaryDefense: 0
+    temporaryDefense: 0,
+    idleAnimation: 'resources/personajes/guerrero/GuerreroEstatico.gif',
+    attackAnimation: 'resources/personajes/guerrero/GuerreroAtacando.gif',
+    defenseAnimation: 'resources/personajes/guerrero/GuerreroDefensa.gif',
 };
 
 const estados = {
@@ -21,7 +24,13 @@ let estado = estados.inicio;
 
 let URLfondo = '';
 
-const maxFases = 15;
+const maxFases = 1;
+
+const tiempoAnimacion = 500;
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 function update() {
     if (estado === estados.inicio) {
@@ -125,7 +134,7 @@ function updateFases(cardIndex) {
         document.getElementById('result').style.display = 'none';
         document.getElementById('next-card').style.display = 'none';
     
-    }, 4000); 
+    }, tiempoAnimacion); 
 
 
 }
@@ -154,7 +163,7 @@ function fadeIn() {
             gainNode.gain.setValueAtTime(0, audioContext.currentTime);
             gainNode.gain.linearRampToValueAtTime(1, audioContext.currentTime + 3); // 2 seconds fade in
             audioElement.play();
-        }, 4000); // Espera 5 segundos antes de comenzar la reproducción
+        }, tiempoAnimacion); // Espera 5 segundos antes de comenzar la reproducción
     });
 }
 
@@ -186,7 +195,7 @@ function cambiarFondo(URLfondo){
         setTimeout(() => {
             overlay.classList.remove('fadeToBlack');
         }, 100); // Agrega un pequeño delay para asegurar que se complete la transición antes de remover la clase
-    }, 4000); // Este timeout debe ser igual a la duración de la transición en CSS
+    }, tiempoAnimacion); // Este timeout debe ser igual a la duración de la transición en CSS
 };
 
 
@@ -216,6 +225,8 @@ const finalBoss = {
     attack: 10,
     defense: 10,
     puntosAtaque: 0,
+    idleAnimation: 'resources/personajes/boss/BossEstatico.gif',
+    attackAnimation: 'resources/personajes/boss/BossAtacando.gif',
 };
 
 function fightFinalBoss() {
@@ -285,15 +296,32 @@ function animateResultText() {
     }, 3000);
 }
 
-function handleBossFight(event) {
+async function handleBossFight(event) {
+    const options = document.querySelectorAll('.option');
     const action = event.target.dataset.action;
     document.getElementById('next-card').style.display = 'none';
     player.fightFase++;
     const luckFactor = getLuckFactor(player.luck);
 
+    options.forEach(option => {
+        option.disabled = true
+    });
+    document.getElementById('next-card').disabled = true;
+
     if (action === 'attack') {
+        document.getElementById('result-text').textContent = "Atacas al jefe final y él te ataca a ti.";
+        
+        // Animación de ataque
+        const playerElement = document.getElementById('player');
+        const originalPosition = playerElement.style.transform;
+
+        playerElement.style.transition = 'transform .8s';
+        playerElement.style.transform = 'translate(150px, -100px)';
+        playerElement.src = player.attackAnimation;
+        
         const attackStrength = Math.ceil(player.attack * (1 + luckFactor));
 
+        await sleep(500);
         if (finalBoss.defense > 0) {
             updateBossStats('defense', -1);
         }
@@ -301,33 +329,70 @@ function handleBossFight(event) {
         if (attackStrength - finalBoss.defense > 0) {
             updateBossStats('health', -(attackStrength - finalBoss.defense));
         }
+        await sleep(500);
+        playerElement.style.transform = originalPosition;
+        playerElement.src = player.idleAnimation;
 
+        await sleep(200);
+
+        // Animación de ataque del jefe
+        const bossElement = document.getElementById('enemy');
+        const originalPositionBoss = bossElement.style.transform;
+
+        bossElement.style.transition = 'transform .8s';
+        bossElement.style.transform = 'translate(-150px, 100px)';
+        bossElement.src = finalBoss.attackAnimation;
+
+        await sleep(400);
         if (player.defense > 0) {
             updateStats('defense', -1);
         }
-
         const bossAttackStrength = Math.ceil(finalBoss.puntosAtaque * (1 + luckFactor));
-
         if (bossAttackStrength - player.defense > 0) {
             const damage = bossAttackStrength - player.defense;
             updateStats('health', -damage);
         }
+        await sleep(400);
+        bossElement.style.transform = originalPositionBoss;
+        bossElement.src = finalBoss.idleAnimation;
 
-        document.getElementById('result-text').textContent = "Atacas al jefe final y él te ataca a ti.";
+
     } else if (action === 'defend') {
+        document.getElementById('result-text').textContent = "Te defiendes del ataque del jefe final.";
+
+        // Animación de ataque del jefe
+        const bossElement = document.getElementById('enemy');
+        const originalPositionBoss = bossElement.style.transform;
+
+        bossElement.style.transition = 'transform .8s';
+        bossElement.style.transform = 'translate(-150px, 100px)';
+        bossElement.src = finalBoss.attackAnimation;
+        await sleep(300);
+        const playerElement = document.getElementById('player');
+        playerElement.src = player.defenseAnimation;
+
+        await sleep(400);
+        playerElement.src = player.idleAnimation;
+        bossElement.src = finalBoss.idleAnimation;
+
+        await sleep(200);
         const defenseBoost = Math.ceil(getRandomInt(2, 5) * (1 + luckFactor));
         player.temporaryDefense = defenseBoost;
         updateStats('defense', defenseBoost);
-
         const bossAttackStrength = Math.ceil(finalBoss.puntosAtaque * (1 + luckFactor));
-
         if (bossAttackStrength - player.defense > 0) {
             const damage = bossAttackStrength - player.defense;
             updateStats('health', -damage);
         }
+        await sleep(170);
+        bossElement.style.transform = originalPositionBoss;
 
-        document.getElementById('result-text').textContent = "Te defiendes del ataque del jefe final.";
     }
+
+    options.forEach(option => {
+        option.disabled = false
+    });
+    document.getElementById('next-card').disabled = false;
 
     animateResultText();
     updateStatus();
@@ -339,7 +404,7 @@ function handleBossFight(event) {
         estado = estados.final;
         update();
     } else {
-        const options = document.querySelectorAll('.option');
+        
         options[0].style.display = 'none';
         options[1].style.display = 'none';
         document.getElementById('story').style.display = 'none';
@@ -402,20 +467,13 @@ function updateBossStats(stat, value) {
 document.querySelectorAll('.option').forEach(option => {
     option.addEventListener('click', (event) => {
         if(estados.fases === estado) {
-
             fadeOut();
-
             handleOptionClick(event);
         }
     })
 });
 
 document.getElementById('next-card').addEventListener('click', () => {
-    if (estados.pelea === estado && player.temporaryDefense > 0) {
-        updateStats('defense', -player.temporaryDefense);
-        player.temporaryDefense = 0;
-    }
-
     if (estados.fases === estado) {
         const nextCard = getRandomCardIndex();
         updateFases(nextCard);
@@ -423,6 +481,10 @@ document.getElementById('next-card').addEventListener('click', () => {
         const options = document.querySelectorAll('.option');
         options[0].style.display = 'inline-block';
         options[1].style.display = 'inline-block';
+        if (player.temporaryDefense > 0) {
+            updateStats('defense', -player.temporaryDefense);
+            player.temporaryDefense = 0;
+        }
         updatePelea();
     }
 });
