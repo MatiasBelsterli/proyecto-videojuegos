@@ -24,9 +24,9 @@ let estado = estados.inicio;
 
 let URLfondo = '';
 
-const maxFases = 1;
+const maxFases = 2;
 
-const tiempoAnimacion = 500;
+const tiempoAnimacion = 3000;
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -143,6 +143,8 @@ function updateFases(cardIndex) {
 
 let audioContext;
 let gainNode;
+let audioNextSrc = 'resources/sounds/Acciones/No Free/Caminando.wav';
+const audioNext = document.getElementById('audioAccion');
 const audioElement = document.getElementById('audio');
 
 
@@ -200,7 +202,7 @@ function cambiarFondo(URLfondo){
 
 
 function getRandomCardIndex() {
-    const card = getRandomInt(0,2);
+    const card = getRandomInt(0,12);
     let audioSrc = '';
 
     switch(card) {
@@ -215,6 +217,42 @@ function getRandomCardIndex() {
         case 2:
             audioSrc = 'resources/sounds/Escenarios/Manantial.ogg';
             URLfondo = 'resources/images/fondos/manantial.jpg';
+            break;
+        case 3:
+            audioSrc = 'resources/sounds/Escenarios/Cavernas.ogg';
+            URLfondo = 'resources/images/fondos/cavernas.webp';
+            break;
+        case 4:
+            audioSrc = 'resources/sounds/Escenarios/Mago misterioso.ogg';
+            URLfondo = 'resources/images/fondos/mago_misterioso.webp';
+            break;
+        case 5:
+            audioSrc = 'resources/sounds/Escenarios/Niños te ofrecen un regalo.ogg';
+            URLfondo = 'resources/images/fondos/niños.webp';
+            break;
+        case 6:
+            audioSrc = 'resources/sounds/Escenarios/Lobo te ataca.ogg';
+            URLfondo = 'resources/images/fondos/lobo.jpg';
+            break;
+        case 7:
+            audioSrc = 'resources/sounds/Escenarios/Puente roto.wav';
+            URLfondo = 'resources/images/fondos/puente.png';
+            break;
+        case 8:
+            audioSrc = 'resources/sounds/Escenarios/Elfa Pacifica.ogg';
+            URLfondo = 'resources/images/fondos/elfa.jpg';
+            break;
+        case 9:
+            audioSrc = 'resources/sounds/Escenarios/Pantano.wav';
+            URLfondo = 'resources/images/fondos/Pantano.jpg';
+            break;
+        case 10:
+            audioSrc = 'resources/sounds/Escenarios/Aldea indigena.wav';
+            URLfondo = 'resources/images/fondos/aldea.jpg';
+            break;
+        case 11:
+            audioSrc = 'resources/sounds/Escenarios/Avance de artilleria.ogg';
+            URLfondo = 'resources/images/fondos/artilleria.webp';
             break;
         default:
             console.log('Card no válida');
@@ -479,6 +517,8 @@ document.querySelectorAll('.option').forEach(option => {
 
 document.getElementById('next-card').addEventListener('click', () => {
     if (estados.fases === estado) {
+        audioNext.src = audioNextSrc;
+        audioNext.play();
         const nextCard = getRandomCardIndex();
         updateFases(nextCard);
     } else if (estados.pelea === estado) {

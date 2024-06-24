@@ -34,7 +34,7 @@ body button {
     height: 100%;
     background-color: black;
     opacity: 0;
-    transition: opacity .5s;
+    transition: opacity 3s;
     pointer-events: none;
     z-index: 10;
 }

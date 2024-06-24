@@ -7,6 +7,7 @@ export const cardLevels = [
                 health: -1,
                 attack: 0,
                 defense: 0,
+                suerte: 0,
                 result: "Exploras el bosque, pero te pierdes y te lastimas con las ramas. Pierdes 1 corazón."
             },
             {
@@ -14,6 +15,7 @@ export const cardLevels = [
                 health: 0,
                 attack: -1,
                 defense: +1,
+                suerte: 0,
                 result: "Encuentras un refugio seguro, pero pierdes algo de ataque mientras te aseguras. Ganas 1 de defensa, pierdes 1 de ataque."
             },
             {
@@ -21,6 +23,7 @@ export const cardLevels = [
                 health: +1,
                 attack: -1,
                 defense: 0,
+                suerte: -1,
                 result: "Enciendes una fogata y te calientas, recuperando algo de salud, pero atraes a algunos depredadores. Ganas 1 corazón, pierdes 1 de ataque."
             },
             {
@@ -28,6 +31,7 @@ export const cardLevels = [
                 health: 0,
                 attack: 0,
                 defense: 0,
+                suerte: 0,
                 result: "Decides seguir adelante sin detenerte. No ocurre nada significativo."
             }
         ]
@@ -40,6 +44,7 @@ export const cardLevels = [
                 health: -2,
                 attack: +1,
                 defense: 0,
+                suerte: 0,
                 result: "Luchas valientemente, pero recibes heridas graves. Pierdes 2 corazones y ganas 1 de ataque."
             },
             {
@@ -47,6 +52,7 @@ export const cardLevels = [
                 health: -1,
                 attack: 0,
                 defense: +1,
+                suerte: 0,
                 result: "Logras escapar, pero te lastimas en el proceso. Pierdes 1 corazón y ganas 1 de defensa."
             },
             {
@@ -54,6 +60,7 @@ export const cardLevels = [
                 health: 0,
                 attack: -1,
                 defense: 0,
+                suerte: 0,
                 result: "Intentas negociar, pero los bandidos no están interesados. Pierdes 1 de ataque."
             },
             {
@@ -61,6 +68,7 @@ export const cardLevels = [
                 health: 0,
                 attack: 0,
                 defense: +1,
+                suerte: 0,
                 result: "Te escondes hasta que los bandidos se van. Ganas 1 de defensa."
             }
         ]
@@ -73,20 +81,23 @@ export const cardLevels = [
                 health: +1,
                 attack: 0,
                 defense: 0,
+                suerte: +1,
                 result: "Bebes agua fresca y te sientes revitalizado. Ganas 1 corazón."
             },
             {
                 text: "Descansar",
                 health: +2,
-                attack: -1,
-                defense: 0,
-                result: "Descansas junto al manantial, recuperando fuerzas, pero descuidas tu guardia. Ganas 2 corazones y pierdes 1 de ataque."
+                attack: 0,
+                defense: -1,
+                suerte: 0,
+                result: "Descansas junto al manantial, recuperando fuerzas, pero descuidas tu guardia. Ganas 2 corazones y pierdes 1 de defensa."
             },
             {
                 text: "Ignorar",
                 health: 0,
                 attack: 0,
                 defense: 0,
+                suerte: -1,
                 result: "Decides no detenerte y sigues tu camino. No ocurre nada significativo."
             },
             {
@@ -94,6 +105,7 @@ export const cardLevels = [
                 health: 0,
                 attack: +1,
                 defense: 0,
+                suerte: 0,
                 result: "Buscas comida cerca del manantial y encuentras frutos. Ganas 1 de ataque."
             }
         ]
@@ -106,6 +118,7 @@ export const cardLevels = [
                 health: -1,
                 attack: 0,
                 defense: 0,
+                suerte: -1,
                 result: "Entras en la cueva y te caes en un agujero. Pierdes 1 corazón."
             },
             {
@@ -113,32 +126,36 @@ export const cardLevels = [
                 health: 0,
                 attack: 0,
                 defense: 0,
+                suerte: 0,
                 result: "Decides rodear la cueva y evitar cualquier peligro. No ocurre nada significativo."
             },
             {
                 text: "Investigar la entrada",
-                health: 0,
-                attack: +1,
+                health: +1,
+                attack: 0,
                 defense: 0,
-                result: "Investigando la entrada, encuentras una trampa antigua y la desactivas. Ganas 1 de ataque."
+                suerte: 0,
+                result: "Investigando la entrada, encuentras una trampa antigua y la desactivas. Ganas 1 corazóm."
             },
             {
                 text: "Ignorar la cueva",
                 health: 0,
                 attack: 0,
                 defense: 0,
-                result: "Decides ignorar la cueva y continuar tu camino. No ocurre nada significativo."
+                suerte: -1,
+                result: "Decides ignorar la cueva y continuar tu camino. Tu falta de curiosidad te hace sentir desafortunado."
             }
         ]
     },
     {
-        text: "Un mago aparece ante ti y te ofrece un trato. ¿Qué haces?",
+        text: "Un mago misterioso y de mal aspecto aparece ante ti y te ofrece un trato. ¿Qué haces?",
         options: [//4
             {
                 text: "Aceptar el trato",
                 health: 0,
                 attack: +2,
                 defense: -1,
+                suerte: 0,
                 result: "Aceptas el trato y el mago te otorga poderes, pero tu defensa se debilita. Ganas 2 de ataque y pierdes 1 de defensa."
             },
             {
@@ -146,6 +163,7 @@ export const cardLevels = [
                 health: 0,
                 attack: 0,
                 defense: 0,
+                suerte: +1,
                 result: "Rechazas el trato y sigues tu camino. No ocurre nada significativo."
             },
             {
@@ -153,6 +171,7 @@ export const cardLevels = [
                 health: 0,
                 attack: -1,
                 defense: 0,
+                suerte: -1,
                 result: "El mago se enfada por tus preguntas y lanza un pequeño hechizo contra ti. Pierdes 1 de ataque."
             },
             {
@@ -160,40 +179,45 @@ export const cardLevels = [
                 health: -2,
                 attack: +1,
                 defense: 0,
+                suerte: 0,
                 result: "Atacas al mago, pero te defiende con su magia. Pierdes 2 corazones y ganas 1 de ataque."
             }
         ]
     },
     {
-        text: "Caminando por el sendero, encuentras un cofre del tesoro. ¿Qué haces?",
+        text: "Aparece un grupo de niños y te ofrecen un regalo. ¿Qué haces?",
         options: [//5
             {
-                text: "Abrir el cofre",
+                text: "Tomas el regalo",
                 health: +1,
                 attack: +1,
                 defense: 0,
-                result: "Abres el cofre y encuentras tesoros que te fortalecen. Ganas 1 corazón y 1 de ataque."
+                suerte: +1,
+                result: "Tomas el regalo y resultan ser amuletos que te fortalecen. Ganas 1 corazón y 1 de ataque."
             },
             {
-                text: "Dejar el cofre",
+                text: "Rechazarlo",
                 health: 0,
                 attack: 0,
                 defense: 0,
-                result: "Decides dejar el cofre intacto y seguir tu camino. No ocurre nada significativo."
+                suerte: -1,
+                result: "Decides no tomar el regalo y seguir tu camino. No ocurre nada significativo."
             },
             {
-                text: "Investigar alrededor",
-                health: 0,
-                attack: +1,
+                text: "Atacar a los niños",
+                health: -1,
+                attack: 0,
                 defense: 0,
-                result: "Encuentras una trampa cerca del cofre y la desactivas. Ganas 1 de ataque."
+                suerte: 0,
+                result: "Atacas a los niños y el pueblo de enfurece. Pierdes 1 corazón."
             },
             {
-                text: "Vender el cofre",
+                text: "Vender el regalo",
                 health: 0,
-                attack: +2,
-                defense: -1,
-                result: "Vendes el cofre a un comerciante, ganando riquezas pero descuidando tu defensa. Ganas 2 de ataque y pierdes 1 de defensa."
+                attack: 0,
+                defense: +1,
+                suerte: 0,
+                result: "Vendes el regalo a un comerciante, intercambias por armaduras. Ganas 1 de defensa."
             }
         ]
     },
@@ -205,6 +229,7 @@ export const cardLevels = [
                 health: -2,
                 attack: +1,
                 defense: 0,
+                suerte: 0,
                 result: "Luchas contra el lobo y logras vencerlo, pero quedas herido. Pierdes 2 corazones y ganas 1 de ataque."
             },
             {
@@ -212,87 +237,98 @@ export const cardLevels = [
                 health: -1,
                 attack: 0,
                 defense: +1,
+                suerte: 0,
                 result: "Huyes del lobo, pero te lastimas en el proceso. Pierdes 1 corazón y ganas 1 de defensa."
             },
             {
                 text: "Alimentar al lobo",
-                health: 0,
-                attack: -1,
+                health: -1,
+                attack: 0,
                 defense: 0,
-                result: "Le das algo de tu comida al lobo, perdiendo algo de ataque pero evitando una pelea. Pierdes 1 de ataque."
+                suerte: 0,
+                result: "Le das algo de tu comida al lobo, pasarás algo de hambre por esto. Pierdes 1 corazón."
             },
             {
                 text: "Intentar domesticarlo",
                 health: 0,
                 attack: +2,
                 defense: 0,
+                suerte: 0,
                 result: "Logras domesticar al lobo, ganando un compañero feroz. Ganas 2 de ataque."
             }
         ]
     },
     {
-        text: "Después de horas caminando, llegas a un camino bifurcado. ¿Qué haces?",
+        text: "Vas cruzando un puente y comienza a romperse. ¿Qué haces?",
         options: [//7
             {
-                text: "Tomar el camino de la derecha",
-                health: 0,
-                attack: 0,
-                defense: 0,
-                result: "Tomas el camino de la derecha y sigues tu aventura. No ocurre nada significativo."
-            },
-            {
-                text: "Tomar el camino de la izquierda",
-                health: 0,
-                attack: 0,
-                defense: 0,
-                result: "Tomas el camino de la izquierda y sigues tu aventura. No ocurre nada significativo."
-            },
-            {
-                text: "Explorar ambos caminos",
+                text: "Correr",
                 health: -1,
                 attack: 0,
                 defense: 0,
-                result: "Exploras ambos caminos y te cansas. Pierdes 1 corazón."
+                suerte: 0,
+                result: "Tus pizotones hacen que el puente se rompa mas rápido y caes. Pierdes 1 corazón."
             },
             {
-                text: "Quedarse donde estás",
+                text: "Saltar hacia atras",
+                health: 0,
+                attack: -1,
+                defense: 0,
+                suerte: 0,
+                result: "Logras evitar la caida pero sin querer arrojas tu espada. Pierdes 1 de ataque."
+            },
+            {
+                text: "Saltar hacia adelante",
+                health: 0,
+                attack: 0,
+                defense: -1,
+                suerte: 0,
+                result: "Logras evitar la caida pero sin querer arrojas tu escudo. Pierdes 1 de escudo."
+            },
+            {
+                text: "Quedarte quieto",
                 health: 0,
                 attack: 0,
                 defense: 0,
-                result: "Decides quedarte y descansar un rato. No ocurre nada significativo."
+                suerte: +1,
+                result: "Decides quedarte quieto y el puente se estabiliza, te sientes afortnado."
             }
         ]
     },
     {
-        text: "Un anciano aparece en tu camino y te pide ayuda. ¿Qué haces?",
+        text: "Elfa pacífica aparece en tu camino y te pide ayuda. ¿Qué haces?",
         options: [//8
             {
-                text: "Ayudar al anciano",
+                text: "Ayudarla",
                 health: +1,
                 attack: 0,
                 defense: 0,
-                result: "Ayudas al anciano y él te bendice. Ganas 1 corazón."
+                suerte: +1,
+                result: "Ayudas a la elfa y ella te bendice. Ganas 1 corazón."
             },
             {
-                text: "Ignorar al anciano",
+                text: "Ignorarla",
                 health: 0,
                 attack: 0,
                 defense: 0,
-                result: "Decides ignorar al anciano y seguir tu camino. No ocurre nada significativo."
+                suerte: 0,
+                result: "Decides ignorar a la elfa y seguir tu camino. No ocurre nada significativo."
             },
             {
                 text: "Pedirle una recompensa",
                 health: 0,
                 attack: +1,
                 defense: 0,
-                result: "El anciano te da una recompensa por tu ayuda. Ganas 1 de ataque."
+                suerte: -1,
+                result: "La elfa te da una recompensa por tu ayuda. Ganas 1 de ataque."
             },
             {
-                text: "Robar al anciano",
+                text: "Robar a la elfa",
                 health: -1,
                 attack: +2,
                 defense: 0,
-                result: "Robas al anciano y te llevas sus pertenencias. Ganas 2 de ataque y pierdes 1 corazón."
+                suerte: -1,
+                result: "Robas a la elfa y te llevas sus pertenencias. Ganas 2 de ataque y pierdes 1 corazón."
             }
         ]
     },
@@ -304,6 +340,7 @@ export const cardLevels = [
                 health: -1,
                 attack: 0,
                 defense: 0,
+                suerte: 0,
                 result: "Atravesar el pantano es agotador y te lastimas. Pierdes 1 corazón."
             },
             {
@@ -311,32 +348,36 @@ export const cardLevels = [
                 health: 0,
                 attack: 0,
                 defense: 0,
+                suerte: 0,
                 result: "Decides rodear el pantano y evitar cualquier peligro. No ocurre nada significativo."
             },
             {
                 text: "Buscar un bote",
-                health: 0,
-                attack: +1,
+                health: +1,
+                attack: 0,
                 defense: 0,
-                result: "Encuentras un bote y lo usas para cruzar el pantano. Ganas 1 de ataque."
+                suerte: +1,
+                result: "Encuentras un bote y lo usas para cruzar el pantano. Ganas 1 corazón."
             },
             {
                 text: "Descansar en la orilla",
                 health: +1,
-                attack: -1,
-                defense: 0,
-                result: "Descansas en la orilla y recuperas energía, pero pierdes un poco de ataque. Ganas 1 corazón y pierdes 1 de ataque."
+                attack: 0,
+                defense: -1,
+                suerte: 0,
+                result: "Descansas en la orilla y recuperas energía, pero te descuidas un poco. Ganas 1 corazón y pierdes 1 de defensa."
             }
         ]
     },
     {
-        text: "De repente, te topas con una tribu hostil. ¿Qué haces?",
+        text: "De repente, te topas con una aldea indígena. ¿Qué haces?",
         options: [//10
             {
                 text: "Atacar a la tribu",
                 health: -2,
                 attack: +1,
                 defense: 0,
+                suerte: 0,
                 result: "Atacas a la tribu y aunque ganas, sufres graves heridas. Pierdes 2 corazones y ganas 1 de ataque."
             },
             {
@@ -344,6 +385,7 @@ export const cardLevels = [
                 health: -1,
                 attack: 0,
                 defense: +1,
+                suerte: 0,
                 result: "Huyes rápidamente, pero te lastimas en el proceso. Pierdes 1 corazón y ganas 1 de defensa."
             },
             {
@@ -351,6 +393,7 @@ export const cardLevels = [
                 health: 0,
                 attack: -1,
                 defense: 0,
+                suerte: -1,
                 result: "Intentas negociar, pero la tribu no está interesada. Pierdes 1 de ataque."
             },
             {
@@ -358,40 +401,45 @@ export const cardLevels = [
                 health: 0,
                 attack: 0,
                 defense: 0,
+                suerte: +1,
                 result: "Observas desde lejos y decides no intervenir. No ocurre nada significativo."
             }
         ]
     },
     {
-        text: "Te encuentras con un puente viejo y roto en tu camino. ¿Qué haces?",
+        text: "Te encuentras con el avance de toda una artillería de guerra. ¿Qué haces?",
         options: [//11
             {
-                text: "Cruzar el puente",
+                text: "Intentar robarles",
                 health: -1,
                 attack: 0,
                 defense: 0,
-                result: "Intentas cruzar el puente, pero una tabla se rompe y te caes. Pierdes 1 corazón."
+                suerte: 0,
+                result: "Intentas robarles y te atacan. Pierdes 1 corazón."
             },
             {
                 text: "Buscar otro camino",
                 health: 0,
                 attack: 0,
                 defense: 0,
-                result: "Decides buscar otro camino y evitar el puente. No ocurre nada significativo."
+                suerte: -1,
+                result: "Evitas cruzarte con ellos, piensas en lo bueno que hubiese sido obtener algo de lo suyo."
             },
             {
-                text: "Reparar el puente",
+                text: "Presentarte como aliado",
                 health: 0,
-                attack: +1,
+                attack: +3,
                 defense: 0,
-                result: "Reparas el puente y aseguras tu paso. Ganas 1 de ataque."
+                suerte: +1,
+                result: "Te presentas como aliado y te creen, obtienes buen armamento. Ganas 3 de ataque."
             },
             {
-                text: "Esperar ayuda",
+                text: "Intentar negociar",
                 health: 0,
                 attack: 0,
                 defense: 0,
-                result: "Decides esperar ayuda y descansar. No ocurre nada significativo."
+                suerte: 0,
+                result: "Intentas negociar con ellos pero no estan interesados. No ocurre nada significativo."
             }
         ]
     },
@@ -403,6 +451,7 @@ export const cardLevels = [
                 health: -3,
                 attack: +2,
                 defense: 0,
+                suerte: 0,
                 result: "Atacas al dragón, pero recibes graves heridas antes de vencerlo. Pierdes 3 corazones y ganas 2 de ataque."
             },
             {
@@ -410,6 +459,7 @@ export const cardLevels = [
                 health: 0,
                 attack: 0,
                 defense: 0,
+                suerte: 0,
                 result: "Decides escabullirte sin despertar al dragón. No ocurre nada significativo."
             },
             {
@@ -417,6 +467,7 @@ export const cardLevels = [
                 health: 0,
                 attack: +1,
                 defense: 0,
+                suerte: 0,
                 result: "Encuentras un objeto valioso cerca del dragón y lo tomas sin despertar al dragón. Ganas 1 de ataque."
             },
             {
@@ -424,6 +475,7 @@ export const cardLevels = [
                 health: 0,
                 attack: -1,
                 defense: 0,
+                suerte: 0,
                 result: "Intentas hablar con el dragón, pero te responde con un rugido. Pierdes 1 de ataque."
             }
         ]
@@ -436,6 +488,7 @@ export const cardLevels = [
                 health: 0,
                 attack: +1,
                 defense: 0,
+                suerte: 0,
                 result: "Entras al santuario y encuentras un objeto sagrado que aumenta tu poder. Ganas 1 de ataque."
             },
             {
@@ -443,6 +496,7 @@ export const cardLevels = [
                 health: 0,
                 attack: 0,
                 defense: 0,
+                suerte: 0,
                 result: "Decides rodear el santuario y evitar cualquier peligro. No ocurre nada significativo."
             },
             {
@@ -450,6 +504,7 @@ export const cardLevels = [
                 health: +1,
                 attack: -1,
                 defense: 0,
+                suerte: 0,
                 result: "Descansas en el santuario y recuperas fuerzas, pero pierdes algo de tu poder ofensivo. Ganas 1 corazón y pierdes 1 de ataque."
             },
             {
@@ -457,6 +512,7 @@ export const cardLevels = [
                 health: 0,
                 attack: 0,
                 defense: 0,
+                suerte: 0,
                 result: "Investigas los alrededores, pero no encuentras nada interesante. No ocurre nada significativo."
             }
         ]
@@ -469,6 +525,7 @@ export const cardLevels = [
                 health: +1,
                 attack: 0,
                 defense: 0,
+                suerte: 0,
                 result: "Compras pociones del comerciante y te sientes más saludable. Ganas 1 corazón."
             },
             {
@@ -476,6 +533,7 @@ export const cardLevels = [
                 health: 0,
                 attack: +1,
                 defense: 0,
+                suerte: 0,
                 result: "Vendes algunos objetos al comerciante y obtienes mejores armas. Ganas 1 de ataque."
             },
             {
@@ -483,6 +541,7 @@ export const cardLevels = [
                 health: -2,
                 attack: +2,
                 defense: 0,
+                suerte: 0,
                 result: "Robas al comerciante y te llevas sus pertenencias, pero sufres heridas en el proceso. Ganas 2 de ataque y pierdes 2 corazones."
             },
             {
@@ -490,6 +549,7 @@ export const cardLevels = [
                 health: 0,
                 attack: 0,
                 defense: 0,
+                suerte: 0,
                 result: "Decides ignorar al comerciante y seguir tu camino. No ocurre nada significativo."
             }
         ]
@@ -502,6 +562,7 @@ export const cardLevels = [
                 health: 0,
                 attack: 0,
                 defense: +1,
+                suerte: 0,
                 result: "Encuentras refugio y te proteges de la tormenta. Ganas 1 de defensa."
             },
             {
@@ -509,6 +570,7 @@ export const cardLevels = [
                 health: -1,
                 attack: 0,
                 defense: 0,
+                suerte: 0,
                 result: "Decides seguir adelante a pesar de la tormenta y te lastimas. Pierdes 1 corazón."
             },
             {
@@ -516,6 +578,7 @@ export const cardLevels = [
                 health: 0,
                 attack: +1,
                 defense: 0,
+                suerte: 0,
                 result: "Construyes un refugio improvisado y te mantienes a salvo. Ganas 1 de ataque."
             },
             {
@@ -523,6 +586,7 @@ export const cardLevels = [
                 health: 0,
                 attack: -1,
                 defense: 0,
+                suerte: 0,
                 result: "Esperas a que pase la tormenta, pero te aburres y pierdes algo de tu espíritu combativo. Pierdes 1 de ataque."
             }
         ]
@@ -535,6 +599,7 @@ export const cardLevels = [
                 health: 0,
                 attack: +2,
                 defense: -1,
+                suerte: 0,
                 result: "Aceptas la sabiduría del espíritu, pero pierdes algo de tu defensa. Ganas 2 de ataque y pierdes 1 de defensa."
             },
             {
@@ -542,6 +607,7 @@ export const cardLevels = [
                 health: 0,
                 attack: 0,
                 defense: 0,
+                suerte: 0,
                 result: "Rechazas la oferta del espíritu y sigues tu camino. No ocurre nada significativo."
             },
             {
@@ -549,6 +615,7 @@ export const cardLevels = [
                 health: -1,
                 attack: 0,
                 defense: 0,
+                suerte: 0,
                 result: "Huyes del espíritu, pero te lastimas en el proceso. Pierdes 1 corazón."
             },
             {
@@ -556,6 +623,7 @@ export const cardLevels = [
                 health: -2,
                 attack: +1,
                 defense: 0,
+                suerte: 0,
                 result: "Atacas al espíritu y logras vencerlo, pero te deja debilitado. Pierdes 2 corazones y ganas 1 de ataque."
             }
         ]
@@ -568,6 +636,7 @@ export const cardLevels = [
                 health: +1,
                 attack: 0,
                 defense: 0,
+                suerte: 0,
                 result: "Recoges algunas flores y te sientes revitalizado. Ganas 1 corazón."
             },
             {
@@ -575,6 +644,7 @@ export const cardLevels = [
                 health: +2,
                 attack: -1,
                 defense: 0,
+                suerte: 0,
                 result: "Descansas en el campo y recuperas energías, pero pierdes algo de tu fuerza. Ganas 2 corazones y pierdes 1 de ataque."
             },
             {
@@ -582,6 +652,7 @@ export const cardLevels = [
                 health: 0,
                 attack: 0,
                 defense: 0,
+                suerte: 0,
                 result: "Decides ignorar el campo y seguir tu camino. No ocurre nada significativo."
             },
             {
@@ -589,6 +660,7 @@ export const cardLevels = [
                 health: 0,
                 attack: +1,
                 defense: 0,
+                suerte: 0,
                 result: "Investigas las flores y descubres propiedades mágicas. Ganas 1 de ataque."
             }
         ]
@@ -601,6 +673,7 @@ export const cardLevels = [
                 health: -2,
                 attack: +2,
                 defense: 0,
+                suerte: 0,
                 result: "Desafías al caballero a un duelo y, aunque resultas herido, lo vences. Pierdes 2 corazones y ganas 2 de ataque."
             },
             {
@@ -608,6 +681,7 @@ export const cardLevels = [
                 health: 0,
                 attack: +1,
                 defense: 0,
+                suerte: 0,
                 result: "Hablas con el caballero y te da valiosos consejos de combate. Ganas 1 de ataque."
             },
             {
@@ -615,6 +689,7 @@ export const cardLevels = [
                 health: 0,
                 attack: 0,
                 defense: 0,
+                suerte: 0,
                 result: "Decides ignorar al caballero y seguir tu camino. No ocurre nada significativo."
             },
             {
@@ -622,6 +697,7 @@ export const cardLevels = [
                 health: +1,
                 attack: 0,
                 defense: 0,
+                suerte: 0,
                 result: "Ayudas al caballero con sus problemas y él te agradece con una bendición. Ganas 1 corazón."
             }
         ]
@@ -634,6 +710,7 @@ export const cardLevels = [
                 health: 0,
                 attack: +1,
                 defense: 0,
+                suerte: 0,
                 result: "Subes al barco y encuentras equipo útil. Ganas 1 de ataque."
             },
             {
@@ -641,6 +718,7 @@ export const cardLevels = [
                 health: 0,
                 attack: 0,
                 defense: 0,
+                suerte: 0,
                 result: "Decides rodear el barco y evitar cualquier peligro. No ocurre nada significativo."
             },
             {
@@ -648,6 +726,7 @@ export const cardLevels = [
                 health: +1,
                 attack: +1,
                 defense: 0,
+                suerte: 0,
                 result: "Encuentras tesoros a bordo y te sientes revitalizado y fortalecido. Ganas 1 corazón y 1 de ataque."
             },
             {
@@ -655,6 +734,7 @@ export const cardLevels = [
                 health: 0,
                 attack: 0,
                 defense: 0,
+                suerte: 0,
                 result: "Decides evitar el barco y seguir tu camino. No ocurre nada significativo."
             }
         ]
@@ -667,6 +747,7 @@ export const cardLevels = [
                 health: -2,
                 attack: +2,
                 defense: 0,
+                suerte: 0,
                 result: "Rescatas a la princesa, pero resultas herido en la lucha. Pierdes 2 corazones y ganas 2 de ataque."
             },
             {
@@ -674,6 +755,7 @@ export const cardLevels = [
                 health: 0,
                 attack: 0,
                 defense: 0,
+                suerte: 0,
                 result: "Decides ignorar a la princesa y seguir tu camino. No ocurre nada significativo."
             },
             {
@@ -681,6 +763,7 @@ export const cardLevels = [
                 health: 0,
                 attack: +1,
                 defense: 0,
+                suerte: 0,
                 result: "Pides una recompensa por rescatar a la princesa y ella te da una valiosa joya. Ganas 1 de ataque."
             },
             {
@@ -688,6 +771,7 @@ export const cardLevels = [
                 health: -1,
                 attack: +1,
                 defense: 0,
+                suerte: 0,
                 result: "Luchas contra los captores de la princesa y logras vencerlos, aunque sufres algunas heridas. Pierdes 1 corazón y ganas 1 de ataque."
             }
         ]
