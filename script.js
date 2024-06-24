@@ -57,8 +57,10 @@ function updateInicio() {
     siguiente.style.display = 'inline-block';
     siguiente.addEventListener('click', () => {
         initializeAudioContext();
-        estado = estados.fases;
-        update();
+        if ( estado === estados.inicio){
+            estado = estados.fases;
+            update();
+        }
     });
 }
 
@@ -73,8 +75,9 @@ function updateFinal() {
 }
 
 function animateStoryToFinalBoss() {
-    document.querySelector('body').style.backgroundImage = "url('resources/images/fondos/Arena.png')";
     const options = document.querySelectorAll('.option');
+    options[0].style.display = 'inline-block';
+    options[1].style.display = 'inline-block';
     options[2].style.display = 'none';
     options[3].style.display = 'none';
 
@@ -112,7 +115,25 @@ function updateStatus() {
 
 function updateFases(cardIndex) {
 
+    player.fase++;
+
+    if (player.fase >= maxFases) {
+        const audioSrc = 'resources/sounds/Boss Final/Batalla Final 1.ogg';
+        URLfondo = 'resources/images/fondos/Arena.png';
+        cambiarFondo(URLfondo);
+        playBackgroundMusic(audioSrc);
+        estado = estados.pelea;
+        document.getElementById('story-text').style.display = 'none';
+        setTimeout(() => {
+            document.getElementById('story-text').style.display = 'block';
+            animateStoryToFinalBoss();
+        }, tiempoAnimacion);
+        update();
+    }else{
+
     cambiarFondo(URLfondo);
+
+    updateStatus();
 
     setTimeout(() => {
         
@@ -136,7 +157,7 @@ function updateFases(cardIndex) {
     
     }, tiempoAnimacion); 
 
-
+}
 }
 
 //--------------------Manejo de audio--------------------
@@ -302,18 +323,14 @@ function handleOptionClick(event) {
     updateStats('health', healthChange);
     updateStats('attack', attackChange);
     updateStats('defense', defenseChange);
-    player.fase++;
 
     updateStatus();
 
     if (player.health <= 0) {
         alert('Has perdido el juego.');
         resetGame();
-    } else if (player.fase >= maxFases) {
-        estado = estados.pelea;
-        animateStoryToFinalBoss();
-        update();
-    } else {
+    } 
+    else {
         document.getElementById('result-text').textContent = resultText;
         document.querySelectorAll('#options .option').forEach(option => {
             option.style.display = 'none';
