@@ -457,6 +457,10 @@ async function handleBossFight(event) {
         bossElement.style.transition = 'transform .8s';
         bossElement.style.transform = 'translate(-150px, 100px)';
         bossElement.src = finalBoss.attackAnimation;
+        const defenseBoost = Math.ceil(getRandomInt(2, 5) * (1 + luckFactor));
+        player.temporaryDefense = defenseBoost;
+        updateStats('defense', defenseBoost);
+        
         await sleep(300);
         const playerElement = document.getElementById('player');
         playerElement.src = player.defenseAnimation;
@@ -466,9 +470,6 @@ async function handleBossFight(event) {
         bossElement.src = finalBoss.idleAnimation;
 
         await sleep(200);
-        const defenseBoost = Math.ceil(getRandomInt(2, 5) * (1 + luckFactor));
-        player.temporaryDefense = defenseBoost;
-        updateStats('defense', defenseBoost);
         const bossAttackStrength = Math.ceil(finalBoss.puntosAtaque * (1 + luckFactor));
         if (bossAttackStrength - player.defense > 0) {
             const damage = bossAttackStrength - player.defense;
