@@ -76,7 +76,7 @@ let estado = estados.inicio;
 
 let URLfondo = '';
 
-const maxFases = 2;
+const maxFases = 6;
 
 const tiempoAnimacion = 3000;
 
@@ -655,6 +655,7 @@ update();
 document.addEventListener('DOMContentLoaded', function() {
     const buttons = document.querySelectorAll('.soundNormalClick');
     const clickSound = new Audio('resources/sounds/Interfaz/Click comun.wav');
+    clickSound.volume = 0.15;
     initializeAudioContext()
 
     buttons.forEach(button => {
@@ -662,4 +663,15 @@ document.addEventListener('DOMContentLoaded', function() {
             clickSound.play();
         });
     });
+    //Bajarle el volumen a todos los audios
+    const audios = document.querySelectorAll('audio');
+
+    function setVolumeForAllAudios(volume) {
+        audios.forEach(audio => {
+            audio.volume = volume;
+        });
+    }
+
+    setVolumeForAllAudios(0.15);
+
 });
