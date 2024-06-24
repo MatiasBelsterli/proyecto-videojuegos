@@ -8,7 +8,6 @@ html, body {
 
 body {
     font-family: 'MedievalSharp', cursive;
-    font-weight: bold;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,6 +19,70 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
+}
+
+.view {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.start-button {
+    background-color: #b8860b;
+    color: #fff;
+    border: 2px solid #8b4513;
+}
+.character-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px;
+    width: 80vw;
+    height: 80vh;
+}
+
+.character {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.13);
+    border: 2px solid #8b4513;
+    border-radius: 10px;
+    padding: 10px;
+    transition: transform 0.3s ease;
+}
+
+.character img {
+    width: 80%;
+    height: auto;
+    max-height: 80%;
+}
+
+.character-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.character:hover {
+    z-index: 69;
+    transform: scale(1.05);
+}
+
+.character:hover .character-info {
+    transform: translateY(0);
 }
 
 body button {

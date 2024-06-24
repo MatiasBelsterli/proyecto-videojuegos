@@ -7,9 +7,51 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <audio id="audio" src=""></audio>
-    <div class="overlay"></div>
-    <div id="fase">Fase 1</div>
+    <div id="character-selection" class="view">
+        <div class="character-container">
+            <div class="character" id="character1">
+                <img src="resources/personajes/explorador/idle.gif" alt="Ethan">
+                <div class="character-info">
+                    <h2>Ethan, el Aventurero Traicionado</h2>
+                    <p>Un explorador astuto con un alto nivel de defensa y una suerte media.</p>
+                    <p>Fue traicionado por su mejor amigo. Busca venganza mientras navega por terrenos peligrosos.</p>
+                    <button class="start-button" data-character="Ethan">Seleccionar</button>
+                </div>
+            </div>
+            <div class="character" id="character2">
+                <img src="resources/personajes/guerrero/idle.gif" alt="Aldric">
+                <div class="character-info">
+                    <h2>Aldric, el Guerrero que Salva a la Princesa</h2>
+                    <p>Un guerrero valiente con altos niveles de ataque y defensa, pero una suerte baja.</p>
+                    <p>Aldric se embarcó en una misión para rescatar a la princesa capturada por fuerzas oscuras.</p>
+                    <button class="start-button" data-character="Aldric">Seleccionar</button>
+                </div>
+            </div>
+            <div class="character" id="character3">
+                <img src="resources/personajes/dios/idle.gif" alt="Zephyr">
+                <div class="character-info">
+                    <h2>Zephyr, Dios</h2>
+                    <p>Una entidad divina con estadísticas equilibradas y una alta suerte.</p>
+                    <p>Zephyr tiene el poder de alterar la realidad. Su objetivo es restaurar el equilibrio en el mundo.</p>
+                    <button class="start-button" data-character="Zephyr">Seleccionar</button>
+                </div>
+            </div>
+            <div class="character" id="character4">
+                <img src="resources/personajes/doncella/idle.gif" alt="Dish Washington">
+                <div class="character-info">
+                    <h2>Dish Washington, la Doncella Rebelde</h2>
+                    <p>Una joven y dedicada ama de casa quien es buscada por los más nobles guerreros debido a su bendición obtenida por parte del Dios Zephyr.</p>
+                    <p>Dish fue rescatada por Aldric traicionando así a su mejor amigo Ethan. Ahora se dedica puramente a esquivar sus males intencionalmente causados y a mantener brillante la espada de Aldric.</p>
+                    <button class="start-button" data-character="Dish Washington">Seleccionar</button>
+                </div>
+            </div>
+        </div>
+    </div>    
+
+    <div id="game-view" class="view" style="display: none; font-weight: bold;">
+        <audio id="audio" src=""></audio>
+        <div class="overlay"></div>
+        <div id="fase">Fase 1</div>
         <div id="statusFinalBoss" class="status invisible">
             <div>
                 <img src="resources/images/corazon.png" alt="Corazón Enemigo" width="20" height="20">
@@ -26,12 +68,11 @@
         </div>
 
         <div id="finalBossEnemy" class="invisible">
-            <p id="puntos-ataque" ></p>
+            <p id="puntos-ataque"></p>
             <img id="enemy" src="resources/personajes/boss/BossEstatico.gif" alt="Enemigo">
         </div>
-        <div id="finalPlayer" class="invisible">          
-            <img id="player" src="resources/personajes/guerrero/GuerreroEstatico.gif" alt="Jugador">
-            <!-- <img id="player" src="resources/personajes/doncella/Doncella_Estatica_Transparent_v2.gif" alt="Enemigo"> -->
+        <div id="finalPlayer" class="invisible">
+            <img id="player" src="resources/personajes/guerrero/idle.gif" alt="Enemigo">
         </div>
         <div id="status" class="status">
             <div>
@@ -60,6 +101,8 @@
         <div id="result" style="display: none;">
             <p id="result-text"></p>
         </div>
+    </div>
+
     <script type="module" src="script.js"></script>
 </body>
 </html>
