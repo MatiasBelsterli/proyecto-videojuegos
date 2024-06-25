@@ -135,7 +135,38 @@ function update() {
 }
 
 function updateInicio() {
-    document.getElementById('story-text').textContent = '¡Bienvenido a la aventura! ¿Estás listo para comenzar?';
+    const audios = document.querySelectorAll('audio');
+    audios.forEach(audio => {
+        audio.volume = .15;
+    });
+    document.querySelector('#start-game button').addEventListener('click', () => {
+        document.getElementById('start-game').style.display = 'none';
+        animateTransitionToSelectCharacter();
+    });
+}
+async function animateTransitionToSelectCharacter() {
+    const characterSelection = document.getElementById('character-selection');
+    characterSelection.style.display = 'flex';
+    setTimeout(()=> {
+        characterSelection.style.pointerEvents = 'auto';
+    }, 1000)
+
+    await sleep(10);
+    characterSelection.style.width = '100%';
+    seleccionarPersonaje()
+}
+
+document.getElementById('volume').addEventListener('input', function(event) {
+    const volume = event.target.value;
+    const audios = document.querySelectorAll('audio');
+    audios.forEach(audio => {
+        audio.volume = volume/100;
+    });
+    console.log(`Volumen: ${volume}`);
+});
+
+function seleccionarPersonaje() {
+    document.getElementById('story-text').textContent = 'Esta es tu aventura, tú decides su final. ¿Estás listo?';
     const options = document.querySelectorAll('.option');
     options[0].style.display = 'none';
     options[1].style.display = 'none';
@@ -144,10 +175,12 @@ function updateInicio() {
     document.getElementById('story').style.display = 'block';
     document.getElementById('result').style.display = 'none';
     const siguiente = document.getElementById('next-card');
+    siguiente.textContent = '¡Estoy listo!';
     siguiente.style.display = 'inline-block';
     siguiente.addEventListener('click', () => {
+        siguiente.textContent = 'Siguiente';
         initializeAudioContext();
-        if ( estado === estados.inicio){
+        if (estado === estados.inicio){
             estado = estados.fases;
             update();
         }
@@ -707,15 +740,4 @@ document.addEventListener('DOMContentLoaded', function() {
             clickSound.play();
         });
     });
-    //Bajarle el volumen a todos los audios
-    const audios = document.querySelectorAll('audio');
-
-    function setVolumeForAllAudios(volume) {
-        audios.forEach(audio => {
-            audio.volume = volume;
-        });
-    }
-
-    setVolumeForAllAudios(0.15);
-
 });
