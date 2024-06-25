@@ -5,9 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Path Destiny</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="ico.png" type="image/x-icon">
 </head>
 <body>
     <div class="overlay"></div>
+
+    <div id="start-game" class="view">
+        <div class="container">
+            <h1 class="title">Path Destiny</h1>
+            <div class="volume-control">
+                <label for="volume">Volumen:</label>
+                <input type="range" id="volume" name="volume" min="0" max="100" value="15">
+            </div>
+            <button class="start-selectCharacter">Comenzar</button>
+        </div>
+    </div>
+
     <div id="character-selection" class="view">
         <div class="character-container">
             <div class="character" id="character1">

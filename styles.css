@@ -55,6 +55,20 @@ body {
     position: relative;
 }
 
+#start-game, #character-selection {
+    margin-bottom: 20px; /* Espacio entre elementos */
+    overflow: hidden; /* Ocultar el contenido que excede */
+}
+#character-selection {
+    display: none; /* Inicialmente oculto */
+    width: 0;
+    flex-direction: row; /* Dirección del contenido */
+    justify-content: space-around; /* Distribución uniforme */
+    align-items: center; /* Alinear en el centro */
+    transition: width 1s ease-in;
+    pointer-events: none; /* Desactivar eventos del mouse */
+}
+
 .view {
     width: 100%;
     height: 100%;
@@ -360,4 +374,44 @@ body button {
         cursor: not-allowed;
         background-color: #b8860b;
     }
+}
+
+.container {
+    text-align: center;
+    font-weight: bold;
+}
+
+.title {
+    font-size: 4em;
+    margin-bottom: 160px;
+    color: #ffcc00;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.volume-control {
+    margin-bottom: 20px;
+}
+
+.volume-control label {
+    margin-right: 10px;
+    color: #fff;
+}
+
+#volume {
+    width: 300px;
+}
+
+.start-selectCharacter {
+    font-size: 1.5em;
+    padding: 10px 20px;
+    background-color: #ffcc00;
+    border: none;
+    border-radius: 5px;
+    color: #282c34;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.start-selectCharacter:hover {
+    background-color: #ff9900;
 }
