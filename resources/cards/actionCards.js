@@ -444,23 +444,23 @@ export const cardLevels = [
         ]
     },
     {
-        text: "Después de un largo viaje, te enfrentas a un dragón dormido. ¿Qué haces?",
+        text: "Después de un largo viaje, te adentras en una cueva donde encuentras un dragón dormido. ¿Qué haces?",
         options: [//12
             {
                 text: "Atacar al dragón",
                 health: -3,
-                attack: +2,
+                attack: 0,
                 defense: 0,
-                suerte: 0,
-                result: "Atacas al dragón, pero recibes graves heridas antes de vencerlo. Pierdes 3 corazones y ganas 2 de ataque."
+                suerte: +1,
+                result: "Atacas al dragón y te genera daños graves, te sientes afortunado de no haber muerto. Pierdes 3 corazones."
             },
             {
                 text: "Escabullirse",
                 health: 0,
                 attack: 0,
                 defense: 0,
-                suerte: 0,
-                result: "Decides escabullirte sin despertar al dragón. No ocurre nada significativo."
+                suerte: +1,
+                result: "Decides escabullirte sin despertar al dragón, afortunadamente no lo despiestas. No ocurre nada significativo."
             },
             {
                 text: "Tomar un objeto cercano",
@@ -468,65 +468,65 @@ export const cardLevels = [
                 attack: +1,
                 defense: 0,
                 suerte: 0,
-                result: "Encuentras un objeto valioso cerca del dragón y lo tomas sin despertar al dragón. Ganas 1 de ataque."
+                result: "Encuentras un arma valiosa cerca del dragón y la tomas sin despertarlo. Ganas 1 de ataque."
             },
             {
                 text: "Hablar con el dragón",
                 health: 0,
-                attack: -1,
-                defense: 0,
+                attack: 0,
+                defense: -1,
                 suerte: 0,
-                result: "Intentas hablar con el dragón, pero te responde con un rugido. Pierdes 1 de ataque."
+                result: "Intentas hablar con el dragón, pero te responde con un rugido, pierdes parte de tu armadura huyendo. Pierdes 1 de defensa."
             }
         ]
     },
     {
-        text: "Llevas horas caminando hasta que te topas con un antiguo santuario abandonado. ¿Qué haces?",
+        text: "Llevas horas caminando hasta que te topas con un antiguo mausoleo. ¿Qué haces?",
         options: [//13
             {
-                text: "Entrar al santuario",
+                text: "Entrar al mausoleo",
                 health: 0,
                 attack: +1,
                 defense: 0,
-                suerte: 0,
-                result: "Entras al santuario y encuentras un objeto sagrado que aumenta tu poder. Ganas 1 de ataque."
+                suerte: +1,
+                result: "Entras al mausoleo y encuentras un objeto sagrado que aumenta tu poder. Ganas 1 de ataque."
             },
             {
-                text: "Rodear el santuario",
+                text: "Rodear el mausoleo",
                 health: 0,
                 attack: 0,
                 defense: 0,
-                suerte: 0,
-                result: "Decides rodear el santuario y evitar cualquier peligro. No ocurre nada significativo."
+                suerte: -1,
+                result: "Decides rodear el mausoleo y evitar cualquier peligro. No ocurre nada significativo."
             },
             {
-                text: "Descansar en el santuario",
-                health: +1,
-                attack: -1,
+                text: "Descansar en el mausoleo",
+                health: +2,
+                attack: 0,
                 defense: 0,
                 suerte: 0,
-                result: "Descansas en el santuario y recuperas fuerzas, pero pierdes algo de tu poder ofensivo. Ganas 1 corazón y pierdes 1 de ataque."
+                result: "Descansas en el mausoleo y recuperas fuerzas, aquí estas a salvo. Ganas 2 corazones."
             },
             {
                 text: "Investigar los alrededores",
-                health: 0,
+                health: -1,
                 attack: 0,
                 defense: 0,
                 suerte: 0,
-                result: "Investigas los alrededores, pero no encuentras nada interesante. No ocurre nada significativo."
+                result: "Investigas los alrededores y caes en una trampa. Pierdes 1 corazón."
             }
         ]
     },
     {
-        text: "Te cruzas con un comerciante viajero en el camino. ¿Qué haces?",
+        text: "Te cruzas con un mercadito en el camino. ¿Qué haces?",
         options: [//14
             {
                 text: "Comprar pociones",
                 health: +1,
                 attack: 0,
                 defense: 0,
-                suerte: 0,
-                result: "Compras pociones del comerciante y te sientes más saludable. Ganas 1 corazón."
+                suerte: +1,
+                result: "Compras pociones a comerciantes y te sientes más saludable. Ganas 1 corazón."
             },
             {
                 text: "Vender objetos",
@@ -534,73 +534,73 @@ export const cardLevels = [
                 attack: +1,
                 defense: 0,
                 suerte: 0,
-                result: "Vendes algunos objetos al comerciante y obtienes mejores armas. Ganas 1 de ataque."
+                result: "Vendes algunos objetos a un comerciante y obtienes mejores armas. Ganas 1 de ataque."
             },
             {
-                text: "Robar al comerciante",
+                text: "Robar",
                 health: -2,
                 attack: +2,
                 defense: 0,
                 suerte: 0,
-                result: "Robas al comerciante y te llevas sus pertenencias, pero sufres heridas en el proceso. Ganas 2 de ataque y pierdes 2 corazones."
+                result: "Robas al comerciante y te llevas sus armas, pero sufres heridas en el proceso. Ganas 2 de ataque y pierdes 2 corazones."
             },
             {
-                text: "Ignorar al comerciante",
+                text: "Seguir adelante",
                 health: 0,
                 attack: 0,
                 defense: 0,
                 suerte: 0,
-                result: "Decides ignorar al comerciante y seguir tu camino. No ocurre nada significativo."
+                result: "Decides ignorar seguir tu camino. No ocurre nada significativo."
             }
         ]
     },
     {
-        text: "Ves que una tormenta se aproxima rápidamente. ¿Qué haces?",
+        text: "Luego de caminar un rato, te encuentras una insignia en el suelo. ¿Qué haces?",
         options: [//15
             {
-                text: "Buscar refugio",
+                text: "Tomar la insignia",
                 health: 0,
                 attack: 0,
-                defense: +1,
-                suerte: 0,
-                result: "Encuentras refugio y te proteges de la tormenta. Ganas 1 de defensa."
+                defense: +2,
+                suerte: +1,
+                result: "Resulta ser de gran valor y la intercambias por armaduras. Ganas 2 de defensa."
             },
             {
-                text: "Continuar el viaje",
-                health: -1,
+                text: "Destruir la insignia",
+                health: 0,
+                attack: 0,
+                defense: 0,
+                suerte: -1,
+                result: "Decides destruir la insignia. No ocurre nada significativo."
+            },
+            {
+                text: "Continuar tu camino",
+                health: 0,
                 attack: 0,
                 defense: 0,
                 suerte: 0,
-                result: "Decides seguir adelante a pesar de la tormenta y te lastimas. Pierdes 1 corazón."
+                result: "Decides continuar con tu camino sin darle importancia. No ocurre nada significativo."
             },
             {
-                text: "Construir un refugio",
-                health: 0,
-                attack: +1,
+                text: "Mirar alrededor",
+                health: +1,
+                attack: 0,
                 defense: 0,
-                suerte: 0,
-                result: "Construyes un refugio improvisado y te mantienes a salvo. Ganas 1 de ataque."
-            },
-            {
-                text: "Esperar a que pase",
-                health: 0,
-                attack: -1,
-                defense: 0,
-                suerte: 0,
-                result: "Esperas a que pase la tormenta, pero te aburres y pierdes algo de tu espíritu combativo. Pierdes 1 de ataque."
+                suerte: +1,
+                result: "Encuentras al dueño de la insignia no muy lejos, este te bendice. Ganas 1 corazón."
             }
         ]
     },
     {
-        text: "Un espíritu se manifiesta ante ti y te ofrece sabiduría. ¿Qué haces?",
+        text: "Un aldeano oriental se muestra ante ti y te ofrece su sabiduría. ¿Qué haces?",
         options: [//16
             {
-                text: "Aceptar la sabiduría",
+                text: "Aceptar su sabiduría",
                 health: 0,
                 attack: +2,
-                defense: -1,
-                suerte: 0,
-                result: "Aceptas la sabiduría del espíritu, pero pierdes algo de tu defensa. Ganas 2 de ataque y pierdes 1 de defensa."
+                defense: 0,
+                suerte: +1,
+                result: "Aceptas su sabiduría, aprendes nuevas tecnicas de combate, te sientes afortunado. Ganas 2 de ataque."
             },
             {
                 text: "Rechazar la oferta",
@@ -608,172 +608,320 @@ export const cardLevels = [
                 attack: 0,
                 defense: 0,
                 suerte: 0,
-                result: "Rechazas la oferta del espíritu y sigues tu camino. No ocurre nada significativo."
+                result: "Rechazas la oferta y sigues tu camino. No ocurre nada significativo."
             },
             {
-                text: "Huir del espíritu",
+                text: "Robar al adeano",
+                health: 0,
+                attack: 0,
+                defense: +1,
+                suerte: 0,
+                result: "Logras robar al aldeano algo de armamento. Ganas 1 de defensa."
+            },
+            {
+                text: "Atacar al aldeano",
                 health: -1,
                 attack: 0,
                 defense: 0,
-                suerte: 0,
-                result: "Huyes del espíritu, pero te lastimas en el proceso. Pierdes 1 corazón."
-            },
-            {
-                text: "Atacar al espíritu",
-                health: -2,
-                attack: +1,
-                defense: 0,
-                suerte: 0,
-                result: "Atacas al espíritu y logras vencerlo, pero te deja debilitado. Pierdes 2 corazones y ganas 1 de ataque."
+                suerte: -1,
+                result: "Atacas al aldeano y este se defiende de manera efectiva. Pierdes 1 corazón."
             }
         ]
     },
     {
-        text: "Te adentras en un campo de flores mágicas. ¿Qué haces?",
+        text: "Te adentras en un campo donde llueven flores mágicas. ¿Qué haces?",
         options: [//17
             {
                 text: "Recoger flores",
                 health: +1,
                 attack: 0,
                 defense: 0,
-                suerte: 0,
+                suerte: +1,
                 result: "Recoges algunas flores y te sientes revitalizado. Ganas 1 corazón."
             },
             {
                 text: "Descansar en el campo",
                 health: +2,
-                attack: -1,
-                defense: 0,
+                attack: 0,
+                defense: -1,
                 suerte: 0,
-                result: "Descansas en el campo y recuperas energías, pero pierdes algo de tu fuerza. Ganas 2 corazones y pierdes 1 de ataque."
+                result: "Descansas en el campo y recuperas energías, pero descuidas tu guardia. Ganas 2 corazones y pierdes 1 de ataque."
             },
             {
                 text: "Ignorar el campo",
                 health: 0,
                 attack: 0,
                 defense: 0,
-                suerte: 0,
+                suerte: -1,
                 result: "Decides ignorar el campo y seguir tu camino. No ocurre nada significativo."
             },
             {
-                text: "Investigar las flores",
-                health: 0,
-                attack: +1,
+                text: "Pisar las flores",
+                health: +2,
+                attack: +2,
                 defense: 0,
-                suerte: 0,
-                result: "Investigas las flores y descubres propiedades mágicas. Ganas 1 de ataque."
+                suerte: -1,
+                result: "Al destruir las flores estas liberan propiedades mágicas. Ganas 2 corazones y 2 de ataque."
             }
         ]
     },
     {
-        text: "Te cruzas con un caballero errante en el camino. ¿Qué haces?",
+        text: "Un par de caballeros impiden tu paso. ¿Qué haces?",
         options: [//18
             {
-                text: "Desafiar al caballero",
+                text: "Desafiar a los caballeros",
                 health: -2,
                 attack: +2,
                 defense: 0,
-                suerte: 0,
-                result: "Desafías al caballero a un duelo y, aunque resultas herido, lo vences. Pierdes 2 corazones y ganas 2 de ataque."
+                suerte: +1,
+                result: "Desafías a los caballero a un duelo y, aunque resultas herido, los vences, consiguiendo así sus armas. Pierdes 2 corazones y ganas 2 de ataque."
             },
             {
-                text: "Hablar con el caballero",
+                text: "Hablar con los caballeros",
                 health: 0,
                 attack: +1,
                 defense: 0,
                 suerte: 0,
-                result: "Hablas con el caballero y te da valiosos consejos de combate. Ganas 1 de ataque."
+                result: "Hablas con los caballeros y comprenden que no eres una amenaza, te dan una pequeña ayuda. Ganas 1 de ataque."
             },
             {
-                text: "Ignorar al caballero",
+                text: "Ignorar a los caballeros",
                 health: 0,
                 attack: 0,
                 defense: 0,
                 suerte: 0,
-                result: "Decides ignorar al caballero y seguir tu camino. No ocurre nada significativo."
+                result: "Decides ignorar a los caballeros y tomar otro camino. No ocurre nada significativo."
             },
             {
-                text: "Ayudar al caballero",
-                health: +1,
+                text: "Robar a los caballeros",
+                health: -1,
                 attack: 0,
                 defense: 0,
                 suerte: 0,
-                result: "Ayudas al caballero con sus problemas y él te agradece con una bendición. Ganas 1 corazón."
+                result: "Intentas robarle a los caballeros y estos te atacan. Pierdes 1 corazón."
             }
         ]
     },
     {
-        text: "Llegas a la costa y encuentras un barco abandonado. ¿Qué haces?",
+        text: "En tu camino te cuentras a todo un grupo de miembros de la realeza. ¿Qué haces?",
         options: [//19
             {
-                text: "Subir al barco",
-                health: 0,
-                attack: +1,
-                defense: 0,
-                suerte: 0,
-                result: "Subes al barco y encuentras equipo útil. Ganas 1 de ataque."
-            },
-            {
-                text: "Rodear el barco",
+                text: "Hacer una reverencia",
                 health: 0,
                 attack: 0,
                 defense: 0,
                 suerte: 0,
-                result: "Decides rodear el barco y evitar cualquier peligro. No ocurre nada significativo."
+                result: "Los miembros de la realeza te saludan y siguen su camino. No pasa nada significativo."
             },
             {
-                text: "Buscar tesoros",
-                health: +1,
-                attack: +1,
-                defense: 0,
-                suerte: 0,
-                result: "Encuentras tesoros a bordo y te sientes revitalizado y fortalecido. Ganas 1 corazón y 1 de ataque."
-            },
-            {
-                text: "Evitar el barco",
+                text: "Ofrecer tus servicios",
                 health: 0,
                 attack: 0,
                 defense: 0,
+                suerte: -1,
+                result: "Los miembros de la realeza no tienen ningun trabajo para tí, te sientes desafortunado."
+            },
+            {
+                text: "Ignorarlos",
+                health: -1,
+                attack: 0,
+                defense: -1,
                 suerte: 0,
-                result: "Decides evitar el barco y seguir tu camino. No ocurre nada significativo."
+                result: "Ignoras a los miembros de la realeza estos se lo toman como una ofensa. Pierdes 1 corazón y 1 de defensa."
+            },
+            {
+                text: "Tratar de engañarlos",
+                health: 0,
+                attack: +2,
+                defense: +1,
+                suerte: 0,
+                result: "Te haces pasar por uno de sus nobles y te entregan armamento. Ganas dos de ataque y uno de defensa."
             }
         ]
     },
     {
-        text: "Te encuentras con una princesa en apuros en el camino. ¿Qué haces?",
+        text: "Te encuentras con un pequeño duende tímido en el camino. ¿Qué haces?",
         options: [//20
             {
-                text: "Rescatar a la princesa",
-                health: -2,
-                attack: +2,
+                text: "Ofrecerle ayuda",
+                health: +2,
+                attack: 0,
                 defense: 0,
-                suerte: 0,
-                result: "Rescatas a la princesa, pero resultas herido en la lucha. Pierdes 2 corazones y ganas 2 de ataque."
+                suerte: +1,
+                result: "El duende acepta tu ayuda y te bendice. Ganas 2 corazones."
             },
             {
-                text: "Ignorar a la princesa",
+                text: "Ignorar al duende",
                 health: 0,
                 attack: 0,
                 defense: 0,
                 suerte: 0,
-                result: "Decides ignorar a la princesa y seguir tu camino. No ocurre nada significativo."
+                result: "Decides ignorar al duende y seguir tu camino. No ocurre nada significativo."
             },
             {
-                text: "Pedir recompensa",
+                text: "Intentar comerciar",
+                health: 0,
+                attack: 0,
+                defense: -1,
+                suerte: 0,
+                result: "Intentas comerciar com el duende pero éste parece ser bastante mas astuto que tu. Pierdes 1 de defensa."
+            },
+            {
+                text: "Pisar al duende",
                 health: 0,
                 attack: +1,
                 defense: 0,
-                suerte: 0,
-                result: "Pides una recompensa por rescatar a la princesa y ella te da una valiosa joya. Ganas 1 de ataque."
-            },
-            {
-                text: "Luchar contra sus captores",
-                health: -1,
-                attack: +1,
-                defense: 0,
-                suerte: 0,
-                result: "Luchas contra los captores de la princesa y logras vencerlos, aunque sufres algunas heridas. Pierdes 1 corazón y ganas 1 de ataque."
+                suerte: -1,
+                result: "Pisas al duende y te quedas con sus pertenencias, pero te sientes desafortunado. Ganas 1 de ataque."
             }
         ]
-    }
+    },
+    {
+        text: "Te sientas a apostar fuera de un bar que te encontraste en tu camino. ¿Qué haces?",
+        options: [//21
+            {
+                text: "Jugar a los dados",
+                health: 0,
+                attack: 0,
+                defense: -1,
+                suerte: -1,
+                result: "Juegas a los dados y no se te da bien ya que eres un poco más estratega que suertudo. Pierdes 1 de defensa."
+            },
+            {
+                text: "Jugar al poker",
+                health: 0,
+                attack: +2,
+                defense: 0,
+                suerte: +1,
+                result: "Esto sí que se te da bien, obtienes objetos valiosos. Ganas 2 de ataque."
+            },
+            {
+                text: "Levantarte e irte sin jugar",
+                health: -1,
+                attack: 0,
+                defense: 0,
+                suerte: 0,
+                result: "Los borrachos lo toman como una falta de respeto y te dan una paliza. Pierdes 1 corazón."
+            },
+            {
+                text: "Pedir cervezas para todos",
+                health: 0,
+                attack: +3,
+                defense: -1,
+                suerte: 0,
+                result: "A cambio de entregar parte de tu armadura para pagar los tragos, obtienes un numeroso grupo de borrachos dispuestos a pelear por tí. Ganas 3 de ataque y pierdes 1 de defensa."
+            }
+        ]
+    },
+    {
+        text: "Encuentras la casa de una bruja. ¿Qué haces?",
+        options: [//22
+            {
+                text: "Golpear la puerta",
+                health: +2,
+                attack: 0,
+                defense: 0,
+                suerte: +1,
+                result: "Nadie contesta, pero encuentras una reliquia debajo de la alfombra. Ganas 2 corazones."
+            },
+            {
+                text: "Entras sin permiso",
+                health: 0,
+                attack: +1,
+                defense: +1,
+                suerte: 0,
+                result: "Decides entrar, no hay nadie dentro, pero encuentras cosas valiosas. Ganas 1 de ataque y 1 de defensa."
+            },
+            {
+                text: "Seguir con tu camino",
+                health: 0,
+                attack: 0,
+                defense: 0,
+                suerte: 0,
+                result: "Decides no arriesgarte a molestar a la bruja y sigues caminando. No ocurre nada significativo."
+            },
+            {
+                text: "Encender fuego la casa",
+                health: 0,
+                attack: +2,
+                defense: +1,
+                suerte: -2,
+                result: "Enciendes la casa en llamas y la poblacion te premia por esto, pero temes que las brujas te eschen una maldicion. Ganas 2 de ataque y 1 de defensa."
+            }
+        ]
+    },
+    {
+        text: "Te encuentras con un pequeño duende tímido en el camino. ¿Qué haces?",
+        options: [//23
+            {
+                text: "Ofrecerle ayuda",
+                health: +2,
+                attack: 0,
+                defense: 0,
+                suerte: +1,
+                result: "El duende acepta tu ayuda y te bendice. Ganas 2 corazones."
+            },
+            {
+                text: "Ignorar al duende",
+                health: 0,
+                attack: 0,
+                defense: 0,
+                suerte: 0,
+                result: "Decides ignorar al duende y seguir tu camino. No ocurre nada significativo."
+            },
+            {
+                text: "Intentar comerciar",
+                health: 0,
+                attack: 0,
+                defense: -1,
+                suerte: 0,
+                result: "Intentas comerciar com el duende pero éste parece ser bastante mas astuto que tu. Pierdes 1 de defensa."
+            },
+            {
+                text: "Pisar al duende",
+                health: 0,
+                attack: +1,
+                defense: 0,
+                suerte: -1,
+                result: "Pisas al duende y te quedas con sus pertenencias, pero te sientes desafortunado. Ganas 1 de ataque."
+            }
+        ]
+    },
+    {
+        text: "Te encuentras con un pequeño duende tímido en el camino. ¿Qué haces?",
+        options: [//24
+            {
+                text: "Ofrecerle ayuda",
+                health: +2,
+                attack: 0,
+                defense: 0,
+                suerte: +1,
+                result: "El duende acepta tu ayuda y te bendice. Ganas 2 corazones."
+            },
+            {
+                text: "Ignorar al duende",
+                health: 0,
+                attack: 0,
+                defense: 0,
+                suerte: 0,
+                result: "Decides ignorar al duende y seguir tu camino. No ocurre nada significativo."
+            },
+            {
+                text: "Intentar comerciar",
+                health: 0,
+                attack: 0,
+                defense: -1,
+                suerte: 0,
+                result: "Intentas comerciar com el duende pero éste parece ser bastante mas astuto que tu. Pierdes 1 de defensa."
+            },
+            {
+                text: "Pisar al duende",
+                health: 0,
+                attack: +1,
+                defense: 0,
+                suerte: -1,
+                result: "Pisas al duende y te quedas con sus pertenencias, pero te sientes desafortunado. Ganas 1 de ataque."
+            }
+        ]
+    },
 ];

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="overlay"></div>
     <div id="character-selection" class="view">
         <div class="character-container">
             <div class="character" id="character1">
@@ -51,7 +52,6 @@
     <div id="game-view" class="view" style="display: none; font-weight: bold;">
         <audio id="audio" src=""></audio>
         <audio id="audioAccion" src=""></audio>
-        <div class="overlay"></div>
         <div id="fase">Fase 1</div>
         <div id="statusFinalBoss" class="status invisible">
             <div>
@@ -67,6 +67,8 @@
                 <p id="boss-defense"></p>
             </div>
         </div>
+
+
 
         <div id="finalBossEnemy" class="invisible">
             <p id="puntos-ataque"></p>
@@ -103,7 +105,6 @@
             <p id="result-text"></p>
         </div>
     </div>
-
     <script type="module" src="script.js"></script>
 </body>
 </html>

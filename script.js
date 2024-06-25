@@ -76,7 +76,7 @@ let estado = estados.inicio;
 
 let URLfondo = '';
 
-const maxFases = 6;
+const maxFases = 15;
 
 const tiempoAnimacion = 3000;
 
@@ -313,7 +313,7 @@ function cambiarFondo(URLfondo){
 
 
 function getRandomCardIndex() {
-    const card = getRandomInt(0,12);
+    const card = getRandomInt(0,23);
     let audioSrc = '';
 
     switch(card) {
@@ -364,6 +364,50 @@ function getRandomCardIndex() {
         case 11:
             audioSrc = 'resources/sounds/Escenarios/Avance de artilleria.ogg';
             URLfondo = 'resources/images/fondos/artilleria.webp';
+            break;
+        case 12:
+            audioSrc = 'resources/sounds/Escenarios/Cueva del dragon.wav';
+            URLfondo = 'resources/images/fondos/dragon.webp';
+            break;
+        case 13:
+            audioSrc = 'resources/sounds/Escenarios/Mausoleo.ogg';
+            URLfondo = 'resources/images/fondos/Mausoleo.jpg';
+            break;
+        case 14:
+            audioSrc = 'resources/sounds/Escenarios/En el mercadito.wav';
+            URLfondo = 'resources/images/fondos/mercadito.png';
+            break;
+        case 15:
+            audioSrc = 'resources/sounds/Escenarios/Encuentra insignia.ogg';
+            URLfondo = 'resources/images/fondos/insignia.jpeg';
+            break;
+        case 16:
+            audioSrc = 'resources/sounds/Escenarios/Personaje oriental.ogg';
+            URLfondo = 'resources/images/fondos/chino.png';
+            break;
+        case 17:
+            audioSrc = 'resources/sounds/Escenarios/Llueven flores.ogg';
+            URLfondo = 'resources/images/fondos/flores.png';
+            break;
+        case 18:
+            audioSrc = 'resources/sounds/Escenarios/Caballeros impiden paso.ogg';
+            URLfondo = 'resources/images/fondos/caballeros.webp';
+            break;
+        case 19:
+            audioSrc = 'resources/sounds/Escenarios/Miembros de la realeza.wav';
+            URLfondo = 'resources/images/fondos/realeza.jpg';
+            break;
+        case 20:
+            audioSrc = 'resources/sounds/Escenarios/Pequeño timido.ogg';
+            URLfondo = 'resources/images/fondos/duende.jpeg';
+            break;
+        case 21:
+            audioSrc = 'resources/sounds/Escenarios/Apuestas.wav';
+            URLfondo = 'resources/images/fondos/bar.webp';
+            break;
+        case 22:
+            audioSrc = 'resources/sounds/Escenarios/Casa de la bruja.ogg';
+            URLfondo = 'resources/images/fondos/casa_bruja.png';
             break;
         default:
             console.log('Card no válida');
