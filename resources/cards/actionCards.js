@@ -444,7 +444,7 @@ export const cardLevels = [
         ]
     },
     {
-        text: "Después de un largo viaje, te adentras en una cueva donde encuentras un dragón dormido. ¿Qué haces?",
+        text: "Después de un largo viaje, te enfrentas a un dragón dormido. ¿Qué haces?",
         options: [//12
             {
                 text: "Atacar al dragón",
@@ -850,78 +850,5 @@ export const cardLevels = [
             }
         ]
     },
-    {
-        text: "Te encuentras con un pequeño duende tímido en el camino. ¿Qué haces?",
-        options: [//23
-            {
-                text: "Ofrecerle ayuda",
-                health: +2,
-                attack: 0,
-                defense: 0,
-                suerte: +1,
-                result: "El duende acepta tu ayuda y te bendice. Ganas 2 corazones."
-            },
-            {
-                text: "Ignorar al duende",
-                health: 0,
-                attack: 0,
-                defense: 0,
-                suerte: 0,
-                result: "Decides ignorar al duende y seguir tu camino. No ocurre nada significativo."
-            },
-            {
-                text: "Intentar comerciar",
-                health: 0,
-                attack: 0,
-                defense: -1,
-                suerte: 0,
-                result: "Intentas comerciar com el duende pero éste parece ser bastante mas astuto que tu. Pierdes 1 de defensa."
-            },
-            {
-                text: "Pisar al duende",
-                health: 0,
-                attack: +1,
-                defense: 0,
-                suerte: -1,
-                result: "Pisas al duende y te quedas con sus pertenencias, pero te sientes desafortunado. Ganas 1 de ataque."
-            }
-        ]
-    },
-    {
-        text: "Te encuentras con un pequeño duende tímido en el camino. ¿Qué haces?",
-        options: [//24
-            {
-                text: "Ofrecerle ayuda",
-                health: +2,
-                attack: 0,
-                defense: 0,
-                suerte: +1,
-                result: "El duende acepta tu ayuda y te bendice. Ganas 2 corazones."
-            },
-            {
-                text: "Ignorar al duende",
-                health: 0,
-                attack: 0,
-                defense: 0,
-                suerte: 0,
-                result: "Decides ignorar al duende y seguir tu camino. No ocurre nada significativo."
-            },
-            {
-                text: "Intentar comerciar",
-                health: 0,
-                attack: 0,
-                defense: -1,
-                suerte: 0,
-                result: "Intentas comerciar com el duende pero éste parece ser bastante mas astuto que tu. Pierdes 1 de defensa."
-            },
-            {
-                text: "Pisar al duende",
-                health: 0,
-                attack: +1,
-                defense: 0,
-                suerte: -1,
-                result: "Pisas al duende y te quedas con sus pertenencias, pero te sientes desafortunado. Ganas 1 de ataque."
-            }
-        ]
-    },
+   
 ];

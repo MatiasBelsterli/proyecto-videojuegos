@@ -351,96 +351,96 @@ function getRandomCardIndex() {
 
     switch(card) {
         case 0:
-            audioSrc = 'resources/sounds/Escenarios/Bosque oscuro.ogg';
-            URLfondo = 'resources/images/fondos/bosque.png';
+            audioSrc = 'resources/sounds/Escenarios/Bosque oscuro.ogg'; //cambiar
+            URLfondo = 'resources/images/fondos/0.jpg';
             break;
         case 1:
             audioSrc = 'resources/sounds/Escenarios/Orda de elfos.ogg';
-            URLfondo = 'resources/images/fondos/duendes.jpg';
+            URLfondo = 'resources/images/fondos/1.jpg';
             break;
         case 2:
             audioSrc = 'resources/sounds/Escenarios/Manantial.ogg';
-            URLfondo = 'resources/images/fondos/manantial.jpg';
+            URLfondo = 'resources/images/fondos/2.jpg';
             break;
         case 3:
-            audioSrc = 'resources/sounds/Escenarios/Cavernas.ogg';
-            URLfondo = 'resources/images/fondos/cavernas.webp';
+            audioSrc = 'resources/sounds/Escenarios/Cavernas.ogg';//
+            URLfondo = 'resources/images/fondos/3.jpg';
             break;
         case 4:
-            audioSrc = 'resources/sounds/Escenarios/Mago misterioso.ogg';
-            URLfondo = 'resources/images/fondos/mago_misterioso.webp';
+            audioSrc = 'resources/sounds/Escenarios/Mago misterioso.ogg';//
+            URLfondo = 'resources/images/fondos/4.jpg';
             break;
         case 5:
-            audioSrc = 'resources/sounds/Escenarios/Niños te ofrecen un regalo.ogg';
-            URLfondo = 'resources/images/fondos/niños.webp';
+            audioSrc = 'resources/sounds/Escenarios/Niños te ofrecen un regalo.ogg'; //
+            URLfondo = 'resources/images/fondos/5.jpg';
             break;
         case 6:
             audioSrc = 'resources/sounds/Escenarios/Lobo te ataca.ogg';
-            URLfondo = 'resources/images/fondos/lobo.jpg';
+            URLfondo = 'resources/images/fondos/6.jpg';
             break;
         case 7:
             audioSrc = 'resources/sounds/Escenarios/Puente roto.wav';
-            URLfondo = 'resources/images/fondos/puente.png';
+            URLfondo = 'resources/images/fondos/7.jpg';
             break;
         case 8:
             audioSrc = 'resources/sounds/Escenarios/Elfa Pacifica.ogg';
-            URLfondo = 'resources/images/fondos/elfa.jpg';
+            URLfondo = 'resources/images/fondos/8.jpg';
             break;
         case 9:
             audioSrc = 'resources/sounds/Escenarios/Pantano.wav';
-            URLfondo = 'resources/images/fondos/Pantano.jpg';
+            URLfondo = 'resources/images/fondos/9.jpg';
             break;
         case 10:
             audioSrc = 'resources/sounds/Escenarios/Aldea indigena.wav';
-            URLfondo = 'resources/images/fondos/aldea.jpg';
+            URLfondo = 'resources/images/fondos/10.jpg';
             break;
         case 11:
             audioSrc = 'resources/sounds/Escenarios/Avance de artilleria.ogg';
-            URLfondo = 'resources/images/fondos/artilleria.webp';
+            URLfondo = 'resources/images/fondos/11.jpg';
             break;
         case 12:
             audioSrc = 'resources/sounds/Escenarios/Cueva del dragon.wav';
-            URLfondo = 'resources/images/fondos/dragon.webp';
+            URLfondo = 'resources/images/fondos/12.jpg';
             break;
         case 13:
             audioSrc = 'resources/sounds/Escenarios/Mausoleo.ogg';
-            URLfondo = 'resources/images/fondos/Mausoleo.jpg';
+            URLfondo = 'resources/images/fondos/13.jpg';
             break;
         case 14:
             audioSrc = 'resources/sounds/Escenarios/En el mercadito.wav';
-            URLfondo = 'resources/images/fondos/mercadito.png';
+            URLfondo = 'resources/images/fondos/14.jpg';
             break;
         case 15:
             audioSrc = 'resources/sounds/Escenarios/Encuentra insignia.ogg';
-            URLfondo = 'resources/images/fondos/insignia.jpeg';
+            URLfondo = 'resources/images/fondos/15.jpg';
             break;
         case 16:
             audioSrc = 'resources/sounds/Escenarios/Personaje oriental.ogg';
-            URLfondo = 'resources/images/fondos/chino.png';
+            URLfondo = 'resources/images/fondos/16.jpg';
             break;
         case 17:
             audioSrc = 'resources/sounds/Escenarios/Llueven flores.ogg';
-            URLfondo = 'resources/images/fondos/flores.png';
+            URLfondo = 'resources/images/fondos/17.jpg';
             break;
         case 18:
             audioSrc = 'resources/sounds/Escenarios/Caballeros impiden paso.ogg';
-            URLfondo = 'resources/images/fondos/caballeros.webp';
+            URLfondo = 'resources/images/fondos/18.jpg';
             break;
         case 19:
             audioSrc = 'resources/sounds/Escenarios/Miembros de la realeza.wav';
-            URLfondo = 'resources/images/fondos/realeza.jpg';
+            URLfondo = 'resources/images/fondos/19.jpg';
             break;
         case 20:
             audioSrc = 'resources/sounds/Escenarios/Pequeño timido.ogg';
-            URLfondo = 'resources/images/fondos/duende.jpeg';
+            URLfondo = 'resources/images/fondos/20.jpg';
             break;
         case 21:
             audioSrc = 'resources/sounds/Escenarios/Apuestas.wav';
-            URLfondo = 'resources/images/fondos/bar.webp';
+            URLfondo = 'resources/images/fondos/21.jpg';
             break;
         case 22:
             audioSrc = 'resources/sounds/Escenarios/Casa de la bruja.ogg';
-            URLfondo = 'resources/images/fondos/casa_bruja.png';
+            URLfondo = 'resources/images/fondos/22.jpg';
             break;
         default:
             console.log('Card no válida');
