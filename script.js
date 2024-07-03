@@ -72,6 +72,9 @@ const estados = {
     final: Symbol(),
 };
 
+let booleanArray = new Array(23).fill(false); //Arreglo que representa las cards
+//En caso de ser "false" la card no ha sido usada, en caso de ser "true" la card ya fue usada
+
 let estado = estados.inicio;
 
 let URLfondo = '';
@@ -346,7 +349,19 @@ function cambiarFondo(URLfondo){
 
 
 function getRandomCardIndex() {
-    const card = getRandomInt(0,23);
+
+    let sinUsar = false;
+
+    let card = -1;
+
+    while(!sinUsar){
+        card = getRandomInt(0,23);
+        if(!booleanArray[card]){
+            booleanArray[card] = true;
+            sinUsar = true;
+        }
+    }
+
     let audioSrc = '';
 
     switch(card) {
