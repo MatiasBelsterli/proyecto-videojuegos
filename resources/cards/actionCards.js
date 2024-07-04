@@ -24,7 +24,8 @@ export const cardLevels = [
                 attack: -1,
                 defense: 0,
                 suerte: -1,
-                result: "Enciendes una fogata y te calientas, recuperando algo de salud, pero atraes a algunos depredadores. Ganas 1 corazón, pierdes 1 de ataque."
+                result: "Enciendes una fogata y te calientas, recuperando algo de salud, pero atraes a algunos depredadores. Ganas 1 corazón, pierdes 1 de ataque.",
+                sound: "resources/sounds/Acciones/fogata.wav"
             },
             {
                 text: "Seguir adelante",
@@ -45,7 +46,9 @@ export const cardLevels = [
                 attack: +1,
                 defense: 0,
                 suerte: 0,
-                result: "Luchas valientemente, pero recibes heridas graves. Pierdes 2 corazones y ganas 1 de ataque."
+                result: "Luchas valientemente, pero recibes heridas graves. Pierdes 2 corazones y ganas 1 de ataque.",
+                sound: "resources/sounds/Acciones/Puño.wav"
+
             },
             {
                 text: "Huir",
@@ -82,7 +85,8 @@ export const cardLevels = [
                 attack: 0,
                 defense: 0,
                 suerte: +1,
-                result: "Bebes agua fresca y te sientes revitalizado. Ganas 1 corazón."
+                result: "Bebes agua fresca y te sientes revitalizado. Ganas 1 corazón.",
+                sound: "resources/sounds/Acciones/Encantamiento bueno.wav"
             },
             {
                 text: "Descansar",
@@ -90,7 +94,8 @@ export const cardLevels = [
                 attack: 0,
                 defense: -1,
                 suerte: 0,
-                result: "Descansas junto al manantial, recuperando fuerzas, pero descuidas tu guardia. Ganas 2 corazones y pierdes 1 de defensa."
+                result: "Descansas junto al manantial, recuperando fuerzas, pero descuidas tu guardia. Ganas 2 corazones y pierdes 1 de defensa.",
+                sound: ""
             },
             {
                 text: "Ignorar",
@@ -98,7 +103,8 @@ export const cardLevels = [
                 attack: 0,
                 defense: 0,
                 suerte: -1,
-                result: "Decides no detenerte y sigues tu camino. No ocurre nada significativo."
+                result: "Decides no detenerte y sigues tu camino. No ocurre nada significativo.",
+                sound: ""
             },
             {
                 text: "Buscar comida",
@@ -106,7 +112,8 @@ export const cardLevels = [
                 attack: +1,
                 defense: 0,
                 suerte: 0,
-                result: "Buscas comida cerca del manantial y encuentras frutos. Ganas 1 de ataque."
+                result: "Buscas comida cerca del manantial y encuentras frutos. Ganas 1 de ataque.",
+                sound: ""
             }
         ]
     },
@@ -119,7 +126,8 @@ export const cardLevels = [
                 attack: 0,
                 defense: 0,
                 suerte: -1,
-                result: "Entras en la cueva y te caes en un agujero. Pierdes 1 corazón."
+                result: "Entras en la cueva y te caes en un agujero. Pierdes 1 corazón.",
+                sound: "resources/sounds/Acciones/Caida.wav"
             },
             {
                 text: "Rodear la cueva",
@@ -156,7 +164,8 @@ export const cardLevels = [
                 attack: +2,
                 defense: -1,
                 suerte: 0,
-                result: "Aceptas el trato y el mago te otorga poderes, pero tu defensa se debilita. Ganas 2 de ataque y pierdes 1 de defensa."
+                result: "Aceptas el trato y el mago te otorga poderes, pero tu defensa se debilita. Ganas 2 de ataque y pierdes 1 de defensa.",
+                sound: "resources/sounds/Acciones/Hechizo potente.wav"
             },
             {
                 text: "Rechazar el trato",
@@ -180,7 +189,8 @@ export const cardLevels = [
                 attack: +1,
                 defense: 0,
                 suerte: 0,
-                result: "Atacas al mago, pero te defiende con su magia. Pierdes 2 corazones y ganas 1 de ataque."
+                result: "Atacas al mago, pero te defiende con su magia. Pierdes 2 corazones y ganas 1 de ataque.",
+                sound: "resources/sounds/Acciones/Puño.wav"
             }
         ]
     },
@@ -193,7 +203,8 @@ export const cardLevels = [
                 attack: +1,
                 defense: 0,
                 suerte: +1,
-                result: "Tomas el regalo y resultan ser amuletos que te fortalecen. Ganas 1 corazón y 1 de ataque."
+                result: "Tomas el regalo y resultan ser amuletos que te fortalecen. Ganas 1 corazón y 1 de ataque.",
+                sound: "resources/sounds/Acciones/Encantamiento bueno.wav"
             },
             {
                 text: "Rechazarlo",
@@ -209,7 +220,8 @@ export const cardLevels = [
                 attack: 0,
                 defense: 0,
                 suerte: 0,
-                result: "Atacas a los niños y el pueblo de enfurece. Pierdes 1 corazón."
+                result: "Atacas a los niños y el pueblo de enfurece. Pierdes 1 corazón.",
+                sound: "resources/sounds/Acciones/Puño.wav"
             },
             {
                 text: "Vender el regalo",
@@ -217,7 +229,8 @@ export const cardLevels = [
                 attack: 0,
                 defense: +1,
                 suerte: 0,
-                result: "Vendes el regalo a un comerciante, intercambias por armaduras. Ganas 1 de defensa."
+                result: "Vendes el regalo a un comerciante, intercambias por armaduras. Ganas 1 de defensa.",
+                sound: "resources/sounds/Acciones/Monedas.wav"
             }
         ]
     },
@@ -230,7 +243,8 @@ export const cardLevels = [
                 attack: +1,
                 defense: 0,
                 suerte: 0,
-                result: "Luchas contra el lobo y logras vencerlo, pero quedas herido. Pierdes 2 corazones y ganas 1 de ataque."
+                result: "Luchas contra el lobo y logras vencerlo, pero quedas herido. Pierdes 2 corazones y ganas 1 de ataque.",
+                sound: "resources/sounds/Acciones/Espadazo medio.wav"
             },
             {
                 text: "Huir del lobo",
@@ -238,7 +252,8 @@ export const cardLevels = [
                 attack: 0,
                 defense: +1,
                 suerte: 0,
-                result: "Huyes del lobo, pero te lastimas en el proceso. Pierdes 1 corazón y ganas 1 de defensa."
+                result: "Huyes del lobo, pero te lastimas en el proceso. Pierdes 1 corazón y ganas 1 de defensa.",
+                sound: "resources/sounds/Acciones/Irse volando.wav"
             },
             {
                 text: "Alimentar al lobo",
@@ -254,7 +269,9 @@ export const cardLevels = [
                 attack: +2,
                 defense: 0,
                 suerte: 0,
-                result: "Logras domesticar al lobo, ganando un compañero feroz. Ganas 2 de ataque."
+                result: "Logras domesticar al lobo, ganando un compañero feroz. Ganas 2 de ataque.",
+                sound: "resources/sounds/Acciones/Click Especial.wav"
+
             }
         ]
     },
@@ -267,7 +284,8 @@ export const cardLevels = [
                 attack: 0,
                 defense: 0,
                 suerte: 0,
-                result: "Tus pizotones hacen que el puente se rompa mas rápido y caes. Pierdes 1 corazón."
+                result: "Tus pizotones hacen que el puente se rompa mas rápido y caes. Pierdes 1 corazón.",
+                sound: "resources/sounds/Acciones/Rotura.wav"
             },
             {
                 text: "Saltar hacia atras",
@@ -275,7 +293,8 @@ export const cardLevels = [
                 attack: -1,
                 defense: 0,
                 suerte: 0,
-                result: "Logras evitar la caida pero sin querer arrojas tu espada. Pierdes 1 de ataque."
+                result: "Logras evitar la caida pero sin querer arrojas tu espada. Pierdes 1 de ataque.",
+                sound: "resources/sounds/Acciones/Rotura.wav"
             },
             {
                 text: "Saltar hacia adelante",
@@ -283,7 +302,8 @@ export const cardLevels = [
                 attack: 0,
                 defense: -1,
                 suerte: 0,
-                result: "Logras evitar la caida pero sin querer arrojas tu escudo. Pierdes 1 de escudo."
+                result: "Logras evitar la caida pero sin querer arrojas tu escudo. Pierdes 1 de escudo.",
+                sound: "resources/sounds/Acciones/Rotura.wav"
             },
             {
                 text: "Quedarte quieto",
@@ -291,7 +311,8 @@ export const cardLevels = [
                 attack: 0,
                 defense: 0,
                 suerte: +1,
-                result: "Decides quedarte quieto y el puente se estabiliza, te sientes afortnado."
+                result: "Decides quedarte quieto y el puente se estabiliza, te sientes afortnado.",
+                sound: "resources/sounds/Acciones/Click Especial.wav"
             }
         ]
     },
@@ -304,7 +325,8 @@ export const cardLevels = [
                 attack: 0,
                 defense: 0,
                 suerte: +1,
-                result: "Ayudas a la elfa y ella te bendice. Ganas 1 corazón."
+                result: "Ayudas a la elfa y ella te bendice. Ganas 1 corazón.",
+                sound: "resources/sounds/Acciones/Encantamiento bueno.wav"
             },
             {
                 text: "Ignorarla",
@@ -328,7 +350,9 @@ export const cardLevels = [
                 attack: +2,
                 defense: 0,
                 suerte: -1,
-                result: "Robas a la elfa y te llevas sus pertenencias. Ganas 2 de ataque y pierdes 1 corazón."
+                result: "Robas a la elfa y te llevas sus pertenencias. Ganas 2 de ataque y pierdes 1 corazón.",
+                sound: "resources/sounds/Acciones/Ponerse armadura.wav"
+
             }
         ]
     },
@@ -341,7 +365,8 @@ export const cardLevels = [
                 attack: 0,
                 defense: 0,
                 suerte: 0,
-                result: "Atravesar el pantano es agotador y te lastimas. Pierdes 1 corazón."
+                result: "Atravesar el pantano es agotador y te lastimas. Pierdes 1 corazón.",
+
             },
             {
                 text: "Rodear el pantano",
@@ -357,7 +382,8 @@ export const cardLevels = [
                 attack: 0,
                 defense: 0,
                 suerte: +1,
-                result: "Encuentras un bote y lo usas para cruzar el pantano. Ganas 1 corazón."
+                result: "Encuentras un bote y lo usas para cruzar el pantano. Ganas 1 corazón.",
+                sound: "resources/sounds/Acciones/Click Especial.wav"
             },
             {
                 text: "Descansar en la orilla",
@@ -365,7 +391,8 @@ export const cardLevels = [
                 attack: 0,
                 defense: -1,
                 suerte: 0,
-                result: "Descansas en la orilla y recuperas energía, pero te descuidas un poco. Ganas 1 corazón y pierdes 1 de defensa."
+                result: "Descansas en la orilla y recuperas energía, pero te descuidas un poco. Ganas 1 corazón y pierdes 1 de defensa.",
+                sound: "resources/sounds/Acciones/Encantamiento bueno.wav"
             }
         ]
     },
@@ -378,7 +405,8 @@ export const cardLevels = [
                 attack: +1,
                 defense: 0,
                 suerte: 0,
-                result: "Atacas a la tribu y aunque ganas, sufres graves heridas. Pierdes 2 corazones y ganas 1 de ataque."
+                result: "Atacas a la tribu y aunque ganas, sufres graves heridas. Pierdes 2 corazones y ganas 1 de ataque.",
+                sound: "resources/sounds/Acciones/Espadazo medio.wav"
             },
             {
                 text: "Huir rápidamente",
@@ -386,7 +414,8 @@ export const cardLevels = [
                 attack: 0,
                 defense: +1,
                 suerte: 0,
-                result: "Huyes rápidamente, pero te lastimas en el proceso. Pierdes 1 corazón y ganas 1 de defensa."
+                result: "Huyes rápidamente, pero te lastimas en el proceso. Pierdes 1 corazón y ganas 1 de defensa.",
+                sound: "resources/sounds/Acciones/Irse volando.wav"
             },
             {
                 text: "Negociar con ellos",

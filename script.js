@@ -272,6 +272,7 @@ function updateFases(cardIndex) {
             options[index].dataset.attack = option.attack;
             options[index].dataset.defense = option.defense;
             options[index].dataset.result = option.result;
+            options[index].dataset.sound = option.sound;
         });
     
         document.querySelectorAll('#options .option').forEach(option => {
@@ -291,7 +292,8 @@ function updateFases(cardIndex) {
 let audioContext;
 let gainNode;
 let audioNextSrc = 'resources/sounds/Acciones/No Free/Caminando.wav';
-const audioNext = document.getElementById('audioAccion');
+const audioNext = document.getElementById('audioNext');
+const audioAccion = document.getElementById('audioAccion');
 const audioElement = document.getElementById('audio');
 const audioPj = document.getElementById('audioPj');
 const audioBoss = document.getElementById('audioBoss');
@@ -354,15 +356,17 @@ function getRandomCardIndex() {
 
     let sinUsar = false;
 
-    let card = -1;
+    // let card = -1;
 
-    while(!sinUsar){
-        card = getRandomInt(0,23);
-        if(!booleanArray[card]){
-            booleanArray[card] = true;
-            sinUsar = true;
-        }
-    }
+    // while(!sinUsar){
+    //     card = getRandomInt(0,23);
+    //     if(!booleanArray[card]){
+    //         booleanArray[card] = true;
+    //         sinUsar = true;
+    //     }
+    // }
+
+    let card = 10;
 
     let audioSrc = '';
 
@@ -502,7 +506,16 @@ function handleOptionClick(event) {
     const healthChange = parseInt(event.target.dataset.health);
     const attackChange = parseInt(event.target.dataset.attack);
     const defenseChange = parseInt(event.target.dataset.defense);
+    let audioSrc = event.target.dataset.sound;
     const resultText = event.target.dataset.result;
+
+    if (audioSrc) {
+        audioAccion.src = audioSrc;
+        audioAccion.volume = 0.3;
+        audioAccion.play();
+        audioSrc = '';
+    }
+
 
     updateStats('health', healthChange);
     updateStats('attack', attackChange);
