@@ -444,7 +444,8 @@ export const cardLevels = [
                 attack: 0,
                 defense: 0,
                 suerte: 0,
-                result: "Intentas robarles y te atacan. Pierdes 1 corazón."
+                result: "Intentas robarles y te atacan. Pierdes 1 corazón.",
+                sound: "resources/sounds/Acciones/Puño.wav"
             },
             {
                 text: "Buscar otro camino",
@@ -460,7 +461,8 @@ export const cardLevels = [
                 attack: +3,
                 defense: 0,
                 suerte: +1,
-                result: "Te presentas como aliado y te creen, obtienes buen armamento. Ganas 3 de ataque."
+                result: "Te presentas como aliado y te creen, obtienes buen armamento. Ganas 3 de ataque.",
+                sound: "resources/sounds/Acciones/Ponerse armadura.wav"
             },
             {
                 text: "Intentar negociar",
@@ -481,7 +483,8 @@ export const cardLevels = [
                 attack: 0,
                 defense: 0,
                 suerte: +1,
-                result: "Atacas al dragón y te genera daños graves, te sientes afortunado de no haber muerto. Pierdes 3 corazones."
+                result: "Atacas al dragón y te genera daños graves, te sientes afortunado de no haber muerto. Pierdes 3 corazones.",
+                sound: "resources/sounds/Acciones/Explosion Fuego.wav"
             },
             {
                 text: "Escabullirse",
@@ -497,7 +500,8 @@ export const cardLevels = [
                 attack: +1,
                 defense: 0,
                 suerte: 0,
-                result: "Encuentras un arma valiosa cerca del dragón y la tomas sin despertarlo. Ganas 1 de ataque."
+                result: "Encuentras un arma valiosa cerca del dragón y la tomas sin despertarlo. Ganas 1 de ataque.",
+                sound: "resources/sounds/Acciones/Click Especial.wav"
             },
             {
                 text: "Hablar con el dragón",
@@ -505,7 +509,8 @@ export const cardLevels = [
                 attack: 0,
                 defense: -1,
                 suerte: 0,
-                result: "Intentas hablar con el dragón, pero te responde con un rugido, pierdes parte de tu armadura huyendo. Pierdes 1 de defensa."
+                result: "Intentas hablar con el dragón, pero te responde con un rugido, pierdes parte de tu armadura huyendo. Pierdes 1 de defensa.",
+                sound: "resources/sounds/Boss Final/Ataque Boss 1.wav"
             }
         ]
     },
@@ -518,7 +523,8 @@ export const cardLevels = [
                 attack: +1,
                 defense: 0,
                 suerte: +1,
-                result: "Entras al mausoleo y encuentras un objeto sagrado que aumenta tu poder. Ganas 1 de ataque."
+                result: "Entras al mausoleo y encuentras un objeto sagrado que aumenta tu poder. Ganas 1 de ataque.",
+                sound: "resources/sounds/Acciones/Encantamiento bueno.wav"
             },
             {
                 text: "Rodear el mausoleo",
@@ -534,7 +540,8 @@ export const cardLevels = [
                 attack: 0,
                 defense: 0,
                 suerte: 0,
-                result: "Descansas en el mausoleo y recuperas fuerzas, aquí estas a salvo. Ganas 2 corazones."
+                result: "Descansas en el mausoleo y recuperas fuerzas, aquí estas a salvo. Ganas 2 corazones.",
+                sound: "resources/sounds/Acciones/Encantamiento bueno.wav"
             },
             {
                 text: "Investigar los alrededores",
@@ -542,7 +549,8 @@ export const cardLevels = [
                 attack: 0,
                 defense: 0,
                 suerte: 0,
-                result: "Investigas los alrededores y caes en una trampa. Pierdes 1 corazón."
+                result: "Investigas los alrededores y caes en una trampa. Pierdes 1 corazón.",
+                sound: "resources/sounds/Acciones/Caida.wav"
             }
         ]
     },
@@ -555,7 +563,8 @@ export const cardLevels = [
                 attack: 0,
                 defense: 0,
                 suerte: +1,
-                result: "Compras pociones a comerciantes y te sientes más saludable. Ganas 1 corazón."
+                result: "Compras pociones a comerciantes y te sientes más saludable. Ganas 1 corazón.",
+                sound: "resources/sounds/Acciones/Recibe posion.wav"
             },
             {
                 text: "Vender objetos",
@@ -563,7 +572,8 @@ export const cardLevels = [
                 attack: +1,
                 defense: 0,
                 suerte: 0,
-                result: "Vendes algunos objetos a un comerciante y obtienes mejores armas. Ganas 1 de ataque."
+                result: "Vendes algunos objetos a un comerciante y obtienes mejores armas. Ganas 1 de ataque.",
+                sound: "resources/sounds/Acciones/Monedas.wav"
             },
             {
                 text: "Robar",
@@ -571,7 +581,8 @@ export const cardLevels = [
                 attack: +2,
                 defense: 0,
                 suerte: 0,
-                result: "Robas al comerciante y te llevas sus armas, pero sufres heridas en el proceso. Ganas 2 de ataque y pierdes 2 corazones."
+                result: "Robas al comerciante y te llevas sus armas, pero sufres heridas en el proceso. Ganas 2 de ataque y pierdes 2 corazones.",
+                sound: "resources/sounds/Acciones/Ponerse armadura.wav"
             },
             {
                 text: "Seguir adelante",
@@ -592,7 +603,8 @@ export const cardLevels = [
                 attack: 0,
                 defense: +2,
                 suerte: +1,
-                result: "Resulta ser de gran valor y la intercambias por armaduras. Ganas 2 de defensa."
+                result: "Resulta ser de gran valor y la intercambias por armaduras. Ganas 2 de defensa.",
+                sound: "resources/sounds/Acciones/Click Especial.wav"
             },
             {
                 text: "Destruir la insignia",
@@ -616,7 +628,8 @@ export const cardLevels = [
                 attack: 0,
                 defense: 0,
                 suerte: +1,
-                result: "Encuentras al dueño de la insignia no muy lejos, este te bendice. Ganas 1 corazón."
+                result: "Encuentras al dueño de la insignia no muy lejos, este te bendice. Ganas 1 corazón.",
+                sound: "resources/sounds/Acciones/Encantamiento bueno.wav"
             }
         ]
     },
@@ -629,7 +642,8 @@ export const cardLevels = [
                 attack: +2,
                 defense: 0,
                 suerte: +1,
-                result: "Aceptas su sabiduría, aprendes nuevas tecnicas de combate, te sientes afortunado. Ganas 2 de ataque."
+                result: "Aceptas su sabiduría, aprendes nuevas tecnicas de combate, te sientes afortunado. Ganas 2 de ataque.",
+                sound: "resources/sounds/Acciones/Click Especial.wav"
             },
             {
                 text: "Rechazar la oferta",
@@ -645,7 +659,8 @@ export const cardLevels = [
                 attack: 0,
                 defense: +1,
                 suerte: 0,
-                result: "Logras robar al aldeano algo de armamento. Ganas 1 de defensa."
+                result: "Logras robar al aldeano algo de armamento. Ganas 1 de defensa.",
+                sound: "resources/sounds/Acciones/Ponerse armadura.wav"
             },
             {
                 text: "Atacar al aldeano",
@@ -653,7 +668,8 @@ export const cardLevels = [
                 attack: 0,
                 defense: 0,
                 suerte: -1,
-                result: "Atacas al aldeano y este se defiende de manera efectiva. Pierdes 1 corazón."
+                result: "Atacas al aldeano y este se defiende de manera efectiva. Pierdes 1 corazón.",
+                sound: "resources/sounds/Acciones/Puño.wav"
             }
         ]
     },
@@ -666,7 +682,8 @@ export const cardLevels = [
                 attack: 0,
                 defense: 0,
                 suerte: +1,
-                result: "Recoges algunas flores y te sientes revitalizado. Ganas 1 corazón."
+                result: "Recoges algunas flores y te sientes revitalizado. Ganas 1 corazón.",
+                sound: "resources/sounds/Acciones/Encantamiento bueno.wav"
             },
             {
                 text: "Descansar en el campo",
@@ -674,7 +691,8 @@ export const cardLevels = [
                 attack: 0,
                 defense: -1,
                 suerte: 0,
-                result: "Descansas en el campo y recuperas energías, pero descuidas tu guardia. Ganas 2 corazones y pierdes 1 de ataque."
+                result: "Descansas en el campo y recuperas energías, pero descuidas tu guardia. Ganas 2 corazones y pierdes 1 de ataque.",
+                sound: "resources/sounds/Acciones/Encantamiento bueno.wav"
             },
             {
                 text: "Ignorar el campo",
@@ -690,7 +708,8 @@ export const cardLevels = [
                 attack: +2,
                 defense: 0,
                 suerte: -1,
-                result: "Al destruir las flores estas liberan propiedades mágicas. Ganas 2 corazones y 2 de ataque."
+                result: "Al destruir las flores estas liberan propiedades mágicas. Ganas 2 corazones y 2 de ataque.",
+                sound: "resources/sounds/Acciones/Encantamiento bueno.wav"
             }
         ]
     },
@@ -703,7 +722,8 @@ export const cardLevels = [
                 attack: +2,
                 defense: 0,
                 suerte: +1,
-                result: "Desafías a los caballero a un duelo y, aunque resultas herido, los vences, consiguiendo así sus armas. Pierdes 2 corazones y ganas 2 de ataque."
+                result: "Desafías a los caballero a un duelo y, aunque resultas herido, los vences, consiguiendo así sus armas. Pierdes 2 corazones y ganas 2 de ataque.",
+                sound: "resources/sounds/Acciones/Espadazo medio.wav"
             },
             {
                 text: "Hablar con los caballeros",
@@ -711,7 +731,8 @@ export const cardLevels = [
                 attack: +1,
                 defense: 0,
                 suerte: 0,
-                result: "Hablas con los caballeros y comprenden que no eres una amenaza, te dan una pequeña ayuda. Ganas 1 de ataque."
+                result: "Hablas con los caballeros y comprenden que no eres una amenaza, te dan una pequeña ayuda. Ganas 1 de ataque.",
+                sound: "resources/sounds/Acciones/Ponerse armadura.wav"
             },
             {
                 text: "Ignorar a los caballeros",
@@ -727,7 +748,8 @@ export const cardLevels = [
                 attack: 0,
                 defense: 0,
                 suerte: 0,
-                result: "Intentas robarle a los caballeros y estos te atacan. Pierdes 1 corazón."
+                result: "Intentas robarle a los caballeros y estos te atacan. Pierdes 1 corazón.",
+                sound: "resources/sounds/Acciones/Puño.wav"
             }
         ]
     },
@@ -764,7 +786,8 @@ export const cardLevels = [
                 attack: +2,
                 defense: +1,
                 suerte: 0,
-                result: "Te haces pasar por uno de sus nobles y te entregan armamento. Ganas dos de ataque y uno de defensa."
+                result: "Te haces pasar por uno de sus nobles y te entregan armamento. Ganas dos de ataque y uno de defensa.",
+                sound: "resources/sounds/Acciones/Click Especial.wav"
             }
         ]
     },
@@ -777,7 +800,8 @@ export const cardLevels = [
                 attack: 0,
                 defense: 0,
                 suerte: +1,
-                result: "El duende acepta tu ayuda y te bendice. Ganas 2 corazones."
+                result: "El duende acepta tu ayuda y te bendice. Ganas 2 corazones.",
+                sound: "resources/sounds/Acciones/Encantamiento bueno.wav"
             },
             {
                 text: "Ignorar al duende",
@@ -801,7 +825,8 @@ export const cardLevels = [
                 attack: +1,
                 defense: 0,
                 suerte: -1,
-                result: "Pisas al duende y te quedas con sus pertenencias, pero te sientes desafortunado. Ganas 1 de ataque."
+                result: "Pisas al duende y te quedas con sus pertenencias, pero te sientes desafortunado. Ganas 1 de ataque.",
+                sound: "resources/sounds/Acciones/Monedas.wav"
             }
         ]
     },
@@ -814,7 +839,8 @@ export const cardLevels = [
                 attack: 0,
                 defense: -1,
                 suerte: -1,
-                result: "Juegas a los dados y no se te da bien ya que eres un poco más estratega que suertudo. Pierdes 1 de defensa."
+                result: "Juegas a los dados y no se te da bien ya que eres un poco más estratega que suertudo. Pierdes 1 de defensa.",
+
             },
             {
                 text: "Jugar al poker",
@@ -822,7 +848,8 @@ export const cardLevels = [
                 attack: +2,
                 defense: 0,
                 suerte: +1,
-                result: "Esto sí que se te da bien, obtienes objetos valiosos. Ganas 2 de ataque."
+                result: "Esto sí que se te da bien, obtienes objetos valiosos. Ganas 2 de ataque.",
+                sound: "resources/sounds/Acciones/Click Especial.wav"
             },
             {
                 text: "Levantarte e irte sin jugar",
@@ -830,7 +857,8 @@ export const cardLevels = [
                 attack: 0,
                 defense: 0,
                 suerte: 0,
-                result: "Los borrachos lo toman como una falta de respeto y te dan una paliza. Pierdes 1 corazón."
+                result: "Los borrachos lo toman como una falta de respeto y te dan una paliza. Pierdes 1 corazón.",
+                sound: "resources/sounds/Acciones/Puño.wav"
             },
             {
                 text: "Pedir cervezas para todos",
@@ -838,7 +866,8 @@ export const cardLevels = [
                 attack: +3,
                 defense: -1,
                 suerte: 0,
-                result: "A cambio de entregar parte de tu armadura para pagar los tragos, obtienes un numeroso grupo de borrachos dispuestos a pelear por tí. Ganas 3 de ataque y pierdes 1 de defensa."
+                result: "A cambio de entregar parte de tu armadura para pagar los tragos, obtienes un numeroso grupo de borrachos dispuestos a pelear por tí. Ganas 3 de ataque y pierdes 1 de defensa.",
+                sound: "resources/sounds/Acciones/Click Especial.wav"
             }
         ]
     },
@@ -851,7 +880,8 @@ export const cardLevels = [
                 attack: 0,
                 defense: 0,
                 suerte: +1,
-                result: "Nadie contesta, pero encuentras una reliquia debajo de la alfombra. Ganas 2 corazones."
+                result: "Nadie contesta, pero encuentras una reliquia debajo de la alfombra. Ganas 2 corazones.",
+                sound: "resources/sounds/Acciones/Encantamiento bueno.wav"
             },
             {
                 text: "Entras sin permiso",
@@ -859,7 +889,8 @@ export const cardLevels = [
                 attack: +1,
                 defense: +1,
                 suerte: 0,
-                result: "Decides entrar, no hay nadie dentro, pero encuentras cosas valiosas. Ganas 1 de ataque y 1 de defensa."
+                result: "Decides entrar, no hay nadie dentro, pero encuentras cosas valiosas. Ganas 1 de ataque y 1 de defensa.",
+                sound: "resources/sounds/Acciones/Monedas.wav"
             },
             {
                 text: "Seguir con tu camino",
@@ -875,7 +906,8 @@ export const cardLevels = [
                 attack: +2,
                 defense: +1,
                 suerte: -2,
-                result: "Enciendes la casa en llamas y la poblacion te premia por esto, pero temes que las brujas te eschen una maldicion. Ganas 2 de ataque y 1 de defensa."
+                result: "Enciendes la casa en llamas y la poblacion te premia por esto, pero temes que las brujas te eschen una maldicion. Ganas 2 de ataque y 1 de defensa.",
+                sound: "resources/sounds/Acciones/Click Especial.wav"
             }
         ]
     },

@@ -356,17 +356,16 @@ function getRandomCardIndex() {
 
     let sinUsar = false;
 
-    // let card = -1;
+    let card = -1;
 
-    // while(!sinUsar){
-    //     card = getRandomInt(0,23);
-    //     if(!booleanArray[card]){
-    //         booleanArray[card] = true;
-    //         sinUsar = true;
-    //     }
-    // }
+    while(!sinUsar){
+        card = getRandomInt(0,23);
+        if(!booleanArray[card]){
+            booleanArray[card] = true;
+            sinUsar = true;
+        }
+    }
 
-    let card = 10;
 
     let audioSrc = '';
 
