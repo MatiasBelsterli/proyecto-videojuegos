@@ -72,6 +72,9 @@ const estados = {
     final: Symbol(),
 };
 
+let booleanArray = new Array(23).fill(false); //Arreglo que representa las cards
+//En caso de ser "false" la card no ha sido usada, en caso de ser "true" la card ya fue usada
+
 let estado = estados.inicio;
 
 let URLfondo = '';
@@ -241,7 +244,7 @@ function updateFases(cardIndex) {
     player.fase++;
 
     if (player.fase >= maxFases) {
-        const audioSrc = 'resources/sounds/Boss Final/Batalla Final 1.ogg';
+        const audioSrc = 'resources/sounds/Boss Final/Batalla Final.wav';
         URLfondo = 'resources/images/fondos/Arena.png';
         cambiarFondo(URLfondo);
         playBackgroundMusic(audioSrc);
@@ -269,6 +272,7 @@ function updateFases(cardIndex) {
             options[index].dataset.attack = option.attack;
             options[index].dataset.defense = option.defense;
             options[index].dataset.result = option.result;
+            options[index].dataset.sound = option.sound;
         });
     
         document.querySelectorAll('#options .option').forEach(option => {
@@ -288,8 +292,11 @@ function updateFases(cardIndex) {
 let audioContext;
 let gainNode;
 let audioNextSrc = 'resources/sounds/Acciones/No Free/Caminando.wav';
-const audioNext = document.getElementById('audioAccion');
+const audioNext = document.getElementById('audioNext');
+const audioAccion = document.getElementById('audioAccion');
 const audioElement = document.getElementById('audio');
+const audioPj = document.getElementById('audioPj');
+const audioBoss = document.getElementById('audioBoss');
 
 
 function initializeAudioContext() {
@@ -346,7 +353,20 @@ function cambiarFondo(URLfondo){
 
 
 function getRandomCardIndex() {
-    const card = getRandomInt(0,23);
+
+    let sinUsar = false;
+
+    let card = -1;
+
+    while(!sinUsar){
+        card = getRandomInt(0,23);
+        if(!booleanArray[card]){
+            booleanArray[card] = true;
+            sinUsar = true;
+        }
+    }
+
+
     let audioSrc = '';
 
     switch(card) {
@@ -485,7 +505,16 @@ function handleOptionClick(event) {
     const healthChange = parseInt(event.target.dataset.health);
     const attackChange = parseInt(event.target.dataset.attack);
     const defenseChange = parseInt(event.target.dataset.defense);
+    let audioSrc = event.target.dataset.sound;
     const resultText = event.target.dataset.result;
+
+    if (audioSrc) {
+        audioAccion.src = audioSrc;
+        audioAccion.volume = 0.3;
+        audioAccion.play();
+        audioSrc = '';
+    }
+
 
     updateStats('health', healthChange);
     updateStats('attack', attackChange);
@@ -541,11 +570,61 @@ async function handleBossFight(event) {
         const playerElement = document.getElementById('player');
         const originalPosition = playerElement.style.transform;
 
+        let audioRandom = getRandomInt(0, 2);
+        switch (personajeSeleccionado) {
+            case Personajes.ETHAN:
+                audioPj.volume = 0.4;
+                if(audioRandom === 0){
+                    audioPj.src = 'resources/sounds/Acciones/Espadazo ligero.wav';
+                } else {
+                    audioPj.src = 'resources/sounds/Acciones/Espadazo medio.wav';
+                }
+                break;
+            case Personajes.ALDRIC:
+                if(audioRandom === 0){
+                    audioPj.volume = 0.3;
+                    audioPj.src = 'resources/sounds/Boss Final/Ataque Aldric 1.wav';
+                } else {
+                    audioPj.volume = 0.3;
+                    audioPj.src = 'resources/sounds/Boss Final/Ataque Aldric 2.wav';
+                }
+                break;
+            case Personajes.ZEPHYR:
+                if(audioRandom === 0){
+                    audioPj.volume = 0.4;
+                    audioPj.src = 'resources/sounds/Boss Final/Ataque Dios 1.wav';
+                } else {
+                    audioPj.volume = 0.2;
+                    audioPj.src = 'resources/sounds/Boss Final/Ataque Dios 2.wav';
+                }
+                break;
+            case Personajes.DISH_WASHINGTON:
+                if(audioRandom === 0){
+                    audioPj.volume = 0.2;
+                    audioPj.src = 'resources/sounds/Boss Final/Ataque Dish 1.wav';
+                } else {
+                    audioPj.volume = 0.2;
+                    audioPj.src = 'resources/sounds/Boss Final/Ataque Dish 2.wav';
+                }
+                break;
+                break;
+            default:
+                console.error('Personaje desconocido:', personajeSeleccionado);
+        }
+        audioPj.play();
+
+        await sleep(200);
+
         playerElement.style.transition = 'transform .8s';
         playerElement.style.transform = 'translate(150px, -100px)';
         playerElement.src = player.attackAnimation;
+
         
         const attackStrength = Math.ceil(player.attack * (1 + luckFactor));
+
+        audioRandom = getRandomInt(0, 2);
+
+
 
         await sleep(500);
         if (finalBoss.defense > 0) {
@@ -560,6 +639,16 @@ async function handleBossFight(event) {
         playerElement.src = player.idleAnimation;
 
         await sleep(200);
+
+        
+        if(audioRandom === 0){
+            audioBoss.src = 'resources/sounds/Boss Final/Ataque Boss 1.wav';
+        } else {
+            audioBoss.src = 'resources/sounds/Boss Final/Ataque Boss 2.wav';
+        }
+        audioBoss.volume = 0.5;
+        audioBoss.play();
+
 
         // Animación de ataque del jefe
         const bossElement = document.getElementById('enemy');
@@ -601,9 +690,20 @@ async function handleBossFight(event) {
         const playerElement = document.getElementById('player');
         playerElement.src = player.defenseAnimation;
 
+        let audioRandom = getRandomInt(0, 2);
+        if(audioRandom === 0){
+            audioBoss.src = 'resources/sounds/Boss Final/Ataque Boss 1.wav';
+        } else {
+            audioBoss.src = 'resources/sounds/Boss Final/Ataque Boss 2.wav';
+        }
+        audioBoss.volume = 0.5;
+        audioBoss.play();
+        audioPj.src = 'resources/sounds/Boss Final/DefensaPj.wav';
+        audioPj.play();
         await sleep(400);
         playerElement.src = player.idleAnimation;
         bossElement.src = finalBoss.idleAnimation;
+
 
         await sleep(200);
         const bossAttackStrength = Math.ceil(finalBoss.puntosAtaque * (1 + luckFactor));
