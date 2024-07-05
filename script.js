@@ -242,6 +242,7 @@ function updateStatus() {
 function updateFases(cardIndex) {
 
     player.fase++;
+    updateStatus();
 
     if (player.fase >= maxFases) {
         const audioSrc = 'resources/sounds/Boss Final/Batalla Final.wav';
@@ -801,6 +802,9 @@ document.querySelectorAll('.option').forEach(option => {
 });
 
 document.getElementById('next-card').addEventListener('click', () => {
+    const nextButton = document.getElementById('next-card');
+    nextButton.disabled = true;
+
     if (estados.fases === estado) {
         audioNext.src = audioNextSrc;
         audioNext.play();
@@ -816,6 +820,10 @@ document.getElementById('next-card').addEventListener('click', () => {
         }
         updatePelea();
     }
+
+    setTimeout(() => {
+        nextButton.disabled = false;
+    }, tiempoAnimacion);
 });
 
 document.addEventListener('DOMContentLoaded', (event) => {
