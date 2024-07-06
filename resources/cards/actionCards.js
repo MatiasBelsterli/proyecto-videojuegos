@@ -311,7 +311,7 @@ export const cardLevels = [
                 attack: 0,
                 defense: 0,
                 suerte: +1,
-                result: "Decides quedarte quieto y el puente se estabiliza, te sientes afortnado.",
+                result: "Decides quedarte quieto y el puente se estabiliza, te sientes afortunado.",
                 sound: "resources/sounds/Acciones/Click Especial.wav"
             }
         ]

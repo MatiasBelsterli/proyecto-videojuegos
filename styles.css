@@ -415,3 +415,12 @@ body button {
 .start-selectCharacter:hover {
     background-color: #ff9900;
 }
+
+#total {
+    display: none;
+    font-size: 2.5em;
+    /* Centrar en la pantalla */
+    position: fixed;
+    top: 58%;
+    left: 41%;
+}
