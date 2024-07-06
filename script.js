@@ -515,8 +515,8 @@ function getRandomCardIndex() {
 
 const finalBoss = {
     health: 10,
-    attack: 2,
-    defense: 3,
+    attack: 10,
+    defense: 10,
     puntosAtaque: 0,
     idleAnimation: 'resources/personajes/boss/BossEstatico.gif',
     attackAnimation: 'resources/personajes/boss/BossAtacando.gif',
