@@ -76,7 +76,7 @@ let estado = estados.inicio;
 
 let URLfondo = '';
 
-const maxFases = 15;
+const maxFases = 3;
 
 const tiempoAnimacion = 3000;
 
@@ -193,8 +193,51 @@ function updatePelea() {
 }
 
 function updateFinal() {
-    alert('¡Has ganado el juego!');
-    resetGame();
+    document.getElementById('story-text').textContent = '¡Felicidades! ¡Has derrotado al jefe final! ¿Quieres jugar de nuevo?';
+    centerStory();
+
+    showRestartButton();
+
+    // Fade out del boss
+    const bossElement = document.getElementById('finalBossEnemy');
+    bossElement.style.transition = 'opacity 2s';
+    bossElement.style.opacity = 0;
+
+    document.getElementById('story').style.display = 'none';
+
+    // Mostrar story luego de que el boss desaparezca
+    setTimeout(() => {
+        document.getElementById('story').style.display = 'block';
+    }, 2000);
+}
+
+function centerStory() {
+    const story = document.getElementById('story');
+    story.style.top = "50%";
+    story.style.transform = "translate(-50%, -50%)";
+}
+
+// Mostrar boton de reiniciar
+function showRestartButton() {
+    const options = document.querySelectorAll('.option');
+    options.forEach(option => {
+        option.style.display = 'none';
+    });
+
+    // cambiar texto de siguiente
+    document.getElementById('next-card').textContent = 'Reiniciar';
+    // Mostrar opcion de siguiente en opciones
+    document.getElementById('next-card').style.display = 'inline-block';
+    // Agregar evento de reinicio
+    document.getElementById('next-card').addEventListener('click', () => {
+        location.reload();
+    });
+
+    // Fade out del personaje
+    /* const playerElement = document.getElementById('player');
+    playerElement.style.transition = 'opacity 2s';
+    playerElement.style.opacity = 0; */
+
 }
 
 function animateStoryToFinalBoss() {
@@ -452,8 +495,8 @@ function getRandomCardIndex() {
 
 const finalBoss = {
     health: 10,
-    attack: 10,
-    defense: 10,
+    attack: 2,
+    defense: 3,
     puntosAtaque: 0,
     idleAnimation: 'resources/personajes/boss/BossEstatico.gif',
     attackAnimation: 'resources/personajes/boss/BossAtacando.gif',
@@ -494,9 +537,24 @@ function handleOptionClick(event) {
     updateStatus();
 
     if (player.health <= 0) {
-        alert('Has perdido el juego.');
-        resetGame();
-    } 
+
+        document.getElementById('result-text').textContent = resultText;
+        document.querySelectorAll('#options .option').forEach(option => {
+            option.style.display = 'none';
+        });
+        // Mostrar resultado
+        document.getElementById('story').style.display = 'none';
+        document.getElementById('result').style.display = 'block';
+
+        // Esperar 5 segundos antes de cambiar el texto
+        setTimeout(() => {
+            document.getElementById('story-text').textContent = 'Has perdido el juego. Vuelve a intentarlo.';
+            centerStory();
+            document.getElementById('result').style.display = 'none';
+            document.getElementById('story').style.display = 'block';
+            showRestartButton();
+        }, 5000);
+    }
     else {
         document.getElementById('result-text').textContent = resultText;
         document.querySelectorAll('#options .option').forEach(option => {
@@ -625,8 +683,25 @@ async function handleBossFight(event) {
     updateStatus();
 
     if (player.health <= 0) {
-        alert('Has perdido el juego.');
-        resetGame();
+        document.getElementById('story-text').textContent = 'Has perdido el juego. Vuelve a intentarlo.';
+        centerStory();
+        showRestartButton();
+
+        // Quitar proximo ataque del jefe
+        document.getElementById('puntos-ataque').style.opacity = 0;
+        
+        // Fade out del personaje
+        const playerElement = document.getElementById('player');
+        playerElement.style.transition = 'opacity 2s';
+        playerElement.style.opacity = 0;
+        
+        document.getElementById('story').style.display = 'none';
+
+        // Mostrar story luego de que el personaje desaparezca
+        setTimeout(() => {
+            document.getElementById('story').style.display = 'block';
+        }, 2000);
+
     } else if (finalBoss.health <= 0) {
         estado = estados.final;
         update();

@@ -135,7 +135,7 @@ export const cardLevels = [
                 attack: 0,
                 defense: 0,
                 suerte: 0,
-                result: "Investigando la entrada, encuentras una trampa antigua y la desactivas. Ganas 1 corazóm."
+                result: "Investigando la entrada, encuentras una trampa antigua y la desactivas. Ganas 1 corazón."
             },
             {
                 text: "Ignorar la cueva",
