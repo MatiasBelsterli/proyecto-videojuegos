@@ -248,12 +248,12 @@ function showRestartButton() {
 
 // Función para sumar los valores de health, attack y defense
 function calculateAndDisplayTotal() {
+    // Aumentar tamaño de fuente de story-text
+    document.getElementById('story-text').style.fontSize = '1.5em';
+
     const total = player.health + player.attack + player.defense;
-    // Mostrar id total, actualmente esta en display:none
+
     document.getElementById('total').style.display = 'block';
-
-
-
     document.getElementById('total-value').textContent = `${total}`;
 }
 
