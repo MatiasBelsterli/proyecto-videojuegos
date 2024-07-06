@@ -205,6 +205,13 @@ function updatePelea() {
 }
 
 function updateFinal() {
+
+    // Detener audio de fondo
+    audioElement.pause();
+    // Nuevo audio de fondo: Final/defeat
+    audioElement.src = 'resources/sounds/Final/victory.mp3';
+    fadeIn();
+
     document.getElementById('story-text').textContent = '¡Felicidades! ¡Has derrotado al jefe final! ¿Quieres jugar de nuevo?';
     centerStory();
 
@@ -221,6 +228,8 @@ function updateFinal() {
     setTimeout(() => {
         document.getElementById('story').style.display = 'block';
     }, 2000);
+
+    calculateAndDisplayTotal();
 }
 
 function centerStory() {
@@ -244,12 +253,17 @@ function showRestartButton() {
     document.getElementById('next-card').addEventListener('click', () => {
         location.reload();
     });
+}
 
-    // Fade out del personaje
-    /* const playerElement = document.getElementById('player');
-    playerElement.style.transition = 'opacity 2s';
-    playerElement.style.opacity = 0; */
+// Función para sumar los valores de health, attack y defense
+function calculateAndDisplayTotal() {
+    // Aumentar tamaño de fuente de story-text
+    document.getElementById('story-text').style.fontSize = '1.5em';
 
+    const total = player.health + player.attack + player.defense;
+
+    document.getElementById('total').style.display = 'block';
+    document.getElementById('total-value').textContent = `${total}`;
 }
 
 function animateStoryToFinalBoss() {
@@ -583,6 +597,12 @@ function handleOptionClick(event) {
 
     if (player.health <= 0) {
 
+        // Detener audio de fondo
+        audioElement.pause();
+        // Nuevo audio de fondo: Final/defeat
+        audioElement.src = 'resources/sounds/Final/defeat.mp3';
+        fadeIn();
+
         document.getElementById('result-text').textContent = resultText;
         document.querySelectorAll('#options .option').forEach(option => {
             option.style.display = 'none';
@@ -811,6 +831,13 @@ async function handleBossFight(event) {
     updateStatus();
 
     if (player.health <= 0) {
+
+        // Detener audio de fondo
+        audioElement.pause();
+        // Nuevo audio de fondo: Final/defeat
+        audioElement.src = 'resources/sounds/Final/defeat.mp3';
+        fadeIn();
+        
         document.getElementById('story-text').textContent = 'Has perdido el juego. Vuelve a intentarlo.';
         centerStory();
         showRestartButton();
