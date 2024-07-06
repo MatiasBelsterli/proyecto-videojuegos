@@ -538,7 +538,7 @@ function getRandomCardIndex() {
 }
 
 const finalBoss = {
-    health: 20,
+    health: 40,
     attack: 10,
     defense: 10,
     puntosAtaque: 0,
