@@ -79,7 +79,7 @@ let estado = estados.inicio;
 
 let URLfondo = '';
 
-const maxFases = 3;
+const maxFases = 15;
 
 const tiempoAnimacion = 3000;
 
@@ -166,6 +166,14 @@ document.getElementById('volume').addEventListener('input', function(event) {
         audio.volume = volume/100;
     });
     console.log(`Volumen: ${volume}`);
+});
+
+document.querySelector('.volume-control').addEventListener('mouseover', function() {
+    document.getElementById('volume').classList.remove('hidden');
+});
+
+document.querySelector('.volume-control').addEventListener('mouseout', function() {
+    document.getElementById('volume').classList.add('hidden');
 });
 
 function seleccionarPersonaje() {
@@ -493,7 +501,7 @@ function fightFinalBoss() {
     document.getElementById('result').style.display = 'none';
     document.getElementById('next-card').style.display = 'none';
     document.getElementById('puntos-ataque').style.opacity = 1;
-    let pAtaque = document.getElementById('puntos-ataque');
+    let pAtaque = document.getElementById('puntos-ataque').querySelector('span');
     finalBoss.puntosAtaque = getRandomInt(3, 15);
     pAtaque.textContent = finalBoss.puntosAtaque;
     document.querySelectorAll('#options .option').forEach(option => {

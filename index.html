@@ -13,10 +13,6 @@
     <div id="start-game" class="view">
         <div class="container">
             <h1 class="title">Path Destiny</h1>
-            <div class="volume-control">
-                <label for="volume">Volumen:</label>
-                <input type="range" id="volume" name="volume" min="0" max="100" value="15">
-            </div>
             <button class="start-selectCharacter">Comenzar</button>
         </div>
     </div>
@@ -74,11 +70,11 @@
                 <img src="resources/images/corazon.png" alt="Corazón Enemigo" width="20" height="20">
                 <p id="boss-health"></p>
             </div>
-            <div>
+            <div style="display: none;">
                 <img src="resources/images/espada.png" alt="Espada Enemigo" width="20" height="20">
                 <p id="boss-attack"></p>
             </div>
-            <div>
+            <div style="display: none;">
                 <img src="resources/images/shield.svg" alt="Escudo Enemigo" width="20" height="20">
                 <p id="boss-defense"></p>
             </div>
@@ -87,7 +83,10 @@
 
 
         <div id="finalBossEnemy" class="invisible">
-            <p id="puntos-ataque"></p>
+            <p id="puntos-ataque">
+                <span></span>
+                <img src="resources/personajes/boss/swordAttack.webp" alt="espadita">
+            </p>
             <img id="enemy" src="resources/personajes/boss/BossEstatico.gif" alt="Enemigo">
         </div>
         <div id="finalPlayer" class="invisible">
@@ -120,6 +119,10 @@
         <div id="result" style="display: none;">
             <p id="result-text"></p>
         </div>
+        <div class="volume-control">
+            <button class="volume-button">🔊</button>
+            <input type="range" id="volume" name="volume" min="0" max="100" value="15" class="hidden">
+        </div>            
     </div>
     <script type="module" src="script.js"></script>
 </body>

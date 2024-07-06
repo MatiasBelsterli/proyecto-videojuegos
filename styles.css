@@ -324,10 +324,25 @@ body button {
 }
 
 #puntos-ataque {
+    position: relative;
     color: white;
-    font-size: 24px;
+    font-size: 48px;
     font-weight: bold;
     text-align: center;
+}
+
+#puntos-ataque span {
+    position: relative;
+    z-index: 10;
+}
+#puntos-ataque img {
+    z-index: 5;
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-20%, -50%) rotate(180deg, 180deg);
 }
 
 .stat-increase {
@@ -389,17 +404,37 @@ body button {
 }
 
 .volume-control {
-    margin-bottom: 20px;
+    position: absolute;
+    bottom: 15vh;
+    right: 0;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
 }
 
-.volume-control label {
-    margin-right: 10px;
+.volume-button {
+    background-color: #333;
     color: #fff;
+    border: none;
+    padding: 5px;
+    border-radius: 50%;
+    cursor: pointer;
 }
 
 #volume {
-    width: 300px;
+    transform: rotate(-90deg) translateY(50%) translateX(50%);
+    transform-origin: bottom center;
+    transition: opacity 0.3s, visibility 0.3s;
+    opacity: 0;
+    visibility: hidden;
 }
+
+.volume-control:hover #volume {
+    opacity: 1;
+    visibility: visible;
+}
+
 
 .start-selectCharacter {
     font-size: 1.5em;
