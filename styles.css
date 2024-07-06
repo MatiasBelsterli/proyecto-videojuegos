@@ -346,11 +346,11 @@ body button {
 }
 
 .stat-increase {
-    animation: statIncrease 1s forwards;
+    animation: statIncrease 2s forwards;
 }
 
 .stat-decrease {
-    animation: statDecrease 1s forwards;
+    animation: statDecrease 2s forwards;
 }
 
 @keyframes statIncrease {

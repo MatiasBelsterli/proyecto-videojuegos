@@ -167,7 +167,6 @@ document.getElementById('volume').addEventListener('input', function(event) {
     audios.forEach(audio => {
         audio.volume = volume/100;
     });
-    console.log(`Volumen: ${volume}`);
 });
 
 document.querySelector('.volume-control').addEventListener('mouseover', function() {
@@ -578,7 +577,7 @@ function handleOptionClick(event) {
     updateStats('health', healthChange);
     updateStats('attack', attackChange);
     updateStats('defense', defenseChange);
-    updateStats('luck', luckChange);
+    player.luck += luckChange;
 
     updateStatus();
 
@@ -867,7 +866,7 @@ function updateStats(stat, value) {
     statElement.classList.add(animClass);
     setTimeout(() => {
         statElement.classList.remove(animClass);
-    }, 1000);
+    }, 2000);
 }
 
 function updateBossStats(stat, value) {
