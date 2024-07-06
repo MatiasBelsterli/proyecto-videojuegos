@@ -14,9 +14,9 @@ const player = {
 };
 
 const ethanStats = {
-    health: 10,
+    health: 20,
     attack: 5,
-    defense: 5,
+    defense: 10,
     luck: 15,
     fase: 0,
     fightFase: 0,
@@ -28,9 +28,9 @@ const ethanStats = {
 
 const aldricStats = {
     health: 15,
-    attack: 5,
-    defense: 5,
-    luck: 15,
+    attack: 10,
+    defense: 10,
+    luck: 5,
     fase: 0,
     fightFase: 0,
     temporaryDefense: 0,
@@ -40,10 +40,10 @@ const aldricStats = {
 }
 
 const zephyrStats = {
-    health: 20,
-    attack: 5,
-    defense: 5,
-    luck: 15,
+    health: 25,
+    attack: 8,
+    defense: 8,
+    luck: 40,
     fase: 0,
     fightFase: 0,
     temporaryDefense: 0,
@@ -56,7 +56,7 @@ const constDishStats = {
     health: 25,
     attack: 5,
     defense: 5,
-    luck: 15,
+    luck: 30,
     fase: 0,
     fightFase: 0,
     temporaryDefense: 0,
@@ -79,7 +79,7 @@ let estado = estados.inicio;
 
 let URLfondo = '';
 
-const maxFases = 15;
+const maxFases = 3;
 
 const tiempoAnimacion = 3000;
 
@@ -366,7 +366,6 @@ function getRandomCardIndex() {
             sinUsar = true;
         }
     }
-
 
     let audioSrc = '';
 
