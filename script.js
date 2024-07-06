@@ -170,6 +170,14 @@ document.getElementById('volume').addEventListener('input', function(event) {
     console.log(`Volumen: ${volume}`);
 });
 
+document.querySelector('.volume-control').addEventListener('mouseover', function() {
+    document.getElementById('volume').classList.remove('hidden');
+});
+
+document.querySelector('.volume-control').addEventListener('mouseout', function() {
+    document.getElementById('volume').classList.add('hidden');
+});
+
 function seleccionarPersonaje() {
     document.getElementById('story-text').textContent = 'Esta es tu aventura, tú decides su final. ¿Estás listo?';
     const options = document.querySelectorAll('.option');
@@ -543,7 +551,7 @@ function fightFinalBoss() {
     document.getElementById('result').style.display = 'none';
     document.getElementById('next-card').style.display = 'none';
     document.getElementById('puntos-ataque').style.opacity = 1;
-    let pAtaque = document.getElementById('puntos-ataque');
+    let pAtaque = document.getElementById('puntos-ataque').querySelector('span');
     finalBoss.puntosAtaque = getRandomInt(3, 15);
     pAtaque.textContent = finalBoss.puntosAtaque;
     document.querySelectorAll('#options .option').forEach(option => {
