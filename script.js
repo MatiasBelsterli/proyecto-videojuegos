@@ -538,7 +538,7 @@ function getRandomCardIndex() {
 }
 
 const finalBoss = {
-    health: 10,
+    health: 20,
     attack: 10,
     defense: 10,
     puntosAtaque: 0,
@@ -780,7 +780,7 @@ async function handleBossFight(event) {
             bossElement.style.transition = 'transform .8s';
             bossElement.style.transform = 'translate(-150px, 100px)';
             bossElement.src = finalBoss.attackAnimation;
-            const defenseBoost = Math.ceil(getRandomInt(2, 5) * (1 + luckFactor));
+            const defenseBoost = Math.ceil(getRandomInt(3, 8) * (1 + luckFactor));
             player.temporaryDefense = defenseBoost;
             updateStats('defense', defenseBoost);
             

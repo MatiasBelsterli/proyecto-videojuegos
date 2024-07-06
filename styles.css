@@ -342,15 +342,15 @@ body button {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-20%, -50%) rotate(180deg, 180deg);
+    transform: translate(-20%, -50%) rotate(180deg);
 }
 
 .stat-increase {
-    animation: statIncrease 2s forwards;
+    animation: statIncrease 1s forwards;
 }
 
 .stat-decrease {
-    animation: statDecrease 2s forwards;
+    animation: statDecrease 1s forwards;
 }
 
 @keyframes statIncrease {
