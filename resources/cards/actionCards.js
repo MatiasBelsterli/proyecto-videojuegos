@@ -23,7 +23,7 @@ export const cardLevels = [
                 health: +1,
                 attack: -1,
                 defense: 0,
-                suerte: -1,
+                suerte: -2,
                 result: "Enciendes una fogata y te calientas, recuperando algo de salud, pero atraes a algunos depredadores. Ganas 1 corazón, pierdes 1 de ataque.",
                 sound: "resources/sounds/Acciones/fogata.wav"
             },
@@ -84,7 +84,7 @@ export const cardLevels = [
                 health: +1,
                 attack: 0,
                 defense: 0,
-                suerte: +1,
+                suerte: +2,
                 result: "Bebes agua fresca y te sientes revitalizado. Ganas 1 corazón.",
                 sound: "resources/sounds/Acciones/Encantamiento bueno.wav"
             },
@@ -102,7 +102,7 @@ export const cardLevels = [
                 health: 0,
                 attack: 0,
                 defense: 0,
-                suerte: -1,
+                suerte: -2,
                 result: "Decides no detenerte y sigues tu camino. No ocurre nada significativo.",
                 sound: ""
             },
@@ -125,7 +125,7 @@ export const cardLevels = [
                 health: -1,
                 attack: 0,
                 defense: 0,
-                suerte: -1,
+                suerte: -2,
                 result: "Entras en la cueva y te caes en un agujero. Pierdes 1 corazón.",
                 sound: "resources/sounds/Acciones/Caida.wav"
             },
@@ -150,7 +150,7 @@ export const cardLevels = [
                 health: 0,
                 attack: 0,
                 defense: 0,
-                suerte: -1,
+                suerte: -2,
                 result: "Decides ignorar la cueva y continuar tu camino. Tu falta de curiosidad te hace sentir desafortunado."
             }
         ]
@@ -172,7 +172,7 @@ export const cardLevels = [
                 health: 0,
                 attack: 0,
                 defense: 0,
-                suerte: +1,
+                suerte: +2,
                 result: "Rechazas el trato y sigues tu camino. No ocurre nada significativo."
             },
             {
@@ -180,7 +180,7 @@ export const cardLevels = [
                 health: 0,
                 attack: -1,
                 defense: 0,
-                suerte: -1,
+                suerte: -2,
                 result: "El mago se enfada por tus preguntas y lanza un pequeño hechizo contra ti. Pierdes 1 de ataque."
             },
             {
@@ -202,7 +202,7 @@ export const cardLevels = [
                 health: +1,
                 attack: +1,
                 defense: 0,
-                suerte: +1,
+                suerte: +2,
                 result: "Tomas el regalo y resultan ser amuletos que te fortalecen. Ganas 1 corazón y 1 de ataque.",
                 sound: "resources/sounds/Acciones/Encantamiento bueno.wav"
             },
@@ -211,7 +211,7 @@ export const cardLevels = [
                 health: 0,
                 attack: 0,
                 defense: 0,
-                suerte: -1,
+                suerte: -2,
                 result: "Decides no tomar el regalo y seguir tu camino. No ocurre nada significativo."
             },
             {
@@ -310,7 +310,7 @@ export const cardLevels = [
                 health: 0,
                 attack: 0,
                 defense: 0,
-                suerte: +1,
+                suerte: +2,
                 result: "Decides quedarte quieto y el puente se estabiliza, te sientes afortnado.",
                 sound: "resources/sounds/Acciones/Click Especial.wav"
             }
@@ -324,7 +324,7 @@ export const cardLevels = [
                 health: +1,
                 attack: 0,
                 defense: 0,
-                suerte: +1,
+                suerte: +2,
                 result: "Ayudas a la elfa y ella te bendice. Ganas 1 corazón.",
                 sound: "resources/sounds/Acciones/Encantamiento bueno.wav"
             },
@@ -341,7 +341,7 @@ export const cardLevels = [
                 health: 0,
                 attack: +1,
                 defense: 0,
-                suerte: -1,
+                suerte: -2,
                 result: "La elfa te da una recompensa por tu ayuda. Ganas 1 de ataque."
             },
             {
@@ -349,7 +349,7 @@ export const cardLevels = [
                 health: -1,
                 attack: +2,
                 defense: 0,
-                suerte: -1,
+                suerte: -2,
                 result: "Robas a la elfa y te llevas sus pertenencias. Ganas 2 de ataque y pierdes 1 corazón.",
                 sound: "resources/sounds/Acciones/Ponerse armadura.wav"
 
@@ -381,7 +381,7 @@ export const cardLevels = [
                 health: +1,
                 attack: 0,
                 defense: 0,
-                suerte: +1,
+                suerte: +2,
                 result: "Encuentras un bote y lo usas para cruzar el pantano. Ganas 1 corazón.",
                 sound: "resources/sounds/Acciones/Click Especial.wav"
             },
@@ -422,7 +422,7 @@ export const cardLevels = [
                 health: 0,
                 attack: -1,
                 defense: 0,
-                suerte: -1,
+                suerte: -2,
                 result: "Intentas negociar, pero la tribu no está interesada. Pierdes 1 de ataque."
             },
             {
@@ -430,7 +430,7 @@ export const cardLevels = [
                 health: 0,
                 attack: 0,
                 defense: 0,
-                suerte: +1,
+                suerte: +2,
                 result: "Observas desde lejos y decides no intervenir. No ocurre nada significativo."
             }
         ]
@@ -452,7 +452,7 @@ export const cardLevels = [
                 health: 0,
                 attack: 0,
                 defense: 0,
-                suerte: -1,
+                suerte: -2,
                 result: "Evitas cruzarte con ellos, piensas en lo bueno que hubiese sido obtener algo de lo suyo."
             },
             {
@@ -460,7 +460,7 @@ export const cardLevels = [
                 health: 0,
                 attack: +3,
                 defense: 0,
-                suerte: +1,
+                suerte: +2,
                 result: "Te presentas como aliado y te creen, obtienes buen armamento. Ganas 3 de ataque.",
                 sound: "resources/sounds/Acciones/Ponerse armadura.wav"
             },
@@ -482,7 +482,7 @@ export const cardLevels = [
                 health: -3,
                 attack: 0,
                 defense: 0,
-                suerte: +1,
+                suerte: +2,
                 result: "Atacas al dragón y te genera daños graves, te sientes afortunado de no haber muerto. Pierdes 3 corazones.",
                 sound: "resources/sounds/Acciones/Explosion Fuego.wav"
             },
@@ -491,7 +491,7 @@ export const cardLevels = [
                 health: 0,
                 attack: 0,
                 defense: 0,
-                suerte: +1,
+                suerte: +2,
                 result: "Decides escabullirte sin despertar al dragón, afortunadamente no lo despiestas. No ocurre nada significativo."
             },
             {
@@ -522,7 +522,7 @@ export const cardLevels = [
                 health: 0,
                 attack: +1,
                 defense: 0,
-                suerte: +1,
+                suerte: +2,
                 result: "Entras al mausoleo y encuentras un objeto sagrado que aumenta tu poder. Ganas 1 de ataque.",
                 sound: "resources/sounds/Acciones/Encantamiento bueno.wav"
             },
@@ -531,7 +531,7 @@ export const cardLevels = [
                 health: 0,
                 attack: 0,
                 defense: 0,
-                suerte: -1,
+                suerte: -2,
                 result: "Decides rodear el mausoleo y evitar cualquier peligro. No ocurre nada significativo."
             },
             {
@@ -562,7 +562,7 @@ export const cardLevels = [
                 health: +1,
                 attack: 0,
                 defense: 0,
-                suerte: +1,
+                suerte: +2,
                 result: "Compras pociones a comerciantes y te sientes más saludable. Ganas 1 corazón.",
                 sound: "resources/sounds/Acciones/Recibe posion.wav"
             },
@@ -602,7 +602,7 @@ export const cardLevels = [
                 health: 0,
                 attack: 0,
                 defense: +2,
-                suerte: +1,
+                suerte: +2,
                 result: "Resulta ser de gran valor y la intercambias por armaduras. Ganas 2 de defensa.",
                 sound: "resources/sounds/Acciones/Click Especial.wav"
             },
@@ -611,7 +611,7 @@ export const cardLevels = [
                 health: 0,
                 attack: 0,
                 defense: 0,
-                suerte: -1,
+                suerte: -2,
                 result: "Decides destruir la insignia. No ocurre nada significativo."
             },
             {
@@ -627,7 +627,7 @@ export const cardLevels = [
                 health: +1,
                 attack: 0,
                 defense: 0,
-                suerte: +1,
+                suerte: +2,
                 result: "Encuentras al dueño de la insignia no muy lejos, este te bendice. Ganas 1 corazón.",
                 sound: "resources/sounds/Acciones/Encantamiento bueno.wav"
             }
@@ -641,7 +641,7 @@ export const cardLevels = [
                 health: 0,
                 attack: +2,
                 defense: 0,
-                suerte: +1,
+                suerte: +2,
                 result: "Aceptas su sabiduría, aprendes nuevas tecnicas de combate, te sientes afortunado. Ganas 2 de ataque.",
                 sound: "resources/sounds/Acciones/Click Especial.wav"
             },
@@ -667,7 +667,7 @@ export const cardLevels = [
                 health: -1,
                 attack: 0,
                 defense: 0,
-                suerte: -1,
+                suerte: -2,
                 result: "Atacas al aldeano y este se defiende de manera efectiva. Pierdes 1 corazón.",
                 sound: "resources/sounds/Acciones/Puño.wav"
             }
@@ -681,7 +681,7 @@ export const cardLevels = [
                 health: +1,
                 attack: 0,
                 defense: 0,
-                suerte: +1,
+                suerte: +2,
                 result: "Recoges algunas flores y te sientes revitalizado. Ganas 1 corazón.",
                 sound: "resources/sounds/Acciones/Encantamiento bueno.wav"
             },
@@ -699,7 +699,7 @@ export const cardLevels = [
                 health: 0,
                 attack: 0,
                 defense: 0,
-                suerte: -1,
+                suerte: -2,
                 result: "Decides ignorar el campo y seguir tu camino. No ocurre nada significativo."
             },
             {
@@ -707,7 +707,7 @@ export const cardLevels = [
                 health: +2,
                 attack: +2,
                 defense: 0,
-                suerte: -1,
+                suerte: -2,
                 result: "Al destruir las flores estas liberan propiedades mágicas. Ganas 2 corazones y 2 de ataque.",
                 sound: "resources/sounds/Acciones/Encantamiento bueno.wav"
             }
@@ -721,7 +721,7 @@ export const cardLevels = [
                 health: -2,
                 attack: +2,
                 defense: 0,
-                suerte: +1,
+                suerte: +2,
                 result: "Desafías a los caballero a un duelo y, aunque resultas herido, los vences, consiguiendo así sus armas. Pierdes 2 corazones y ganas 2 de ataque.",
                 sound: "resources/sounds/Acciones/Espadazo medio.wav"
             },
@@ -769,7 +769,7 @@ export const cardLevels = [
                 health: 0,
                 attack: 0,
                 defense: 0,
-                suerte: -1,
+                suerte: -2,
                 result: "Los miembros de la realeza no tienen ningun trabajo para tí, te sientes desafortunado."
             },
             {
@@ -799,7 +799,7 @@ export const cardLevels = [
                 health: +2,
                 attack: 0,
                 defense: 0,
-                suerte: +1,
+                suerte: +2,
                 result: "El duende acepta tu ayuda y te bendice. Ganas 2 corazones.",
                 sound: "resources/sounds/Acciones/Encantamiento bueno.wav"
             },
@@ -824,7 +824,7 @@ export const cardLevels = [
                 health: 0,
                 attack: +1,
                 defense: 0,
-                suerte: -1,
+                suerte: -2,
                 result: "Pisas al duende y te quedas con sus pertenencias, pero te sientes desafortunado. Ganas 1 de ataque.",
                 sound: "resources/sounds/Acciones/Monedas.wav"
             }
@@ -838,7 +838,7 @@ export const cardLevels = [
                 health: 0,
                 attack: 0,
                 defense: -1,
-                suerte: -1,
+                suerte: -2,
                 result: "Juegas a los dados y no se te da bien ya que eres un poco más estratega que suertudo. Pierdes 1 de defensa.",
 
             },
@@ -847,7 +847,7 @@ export const cardLevels = [
                 health: 0,
                 attack: +2,
                 defense: 0,
-                suerte: +1,
+                suerte: +2,
                 result: "Esto sí que se te da bien, obtienes objetos valiosos. Ganas 2 de ataque.",
                 sound: "resources/sounds/Acciones/Click Especial.wav"
             },
@@ -879,7 +879,7 @@ export const cardLevels = [
                 health: +2,
                 attack: 0,
                 defense: 0,
-                suerte: +1,
+                suerte: +2,
                 result: "Nadie contesta, pero encuentras una reliquia debajo de la alfombra. Ganas 2 corazones.",
                 sound: "resources/sounds/Acciones/Encantamiento bueno.wav"
             },
@@ -905,7 +905,7 @@ export const cardLevels = [
                 health: 0,
                 attack: +2,
                 defense: +1,
-                suerte: -2,
+                suerte: -4,
                 result: "Enciendes la casa en llamas y la poblacion te premia por esto, pero temes que las brujas te eschen una maldicion. Ganas 2 de ataque y 1 de defensa.",
                 sound: "resources/sounds/Acciones/Click Especial.wav"
             }

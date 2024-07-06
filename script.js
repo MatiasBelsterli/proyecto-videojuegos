@@ -79,7 +79,9 @@ let estado = estados.inicio;
 
 let URLfondo = '';
 
-const maxFases = 3;
+const maxFases = 15;
+
+let cooldownDefensa = 0;
 
 const tiempoAnimacion = 3000;
 
@@ -315,6 +317,7 @@ function updateFases(cardIndex) {
             options[index].dataset.health = option.health;
             options[index].dataset.attack = option.attack;
             options[index].dataset.defense = option.defense;
+            options[index].dataset.suerte = option.suerte;
             options[index].dataset.result = option.result;
             options[index].dataset.sound = option.sound;
         });
@@ -529,7 +532,11 @@ function fightFinalBoss() {
     const options = document.querySelectorAll('.option');
     options[0].textContent = "Atacar";
     options[0].dataset.action = 'attack';
-    options[1].textContent = "Defender";
+    if(cooldownDefensa > 0){
+        options[1].textContent = `Defender (${cooldownDefensa})`;
+    } else {
+        options[1].textContent = "Defender";
+    }
     options[1].dataset.action = 'defend';
 
     document.getElementById('story').style.display = 'block';
@@ -548,6 +555,7 @@ function handleOptionClick(event) {
     const healthChange = parseInt(event.target.dataset.health);
     const attackChange = parseInt(event.target.dataset.attack);
     const defenseChange = parseInt(event.target.dataset.defense);
+    const luckChange = parseInt(event.target.dataset.suerte);
     let audioSrc = event.target.dataset.sound;
     const resultText = event.target.dataset.result;
 
@@ -562,6 +570,7 @@ function handleOptionClick(event) {
     updateStats('health', healthChange);
     updateStats('attack', attackChange);
     updateStats('defense', defenseChange);
+    updateStats('luck', luckChange);
 
     updateStatus();
 
@@ -619,6 +628,10 @@ async function handleBossFight(event) {
     options.forEach(option => {
         option.disabled = true
     });
+    options[1].disabled = true
+    if (cooldownDefensa > 0) {
+        cooldownDefensa--;
+    }
     document.getElementById('next-card').disabled = true;
 
     if (action === 'attack') {
@@ -729,52 +742,62 @@ async function handleBossFight(event) {
         }
 
     } else if (action === 'defend') {
-        document.getElementById('result-text').textContent = "Te defiendes del ataque del jefe final.";
+        if (cooldownDefensa === 0) {
+            cooldownDefensa = 3;
+            document.getElementById('result-text').textContent = "Te defiendes del ataque del jefe final.";
 
-        // Animación de ataque del jefe
-        const bossElement = document.getElementById('enemy');
-        const originalPositionBoss = bossElement.style.transform;
+            // Animación de ataque del jefe
+            const bossElement = document.getElementById('enemy');
+            const originalPositionBoss = bossElement.style.transform;
 
-        bossElement.style.transition = 'transform .8s';
-        bossElement.style.transform = 'translate(-150px, 100px)';
-        bossElement.src = finalBoss.attackAnimation;
-        const defenseBoost = Math.ceil(getRandomInt(2, 5) * (1 + luckFactor));
-        player.temporaryDefense = defenseBoost;
-        updateStats('defense', defenseBoost);
-        
-        await sleep(300);
-        const playerElement = document.getElementById('player');
-        playerElement.src = player.defenseAnimation;
+            bossElement.style.transition = 'transform .8s';
+            bossElement.style.transform = 'translate(-150px, 100px)';
+            bossElement.src = finalBoss.attackAnimation;
+            const defenseBoost = Math.ceil(getRandomInt(2, 5) * (1 + luckFactor));
+            player.temporaryDefense = defenseBoost;
+            updateStats('defense', defenseBoost);
+            
+            await sleep(300);
+            const playerElement = document.getElementById('player');
+            playerElement.src = player.defenseAnimation;
 
-        let audioRandom = getRandomInt(0, 2);
-        if(audioRandom === 0){
-            audioBoss.src = 'resources/sounds/Boss Final/Ataque Boss 1.wav';
-        } else {
-            audioBoss.src = 'resources/sounds/Boss Final/Ataque Boss 2.wav';
+            let audioRandom = getRandomInt(0, 2);
+            if(audioRandom === 0){
+                audioBoss.src = 'resources/sounds/Boss Final/Ataque Boss 1.wav';
+            } else {
+                audioBoss.src = 'resources/sounds/Boss Final/Ataque Boss 2.wav';
+            }
+            audioBoss.volume = 0.5;
+            audioBoss.play();
+            audioPj.src = 'resources/sounds/Boss Final/DefensaPj.wav';
+            audioPj.play();
+            await sleep(400);
+            playerElement.src = player.idleAnimation;
+            bossElement.src = finalBoss.idleAnimation;
+
+
+            await sleep(200);
+            const bossAttackStrength = Math.ceil(finalBoss.puntosAtaque * (1 + luckFactor));
+            if (bossAttackStrength - player.defense > 0) {
+                const damage = bossAttackStrength - player.defense;
+                updateStats('health', -damage);
+            }
+            await sleep(170);
+            bossElement.style.transform = originalPositionBoss;
         }
-        audioBoss.volume = 0.5;
-        audioBoss.play();
-        audioPj.src = 'resources/sounds/Boss Final/DefensaPj.wav';
-        audioPj.play();
-        await sleep(400);
-        playerElement.src = player.idleAnimation;
-        bossElement.src = finalBoss.idleAnimation;
-
-
-        await sleep(200);
-        const bossAttackStrength = Math.ceil(finalBoss.puntosAtaque * (1 + luckFactor));
-        if (bossAttackStrength - player.defense > 0) {
-            const damage = bossAttackStrength - player.defense;
-            updateStats('health', -damage);
-        }
-        await sleep(170);
-        bossElement.style.transform = originalPositionBoss;
 
     }
 
-    options.forEach(option => {
-        option.disabled = false
-    });
+
+
+    if(cooldownDefensa > 0){
+        options[1].textContent = `Defe (${cooldownDefensa})`;
+    } else {
+        options[1].textContent = 'Defend';
+        options[1].disabled = false;
+    }
+    options[0].disabled = false;
+
     document.getElementById('next-card').disabled = false;
 
     animateResultText();
