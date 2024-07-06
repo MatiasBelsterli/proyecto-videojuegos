@@ -624,8 +624,6 @@ async function handleBossFight(event) {
 
         audioRandom = getRandomInt(0, 2);
 
-
-
         await sleep(500);
         if (finalBoss.defense > 0) {
             updateBossStats('defense', -1);
@@ -640,37 +638,37 @@ async function handleBossFight(event) {
 
         await sleep(200);
 
-        
-        if(audioRandom === 0){
-            audioBoss.src = 'resources/sounds/Boss Final/Ataque Boss 1.wav';
-        } else {
-            audioBoss.src = 'resources/sounds/Boss Final/Ataque Boss 2.wav';
+        if(finalBoss.health > 0){
+            if(audioRandom === 0){
+                audioBoss.src = 'resources/sounds/Boss Final/Ataque Boss 1.wav';
+            } else {
+                audioBoss.src = 'resources/sounds/Boss Final/Ataque Boss 2.wav';
+            }
+            audioBoss.volume = 0.5;
+            audioBoss.play();
+    
+    
+            // Animación de ataque del jefe
+            const bossElement = document.getElementById('enemy');
+            const originalPositionBoss = bossElement.style.transform;
+    
+            bossElement.style.transition = 'transform .8s';
+            bossElement.style.transform = 'translate(-150px, 100px)';
+            bossElement.src = finalBoss.attackAnimation;
+    
+            await sleep(400);
+            const bossAttackStrength = finalBoss.puntosAtaque;
+            if (bossAttackStrength - player.defense > 0) {
+                const damage = bossAttackStrength - player.defense;
+                updateStats('health', -damage);
+            }
+            if (player.defense > 0) {
+                updateStats('defense', -1);
+            }
+            await sleep(400);
+            bossElement.style.transform = originalPositionBoss;
+            bossElement.src = finalBoss.idleAnimation;
         }
-        audioBoss.volume = 0.5;
-        audioBoss.play();
-
-
-        // Animación de ataque del jefe
-        const bossElement = document.getElementById('enemy');
-        const originalPositionBoss = bossElement.style.transform;
-
-        bossElement.style.transition = 'transform .8s';
-        bossElement.style.transform = 'translate(-150px, 100px)';
-        bossElement.src = finalBoss.attackAnimation;
-
-        await sleep(400);
-        if (player.defense > 0) {
-            updateStats('defense', -1);
-        }
-        const bossAttackStrength = Math.ceil(finalBoss.puntosAtaque * (1 + luckFactor));
-        if (bossAttackStrength - player.defense > 0) {
-            const damage = bossAttackStrength - player.defense;
-            updateStats('health', -damage);
-        }
-        await sleep(400);
-        bossElement.style.transform = originalPositionBoss;
-        bossElement.src = finalBoss.idleAnimation;
-
 
     } else if (action === 'defend') {
         document.getElementById('result-text').textContent = "Te defiendes del ataque del jefe final.";
@@ -742,17 +740,6 @@ async function handleBossFight(event) {
 }
 
 function resetGame() {
-    player.health = 50;
-    player.attack = 5;
-    player.defense = 5;
-    player.luck = 15;
-    player.fase = 1;
-    player.fightFase = 0;
-    player.temporaryDefense = 0;
-    finalBoss.health = 10;
-    finalBoss.attack = 10;
-    finalBoss.defense = 10;
-    finalBoss.puntosAtaque = 0;
     estado = estados.fases;
     updateStatus();
     updateStatusBoss();
