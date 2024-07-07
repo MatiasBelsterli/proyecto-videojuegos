@@ -79,7 +79,7 @@ let estado = estados.inicio;
 
 let URLfondo = '';
 
-const maxFases = 2;
+const maxFases = 15;
 
 let cooldownDefensa = 0;
 
