@@ -312,7 +312,7 @@ function updateFases(cardIndex) {
 
     if (player.fase >= maxFases) {
         const audioSrc = 'resources/sounds/Boss Final/Batalla Final.wav';
-        URLfondo = 'resources/images/fondos/Arena.png';
+        URLfondo = 'resources/images/fondos/Arena2.png';
         cambiarFondo(URLfondo);
         playBackgroundMusic(audioSrc);
         estado = estados.pelea;
