@@ -201,10 +201,13 @@ body button {
     position: fixed;
     bottom: 20vh;
     left: 20vw;
+    z-index: 11;
+    transition: bottom 3s, left 3s;
 }
 
 #player {
     height: 300px;
+    transition: height 4s;
 }
 
 #game-container {
@@ -459,4 +462,12 @@ body button {
     top: 58%;
     left: 35%;
     margin-top: 12px;
+}
+
+#finalPlayer.playerFases {
+    bottom: 35vh;
+    left: 1vw;
+    img {
+        height: 128px;
+    }
 }

@@ -79,7 +79,7 @@ let estado = estados.inicio;
 
 let URLfondo = '';
 
-const maxFases = 15;
+const maxFases = 2;
 
 let cooldownDefensa = 0;
 
@@ -275,7 +275,6 @@ function animateStoryToFinalBoss() {
 
     document.getElementById('statusFinalBoss').classList.remove('invisible');
     document.getElementById('finalBossEnemy').classList.remove('invisible');
-    document.getElementById('finalPlayer').classList.remove('invisible');
     document.getElementById('story').classList.add('move-up');
     document.getElementById('story').style.top = "0px";
     document.getElementById('story').style.transform = "translate(-50%, 0)";
@@ -317,6 +316,7 @@ function updateFases(cardIndex) {
         playBackgroundMusic(audioSrc);
         estado = estados.pelea;
         document.getElementById('story-text').style.display = 'none';
+        document.getElementById('finalPlayer').classList.remove('playerFases')
         setTimeout(() => {
             document.getElementById('story-text').style.display = 'block';
             animateStoryToFinalBoss();
